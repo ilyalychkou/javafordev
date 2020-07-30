@@ -14,9 +14,9 @@ package lesson3.task2;
 public class CashMachine {
 
     //поля класса
-    int countOf20Banknotes;
-    int countOf50Banknotes;
-    int countOf100Banknotes;
+    private int countOf20Banknotes;
+    private int countOf50Banknotes;
+    private int countOf100Banknotes;
     private int balance;
     int[] nominal = {20, 50, 100}; // массив для хранение номиналов
     int[] count = new int[3]; // массив для хранения количества
