@@ -12,7 +12,7 @@ public class CashMachineRunner {
          3) кратность номиналу - 20, 50, 100, 1170, 1500, 450, 40, 67, 1, 19, 30, 40, 50, 70, 80, 90, 130, 170, 190, 21, 31, 51, 111
          4) доступно ли требуемое кол-во номиналов - >= доступного количества, <доступного количества
         */
-        cashMachine1.getMoneyFromCashMachine(1170);
+        cashMachine1.getMoneyFromCashMachine(170);
 
     }
 

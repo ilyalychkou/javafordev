@@ -17,7 +17,7 @@ public class CashMachine {
     int countOf20Banknotes;
     int countOf50Banknotes;
     int countOf100Banknotes;
-    int balance;
+    private int balance;
     int[] nominal = {20, 50, 100}; // массив для хранение номиналов
     int[] count = new int[3]; // массив для хранения количества
 
@@ -55,7 +55,7 @@ public class CashMachine {
         int sumOfMoneyBy100 = getResidueByNominal(sumOfMoney, 100);
 
         // определяем доступна ли запрашивая сумма и можно ли ее выдать без остатка
-        if (sumOfMoney <= balance) {
+        if (sumOfMoney <= this.balance) {
             //проверяем не равна ли запрашиваемая сумма 0
             if (sumOfMoney < 20) {
                 System.out.println("Запрашиваемая сумма < 20. Доступные номиналы - 20, 50, 100.");
@@ -91,7 +91,7 @@ public class CashMachine {
             System.out.printf("Количество банкнот номиналом %d:  %d \n", nominal[0], requiredCount[0]);
         } else if (getResidueByNominal(sumOfMoney, 50) == 0 && this.count[1] >= requiredCount[1]) {
             System.out.printf("Количество банкнот номиналом %d:  %d \n", nominal[1], requiredCount[1]);
-        } else if (this.count[2] >= requiredCount[2]){
+        } else {
             index = nominal.length - 1;
             while (index != -1) {
                 count2[index] = tempSumOfMoney2 / nominal[index];
