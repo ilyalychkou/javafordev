@@ -7,7 +7,6 @@ package com.javafordev.lesson3.task3;
  * Поместите в переменную типа Фигура сначала круг, и вызовите несколько методов. Потом поместите в нее квадрат, и вызовите несколько методов.
  */
 
-
 public interface Figure {
 
     void printInfo();

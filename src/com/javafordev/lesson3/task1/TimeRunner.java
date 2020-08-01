@@ -32,6 +32,5 @@ public class TimeRunner {
         //вывод инфо по каждому из объектов
         time1.printInfo();
         time2.printInfo();
-
     }
 }

@@ -8,6 +8,5 @@ public class Square implements Figure { //реализует интерфеис
 
     public void draw() { //полиморфизм метода
         System.out.println("Меня начертили при помощи линеики!");
-
     }
 }
