@@ -1,7 +1,8 @@
-package lesson3.task3;
+package com.javafordev.lesson3.task3;
 
 public class FigureRunner {
     public static void main(String[] args) {
+
         Figure figure1 = new Circle();
         Figure figure2 = new Square();
 

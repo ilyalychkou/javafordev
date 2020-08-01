@@ -1,17 +1,7 @@
-package lesson3.task2;
+package com.javafordev.lesson3.task2;
 
-/**
- * 2.Создать класс и объекты описывающие Банкомат. Набор купюр находящихся в
- * банкомате должен задаваться тремя свойствами: количеством купюр номиналом 20
- * 50 100. Сделать методы для добавления денег в банкомат. Сделать функцию
- * снимающую деньги. На вход передается сумма денег. На выход – булевское
- * значение (операция удалась или нет). При снятии денег функция должна
- * рапечатывать каким количеством купюр какого номинала выдается сумма. Создать
- * конструктор с тремя параметрами – количеством купюр.
- */
+public class CashMachine2 {
 
-
-public class CashMachine {
 
     //поля класса
     private int countOf20Banknotes;
@@ -22,7 +12,7 @@ public class CashMachine {
     int[] count = new int[3]; // массив для хранения количества
 
     //конструктор с вх параметрами - количество купюр каждого номинала
-    public CashMachine(int countOf20Banknotes, int countOf50Banknotes, int countOf100Banknotes) {
+    public CashMachine2(int countOf20Banknotes, int countOf50Banknotes, int countOf100Banknotes) {
         this.countOf20Banknotes = countOf20Banknotes;
         this.countOf50Banknotes = countOf50Banknotes;
         this.countOf100Banknotes = countOf100Banknotes;
@@ -129,6 +119,4 @@ public class CashMachine {
     public static int getResidueByNominal(int sumOfMoney, int nominal) {
         return sumOfMoney % nominal;
     }
-
-
 }

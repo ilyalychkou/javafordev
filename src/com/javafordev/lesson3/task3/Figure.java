@@ -1,4 +1,4 @@
-package lesson3.task3;
+package com.javafordev.lesson3.task3;
 
 /**
  * 3.Создайте интерфейс, который представляет геометрическую фигуру.
