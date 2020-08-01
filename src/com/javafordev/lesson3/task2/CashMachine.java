@@ -22,13 +22,11 @@ public class CashMachine {
 
         if (countOf20 < 0 || countOf50 < 0 || countOf100 < 0) {
             System.out.println("Для одного из параметров введено отрицательное количество. Проверьте передаваемые в конструктов параметры. ");
-            this.countOf20Denomination = 0;
-            this.countOf50Denomination = 0;
-            this.countOf100Denomination = 0;
+        } else {
+            this.countOf20Denomination = countOf20;
+            this.countOf50Denomination = countOf50;
+            this.countOf100Denomination = countOf100;
         }
-        this.countOf20Denomination = countOf20;
-        this.countOf50Denomination = countOf50;
-        this.countOf100Denomination = countOf100;
     }
 
     // метод для добавления денег и вычисления текущего баланса, возвращаемы тип - void
@@ -146,8 +144,8 @@ public class CashMachine {
         }
     }
 
-    public int calculateBalance(){
-        return this.countOf20Denomination*20 + this.countOf50Denomination*50 + this.countOf100Denomination*100;
+    public int calculateBalance() {
+        return this.countOf20Denomination * 20 + this.countOf50Denomination * 50 + this.countOf100Denomination * 100;
     }
 
 }
