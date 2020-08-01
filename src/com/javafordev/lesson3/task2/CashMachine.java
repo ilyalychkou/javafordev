@@ -28,7 +28,6 @@ public class CashMachine {
         this.countOf20 = abs(countOf20);
         this.countOf50 = abs(countOf50);
         this.countOf100 = abs(countOf100);
-
     }
 
     // метод для добавления денег и вычисления текущего баланса, возвращаемы тип - void
@@ -48,7 +47,6 @@ public class CashMachine {
         balance = this.countOf20 * 20 + this.countOf50 * 50 + this.countOf100 * 100;
 
         System.out.println("Баланс банкомата после добавления денег: " + balance);
-
     }
 
     //метод для снятия денег, возвращаемы тип - boolean
