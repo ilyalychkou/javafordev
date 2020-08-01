@@ -36,22 +36,24 @@ public class CashMachine {
 
         if (countOf20 < 0 || countOf50 < 0 || countOf100 < 0) {
             System.out.println("Для одного из параметров введено отрицательное количество. Проверьте передаваемые в метод параметры. ");
-            countOf20=0;
-            countOf50=0;
-            countOf100=0;
+
+        } else {
+
+            int balance = this.calculateBalance();
+
+            System.out.println("Баланс банкомата до добавления денег: " + balance);
+            //апдеит значении полеи объекта при добавлении денег
+            this.countOf20Denomination += countOf20;
+            this.countOf50Denomination += countOf50;
+            this.countOf100Denomination += countOf100;
+
+            balance = this.calculateBalance();
+
+            System.out.println("Баланс банкомата после добавления денег: " + balance);
+
         }
 
-        int balance = this.calculateBalance();
 
-        System.out.println("Баланс банкомата до добавления денег: " + balance);
-        //апдеит значении полеи объекта при добавлении денег
-        this.countOf20Denomination += countOf20;
-        this.countOf50Denomination += countOf50;
-        this.countOf100Denomination += countOf100;
-
-        balance = this.calculateBalance();
-
-        System.out.println("Баланс банкомата после добавления денег: " + balance);
     }
 
     //метод для снятия денег, возвращаемы тип - boolean

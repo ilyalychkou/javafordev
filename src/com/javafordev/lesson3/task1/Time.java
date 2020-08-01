@@ -18,12 +18,7 @@ public class Time {
     // 1) конструктор, получающий общее количество секунд
     public Time(int wholeAmountOfSeconds) {
         if (wholeAmountOfSeconds < 0) {
-
             System.out.println("Введено общее количество секунд < 0. Количество секунд не может быть отрицательным. Проверьте передаваемыи в конструктор параметр. ");
-            this.hours = 0;
-            this.minutes = 0;
-            this.seconds = 0;
-
         } else {
             // здесь не выделял отдельные методы чтобы вернуть каждыи из параметров, решил, что это избыточно
             int sec = wholeAmountOfSeconds % 60;
@@ -42,13 +37,13 @@ public class Time {
 
         if (hours < 0 || minutes < 0 || seconds < 0) {
             System.out.println("Для одного из параметров введено отрицательное количество. Проверьте передаваемые в конструктов параметры. ");
-            this.hours = 0;
-            this.minutes = 0;
-            this.seconds = 0;
+
+        } else {
+            this.hours = hours;
+            this.minutes = minutes;
+            this.seconds = seconds;
         }
-        this.hours = hours;
-        this.minutes = minutes;
-        this.seconds = seconds;
+
     }
 
     //метод для получения полного количества секунд, возвращаемы тип - int (решил, что хватит тк int это около 2 миллиардов)
