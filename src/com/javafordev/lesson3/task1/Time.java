@@ -1,7 +1,5 @@
 package com.javafordev.lesson3.task1;
 
-import static java.lang.StrictMath.abs;
-
 /**
  * 1. Создать класс и объекты описывающие промежуток времени.
  * Сам промежуток в классе должен задаваться тремя свойствами: секундами, минутами, часами.
@@ -20,17 +18,23 @@ public class Time {
     // 1) конструктор, получающий общее количество секунд
     public Time(int wholeAmountOfSeconds) {
         if (wholeAmountOfSeconds < 0) {
-            System.out.println("Введено общее количество секунд < 0. Количество секунд не может быть отрицательным. Проверьте передаваемыи в конструктор параметр. ");
-        }
-        // здесь не выделял отдельные методы чтобы вернуть каждыи из параметров, решил, что это избыточно
-        int sec = abs(wholeAmountOfSeconds) % 60;
-        int m = (abs(wholeAmountOfSeconds) - sec) / 60;
-        int min = m % 60;
-        int h = (m - min) / 60;
 
-        this.hours = h;
-        this.minutes = min;
-        this.seconds = sec;
+            System.out.println("Введено общее количество секунд < 0. Количество секунд не может быть отрицательным. Проверьте передаваемыи в конструктор параметр. ");
+            this.hours = 0;
+            this.minutes = 0;
+            this.seconds = 0;
+
+        } else {
+            // здесь не выделял отдельные методы чтобы вернуть каждыи из параметров, решил, что это избыточно
+            int sec = wholeAmountOfSeconds % 60;
+            int m = (wholeAmountOfSeconds - sec) / 60;
+            int min = m % 60;
+            int h = (m - min) / 60;
+
+            this.hours = h;
+            this.minutes = min;
+            this.seconds = sec;
+        }
     }
 
     // 2) конструктор, получающий часы, минуты и секунды по отдельности
@@ -38,10 +42,13 @@ public class Time {
 
         if (hours < 0 || minutes < 0 || seconds < 0) {
             System.out.println("Для одного из параметров введено отрицательное количество. Проверьте передаваемые в конструктов параметры. ");
+            this.hours = 0;
+            this.minutes = 0;
+            this.seconds = 0;
         }
-        this.hours = abs(hours);
-        this.minutes = abs(minutes);
-        this.seconds = abs(seconds);
+        this.hours = hours;
+        this.minutes = minutes;
+        this.seconds = seconds;
     }
 
     //метод для получения полного количества секунд, возвращаемы тип - int (решил, что хватит тк int это около 2 миллиардов)
