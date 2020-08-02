@@ -33,7 +33,6 @@ public class Time {
 
     // 2) конструктор, получающий часы, минуты и секунды по отдельности
     public Time(int hours, int minutes, int seconds) {
-
         if (hours < 0 || minutes < 0 || seconds < 0) {
             System.out.println("Для одного из параметров введено отрицательное количество. Проверьте передаваемые в конструктов параметры. ");
         } else {
