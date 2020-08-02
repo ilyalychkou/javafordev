@@ -13,7 +13,7 @@ public class CashMachineRunner {
          4) доступно ли требуемое кол-во номиналов - >= доступного количества, <доступного количества
          5) отрицательные значения любого из параметров
          */
-        cashMachine1.getMoneyFromCashMachine(1670);
+        cashMachine1.getMoneyFromCashMachine(1170);
     }
 }
 

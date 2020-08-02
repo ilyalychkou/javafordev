@@ -90,8 +90,6 @@ public class CashMachine {
 
         if (currentQuantityOfDenomination < countOfDenomination) {
             countOfDenomination = currentQuantityOfDenomination;
-            if (denomination == 20) {
-            }
         }
         return countOfDenomination;
     }
