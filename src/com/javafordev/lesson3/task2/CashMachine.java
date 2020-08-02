@@ -55,7 +55,7 @@ public class CashMachine {
                 isSuccess = this.calculateCountOfBanknotesToIssue(sumOfMoney);
             }
         } else {
-            System.out.println("Запрашиваемая сумма превышает баланс банкомата.");
+            System.out.println("Запрашиваемая сумма " + sumOfMoney + " превышает баланс банкомата: " + this.calculateBalance());
             isSuccess = false;
         }
         return isSuccess;
@@ -68,22 +68,17 @@ public class CashMachine {
         int countOf50ToIssue = calculateCountOfDenominationByValue(tempSumOfMoney, 50, this.countOf50Denomination);
         tempSumOfMoney = calculateTempSum(tempSumOfMoney, countOf50ToIssue, 50);
         int countOf20ToIssue = calculateCountOfDenominationByValue(tempSumOfMoney, 20, this.countOf20Denomination);
-        if (this.countOf20Denomination < countOf20ToIssue) {
-            System.out.println("Запрашиваемая сумма не может быть выдана доступным количеством номиналов");
-            return false;
-        }
-        int residue = tempSumOfMoney % 20;
-        if (residue == 0) {
-            System.out.println("Запрашиваемая сумма доступна к выдаче....");
+        tempSumOfMoney = calculateTempSum(tempSumOfMoney, countOf20ToIssue, 20);
+        if (tempSumOfMoney == 0) {
+            System.out.println("Запрашиваемая сумма " + sumOfMoney + " доступна к выдаче....");
             System.out.printf("Количество банкнот номиналом %d:  %d \n", 100, countOf100ToIssue);
             System.out.printf("Количество банкнот номиналом %d:  %d \n", 50, countOf50ToIssue);
             System.out.printf("Количество банкнот номиналом %d:  %d \n", 20, countOf20ToIssue);
             return true;
         } else {
-            System.out.println("Запрашиваемую сумму " + sumOfMoney + " невозможно выдать купюрами номиналом 20, 50, 100 без остатка. Остаток: " + residue);
+            System.out.println("Запрашиваемую сумму " + sumOfMoney + " невозможно выдать купюрами номиналом 20, 50, 100 без остатка. Остаток: " + tempSumOfMoney);
             return false;
         }
-
     }
 
     public int calculateBalance() {

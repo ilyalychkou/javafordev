@@ -3,8 +3,8 @@ package com.javafordev.lesson3.task2;
 public class CashMachineRunner {
 
     public static void main(String[] args) {
-        CashMachine cashMachine1 = new CashMachine(20, 20, 1);
-        cashMachine1.addMoneyToCashMaсhine(8, 15, 25);
+        CashMachine cashMachine1 = new CashMachine(2, 20, 0);
+        cashMachine1.addMoneyToCashMaсhine(50, 50, 0);
         /**
          тестовые значения для метода получения денег
          1) 0
@@ -13,7 +13,7 @@ public class CashMachineRunner {
          4) доступно ли требуемое кол-во номиналов - >= доступного количества, <доступного количества
          5) отрицательные значения любого из параметров
          */
-        cashMachine1.getMoneyFromCashMachine(2573);
+        cashMachine1.getMoneyFromCashMachine(1670);
     }
 }
 
