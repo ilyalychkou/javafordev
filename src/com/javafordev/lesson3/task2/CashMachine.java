@@ -11,33 +11,37 @@ package com.javafordev.lesson3.task2;
  */
 
 public class CashMachine {
+
     //поля класса
-    private int countOf20Denomination;
-    private int countOf50Denomination;
-    private int countOf100Denomination;
+    private int firstDenomination = 20;
+    private int countOfFirstDenomination;
+    private int secondDenomination = 50;
+    private int countOfSecondDenomination;
+    private int thirdDenomination = 100;
+    private int countOfThirdDenomination;
 
     //конструктор с вх параметрами - количество купюр каждого номинала
-    public CashMachine(int countOf20, int countOf50, int countOf100) {
-        if (countOf20 < 0 || countOf50 < 0 || countOf100 < 0) {
+    public CashMachine(int countOfFirstDenomination, int countOfSecondDenomination, int countOfThirdDenomination) {
+        if (countOfFirstDenomination < 0 || countOfSecondDenomination < 0 || countOfThirdDenomination < 0) {
             System.out.println("Для одного из параметров введено отрицательное количество. Проверьте передаваемые в конструктов параметры. ");
         } else {
-            this.countOf20Denomination = countOf20;
-            this.countOf50Denomination = countOf50;
-            this.countOf100Denomination = countOf100;
+            this.countOfFirstDenomination = countOfFirstDenomination;
+            this.countOfSecondDenomination = countOfSecondDenomination;
+            this.countOfThirdDenomination = countOfThirdDenomination;
         }
     }
 
     // метод для добавления денег и вычисления текущего баланса, возвращаемы тип - void
-    public void addMoneyToCashMaсhine(int countOf20, int countOf50, int countOf100) {
-        if (countOf20 < 0 || countOf50 < 0 || countOf100 < 0) {
+    public void addMoneyToCashMaсhine(int countOfFirstDenomination, int countOfSecondDenomination, int countOfThirdDenomination) {
+        if (countOfFirstDenomination < 0 || countOfSecondDenomination < 0 || countOfThirdDenomination < 0) {
             System.out.println("Для одного из параметров введено отрицательное количество. Проверьте передаваемые в метод параметры. ");
         } else {
             int balance = this.calculateBalance();
             System.out.println("Баланс банкомата до добавления денег: " + balance);
             //апдеит значении полеи объекта при добавлении денег
-            this.countOf20Denomination += countOf20;
-            this.countOf50Denomination += countOf50;
-            this.countOf100Denomination += countOf100;
+            this.countOfFirstDenomination += countOfFirstDenomination;
+            this.countOfSecondDenomination += countOfSecondDenomination;
+            this.countOfThirdDenomination += countOfThirdDenomination;
             balance = this.calculateBalance();
             System.out.println("Баланс банкомата после добавления денег: " + balance);
         }
@@ -48,8 +52,8 @@ public class CashMachine {
         boolean isSuccess;
         int balance = this.calculateBalance();
         if (sumOfMoney <= balance) {
-            if (sumOfMoney < 20) {
-                System.out.println("Запрашиваемая сумма < 20. Доступные номиналы - 20, 50, 100.");
+            if (sumOfMoney < firstDenomination) {
+                System.out.println("Запрашиваемая сумма < " + firstDenomination + ". Доступные номиналы - " + firstDenomination + " , " + secondDenomination + " , " + thirdDenomination + " .");
                 isSuccess = false;
             } else {
                 isSuccess = this.calculateCountOfBanknotesToIssue(sumOfMoney);
@@ -63,17 +67,17 @@ public class CashMachine {
 
     public boolean calculateCountOfBanknotesToIssue(int sumOfMoney) {
         int tempSumOfMoney = sumOfMoney;
-        int countOf100ToIssue = calculateCountOfDenominationByValue(tempSumOfMoney, 100, this.countOf100Denomination);
-        tempSumOfMoney = calculateTempSum(tempSumOfMoney, countOf100ToIssue, 100);
-        int countOf50ToIssue = calculateCountOfDenominationByValue(tempSumOfMoney, 50, this.countOf50Denomination);
-        tempSumOfMoney = calculateTempSum(tempSumOfMoney, countOf50ToIssue, 50);
-        int countOf20ToIssue = calculateCountOfDenominationByValue(tempSumOfMoney, 20, this.countOf20Denomination);
-        tempSumOfMoney = calculateTempSum(tempSumOfMoney, countOf20ToIssue, 20);
+        int countOf100ToIssue = calculateCountOfDenominationByValue(tempSumOfMoney, thirdDenomination, this.countOfThirdDenomination);
+        tempSumOfMoney = calculateTempSum(tempSumOfMoney, countOf100ToIssue, thirdDenomination);
+        int countOf50ToIssue = calculateCountOfDenominationByValue(tempSumOfMoney, secondDenomination, this.countOfSecondDenomination);
+        tempSumOfMoney = calculateTempSum(tempSumOfMoney, countOf50ToIssue, secondDenomination);
+        int countOf20ToIssue = calculateCountOfDenominationByValue(tempSumOfMoney, firstDenomination, this.countOfFirstDenomination);
+        tempSumOfMoney = calculateTempSum(tempSumOfMoney, countOf20ToIssue, firstDenomination);
         if (tempSumOfMoney == 0) {
             System.out.println("Запрашиваемая сумма " + sumOfMoney + " доступна к выдаче....");
-            System.out.printf("Количество банкнот номиналом %d:  %d \n", 100, countOf100ToIssue);
-            System.out.printf("Количество банкнот номиналом %d:  %d \n", 50, countOf50ToIssue);
-            System.out.printf("Количество банкнот номиналом %d:  %d \n", 20, countOf20ToIssue);
+            System.out.printf("Количество банкнот номиналом %d:  %d \n", thirdDenomination, countOf100ToIssue);
+            System.out.printf("Количество банкнот номиналом %d:  %d \n", secondDenomination, countOf50ToIssue);
+            System.out.printf("Количество банкнот номиналом %d:  %d \n", firstDenomination, countOf20ToIssue);
             return true;
         } else {
             System.out.println("Запрашиваемую сумму " + sumOfMoney + " невозможно выдать доступным количеством номиналом.");
@@ -82,12 +86,11 @@ public class CashMachine {
     }
 
     public int calculateBalance() {
-        return this.countOf20Denomination * 20 + this.countOf50Denomination * 50 + this.countOf100Denomination * 100;
+        return this.countOfFirstDenomination * firstDenomination + this.countOfSecondDenomination * secondDenomination + this.countOfThirdDenomination * thirdDenomination;
     }
 
     public int calculateCountOfDenominationByValue(int sumOfMoney, int denomination, int currentQuantityOfDenomination) {
         int countOfDenomination = sumOfMoney / denomination;
-
         if (currentQuantityOfDenomination < countOfDenomination) {
             countOfDenomination = currentQuantityOfDenomination;
         }
@@ -97,5 +100,4 @@ public class CashMachine {
     public int calculateTempSum(int sumOfMoney, int countOfDenomination, int denomination) {
         return sumOfMoney - countOfDenomination * denomination;
     }
-
 }
