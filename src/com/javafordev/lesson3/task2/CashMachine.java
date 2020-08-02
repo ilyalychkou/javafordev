@@ -70,14 +70,14 @@ public class CashMachine {
         int countOf20ToIssue = calculateCountOfDenominationByValue(tempSumOfMoney, 20, this.countOf20Denomination);
         tempSumOfMoney = calculateTempSum(tempSumOfMoney, countOf20ToIssue, 20);
         if (tempSumOfMoney == 0) {
-            System.out.println("Запрашиваемую сумму " + sumOfMoney + " невозможно выдать доступным количеством номиналом.");
-            return false;
-        } else {
             System.out.println("Запрашиваемая сумма " + sumOfMoney + " доступна к выдаче....");
             System.out.printf("Количество банкнот номиналом %d:  %d \n", 100, countOf100ToIssue);
             System.out.printf("Количество банкнот номиналом %d:  %d \n", 50, countOf50ToIssue);
             System.out.printf("Количество банкнот номиналом %d:  %d \n", 20, countOf20ToIssue);
             return true;
+        } else {
+            System.out.println("Запрашиваемую сумму " + sumOfMoney + " невозможно выдать доступным количеством номиналом.");
+            return false;
         }
     }
 
