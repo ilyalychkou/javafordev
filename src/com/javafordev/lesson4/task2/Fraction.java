@@ -78,8 +78,15 @@ public class Fraction {
 
     //метод для изменения массива fractions
     public static Fraction[] changeArrayOfFractions(Fraction[] fractions) {
-        for (int i = 0; i < fractions.length; i += 2) {
-            fractions[i].fraction = fractions[i].add(fractions[i + 1]);
+
+        if (fractions.length % 2 != 0) {
+            for (int i = 0; i < fractions.length - 1; i = i + 2) {
+                fractions[i].fraction = fractions[i].add(fractions[i + 1]);
+            }
+        } else {
+            for (int i = 0; i < fractions.length; i = i + 2) {
+                fractions[i].fraction = fractions[i].add(fractions[i + 1]);
+            }
         }
         return fractions;
     }

@@ -41,11 +41,11 @@ public class FractionRunner {
         fractions[6] = new Fraction(6, 11);
 
         rationalFractions[0] = new RationalFraction(3, 4);
-        rationalFractions[1] = new RationalFraction(2, 9);
+        rationalFractions[1] = new RationalFraction(202, 177);
         rationalFractions[2] = new RationalFraction(14, 23);
-        rationalFractions[3] = new RationalFraction(5, 8);
+        rationalFractions[3] = new RationalFraction(55, 86);
         rationalFractions[4] = new RationalFraction(4, 91);
-        rationalFractions[5] = new RationalFraction(6, 7);
+        rationalFractions[5] = new RationalFraction(116, 476);
         rationalFractions[6] = new RationalFraction(6, 11);
 
         //вывод на печать массива элементов типа Fraction
