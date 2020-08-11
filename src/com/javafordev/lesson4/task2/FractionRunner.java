@@ -19,7 +19,7 @@ public class FractionRunner {
 
         //инициализация объектов класса RationalFraction
         RationalFraction rationalFraction1 = new RationalFraction(7, 9);
-        RationalFraction rationalFraction2 = new RationalFraction(5, 13);
+        RationalFraction rationalFraction2 = new RationalFraction(5, 17);
 
         //вызов методов add(), subtract(), multiply(), divide() для объектов класса RationalFraction
         System.out.println(rationalFraction1.add(rationalFraction2));
@@ -68,6 +68,7 @@ public class FractionRunner {
         System.out.println("Вывод на печать исходного массива...");
         Fraction.printArrayOfFractions(fractions1);
         Fraction.changeArrayOfFractions((fractions1));
+        System.out.println();
         System.out.println("Вывод на печать измененного массива - добавление элементам с четными индексами следующего элемента...");
         Fraction.printArrayOfFractions(fractions1);
 

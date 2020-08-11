@@ -14,7 +14,7 @@ package com.javafordev.lesson4.task1;
  */
 
 public class Airline {
-    //поля класса
+
     private String destination;
     private int numberOfFlight;
     private char planeType;
@@ -22,8 +22,6 @@ public class Airline {
     private int departureTimeInMinutes;
     private String dayOfWeek;
 
-
-    //конструктор
     public Airline(String destination, int numberOfFlight, char planeType, int departureTimeInHours, int departureTimeInMinutes, String dayOfWeek) {
 
         if (destination.equals("")) {

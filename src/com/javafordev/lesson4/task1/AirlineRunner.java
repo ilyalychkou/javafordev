@@ -18,13 +18,13 @@ public class AirlineRunner {
 
         int numberOfAirlines = 5;
         String dayOfWeekToFilter = "Fri";
-        String destinationToFilter = "Oslo";
+        String destinationToFilter = "Minsk";
         int departureTimeInHoursToFilter = 5;
         int departureTimeInMinutesToFilter = 22;
         //инициализация массива объектов типа Airline
         Airline[] airlines = new Airline[numberOfAirlines];
 
-        airlines[0] = new Airline("Oslo", 0, 'A', 22, 10, "Fri");
+        airlines[0] = new Airline("Oslo", 1675, 'A', 22, 10, "Fri");
         airlines[1] = new Airline("Warsaw", 1540, 'B', 9, 3, "Mon");
         airlines[2] = new Airline("Ottawa", 1004, 'A', 7, 37, "Tue");
         airlines[3] = new Airline("Tokyo", 936, 'C', 16, 21, "Wed");
