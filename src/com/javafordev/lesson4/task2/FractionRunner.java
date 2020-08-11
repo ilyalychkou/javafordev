@@ -1,13 +1,19 @@
 package com.javafordev.lesson4.task2;
 
 public class FractionRunner {
+    /**
+     * Тестовые значения:
+     * ноль в знаменателе (обработка в конструкторе)
+     * положительные значения - числитель/знаменатель
+     * отрицательные значения - числитель/знаменатель
+     */
     public static void main(String[] args) {
 
         int numberOfFractions = 7;
 
         //инициализация объектов класса Fraction
         Fraction fraction1 = new Fraction(3, 9);
-        Fraction fraction2 = new Fraction(5, 13);
+        Fraction fraction2 = new Fraction(5, -13);
         System.out.println();
 
         //вызов методов add(), subtract(), multiply(), divide() для объектов класса Fraction
