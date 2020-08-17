@@ -1,5 +1,7 @@
 package com.javafordev.lesson4.task1;
 
+import static com.javafordev.lesson4.task1.AirlineService.removeNullElementsFromAirlines;
+
 public class Validator {
 
     public static String validateInputParameterForString(String parameterName, String parameterValue) {
@@ -48,6 +50,16 @@ public class Validator {
                 System.out.println("Задано некорректное имя входного параметра!");
         }
         return validatedParameterValue;
+    }
+
+
+    public static Airline[] validateInputParameterForArray(Airline[] arrayName) {
+        for (Object element : arrayName) {
+            if (element == null) {
+                System.out.println("Входнои массив содержит null элементы!");
+            }
+            return arrayName;
+        }
     }
 }
 

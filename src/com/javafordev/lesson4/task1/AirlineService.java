@@ -2,12 +2,14 @@ package com.javafordev.lesson4.task1;
 
 import java.util.Arrays;
 
+import static com.javafordev.lesson4.task1.Validator.validateInputParameterForArray;
+
 public class AirlineService {
 
     private Airline[] airlines;
 
     public AirlineService(Airline[] airlines) {
-        this.airlines = airlines;
+        this.airlines = validateInputParameterForArray(airlines);
     }
 
     public Airline[] getAirlines() {
@@ -15,14 +17,7 @@ public class AirlineService {
     }
 
     public void setAirlines(Airline[] airlines) {
-
-        for (Airline element : airlines) {
-            if (element==null) {
-                System.out.println("Массив содержит null объекты");
-                this.airlines = this.removeNullElementsFromAirlines(airlines);
-            }
-        }
-        this.airlines = airlines;
+        this.airlines = validateInputParameterForArray(airlines);
     }
 
     @Override
@@ -86,7 +81,7 @@ public class AirlineService {
         return fitleredAirlinesWithoutNullElements;
     }
 
-    public Airline[] removeNullElementsFromAirlines(Airline[] airlines) {
+    public static Airline[] removeNullElementsFromAirlines(Airline[] airlines) {
         int countOfNotNullElements = 0;
         for (Airline element : airlines) {
             if (element != null) {
