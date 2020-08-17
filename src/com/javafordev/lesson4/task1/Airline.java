@@ -1,5 +1,8 @@
 package com.javafordev.lesson4.task1;
 
+import static com.javafordev.lesson4.task1.Validator.validateInputParameterForString;
+import static com.javafordev.lesson4.task1.Validator.validateStringParameterForNumber;
+
 /**
  * 1)Создать класс Airline:
  * Пункт назначения, +
@@ -21,88 +24,82 @@ public class Airline {
     private int departureTimeInHours;
     private int departureTimeInMinutes;
     private String dayOfWeek;
+    // 1)public т.к. массив содержит общедоступные данные
+    // 2)static т.к. массив с днями это поле класса, для отдельного объекта оно не нужно
+    public static String[] daysOfWeek = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
-    public Airline(String destination, int numberOfFlight, char planeType, int departureTimeInHours, int departureTimeInMinutes, String dayOfWeek) {
+    public String getDestination() {
+        return destination;
+    }
 
-        if (destination.equals("")) {
-            System.out.println("Для параметра destination задано пустое значение. "
-                    + "Допустимые значения - латиница, не пустая строка");
-            this.destination = " ";
-        } else {
-            this.destination = destination;
-        }
+    public int getNumberOfFlight() {
+        return numberOfFlight;
+    }
 
-        if (numberOfFlight <= 0) {
-            System.out.println("Для параметра numberOfFlight задано отрицательное или нулевое значение. "
-                    + "Допустимые значения - целые положительные числа");
-        } else {
-            this.numberOfFlight = numberOfFlight;
-        }
+    public char getPlaneType() {
+        return planeType;
+    }
 
-        if (departureTimeInHours < 0 || departureTimeInHours > 23) {
-            System.out.println("Для параметра departureTimeInHours задано недопустимое значение. "
-                    + "Допустимые значения - целые положительные числа от 0 до 23");
-        } else {
-            this.departureTimeInHours = departureTimeInHours;
-        }
+    public int getDepartureTimeInHours() {
+        return departureTimeInHours;
+    }
 
-        if (departureTimeInMinutes < 0 || departureTimeInMinutes > 59) {
-            System.out.println("Для параметра departureTimeInMinutes задано недопустимое значение. "
-                    + "Допустимые значения - целые положительные числа от 0 до 59");
-        } else {
-            this.departureTimeInMinutes = departureTimeInMinutes;
-        }
+    public int getDepartureTimeInMinutes() {
+        return departureTimeInMinutes;
+    }
 
+    public String getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = validateInputParameterForString("destination", destination);
+    }
+
+    public void setNumberOfFlight(int numberOfFlight) {
+        this.numberOfFlight = validateStringParameterForNumber("numberOfFlight", numberOfFlight);
+    }
+
+    public void setPlaneType(char planeType) {
         this.planeType = planeType;
+    }
+
+    public void setDepartureTimeInHours(int departureTimeInHours) {
+        this.departureTimeInHours = validateStringParameterForNumber("departureTimeInHours", departureTimeInHours);
+    }
+
+    public void setDepartureTimeInMinutes(int departureTimeInMinutes) {
+        this.departureTimeInMinutes = validateStringParameterForNumber("departureTimeInMinutes", departureTimeInMinutes);
+    }
+
+    public void setDayOfWeek(String dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
+    }
+
+    public Airline(String destination, int numberOfFlight, char planeType, int departureTimeInHours, int departureTimeInMinutes) {
+
+        this.destination = validateInputParameterForString("destination", destination);
+        this.numberOfFlight = validateStringParameterForNumber("numberOfFlight", numberOfFlight);
+        this.departureTimeInHours = validateStringParameterForNumber("departureTimeInHours", departureTimeInHours);
+        this.departureTimeInMinutes = validateStringParameterForNumber("departureTimeInMinutes", departureTimeInMinutes);
+        this.planeType = planeType;
     }
 
     //метод toString()
     @Override
     public String toString() {
         return "Airline{" +
-                "destination='" + destination + '\'' +
-                ", numberOfFlight=" + numberOfFlight +
-                ", planeType=" + planeType +
-                ", departureTimeInHours=" + departureTimeInHours +
-                ", departureTimeInMinutes=" + departureTimeInMinutes +
-                ", dayOfWeek='" + dayOfWeek + '\'' +
+                "destination='" + this.getDestination() + '\'' +
+                ", numberOfFlight=" + this.getNumberOfFlight() +
+                ", planeType=" + this.getPlaneType() +
+                ", departureTimeInHours=" + this.getDepartureTimeInHours() +
+                ", departureTimeInMinutes=" + this.getDepartureTimeInMinutes() +
+                ", dayOfWeek='" + this.getDayOfWeek() + '\'' +
                 '}';
     }
 
-    //метод для выводы объектов из массива airlines по параметру destination
-    public static void printAirlinesByDestination(Airline[] airlines, String destination) {
-        int countOfResults = 0;
-        for (int i = 0; i < airlines.length; i++) {
-            if (airlines[i].destination.equals(destination)) {
-                System.out.println(airlines[i].toString());
-                countOfResults++;
-            }
-        }
-        if (countOfResults == 0) {
-            System.out.println("Не удалось наити объект массива airlines, которыи соответствует фильтру");
-        }
-    }
-
-    //метод для выводы объектов из массива airlines по параметру dayOfWeek
-    public static void printAirlinesByDayOfWeek(Airline[] airlines, String dayOfWeek) {
-        for (int i = 0; i < airlines.length; i++) {
-            if (airlines[i].dayOfWeek.equals(dayOfWeek))
-                System.out.println(airlines[i].toString());
-        }
-    }
-
-    //метод для фильтра массива airlines по параметру dayOfWeek и departureTime>заданного
-    public static void printAirlinesByDayOfWeekAndDepartureTime(Airline[] airlines, String dayOfWeek, int departureTimeInHours, int departureTimeInMinutes) {
-        int timeInMinutesToFilter = departureTimeInHours * 60 + departureTimeInMinutes;
-        for (int i = 0; i < airlines.length; i++) {
-            int timeInMinutes = airlines[i].convertHoursAndMinutesInMinutes();
-            if (airlines[i].dayOfWeek.equals(dayOfWeek) && timeInMinutes > timeInMinutesToFilter)
-                System.out.println(airlines[i].toString());
-        }
-    }
-
     public int convertHoursAndMinutesInMinutes() {
-        return this.departureTimeInHours * 60 + this.departureTimeInMinutes;
+        return this.getDepartureTimeInHours() * 60 + this.getDepartureTimeInMinutes();
     }
+
 }
