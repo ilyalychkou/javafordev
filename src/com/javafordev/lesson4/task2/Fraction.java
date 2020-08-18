@@ -24,12 +24,16 @@ public class Fraction {
             this.n = n;
             this.fraction = this.m / this.n;
         } catch (Exception e) {
-            System.out.println("Знаменатель дроби равен 0. Деление на 0 невозможно");
+            System.out.println("Знаменатель дроби равен 0!");
         }
     }
 
     public double getFraction() {
         return this.fraction;
+    }
+
+    public void setFraction(double fraction) {
+        this.fraction = fraction;
     }
 
     @Override

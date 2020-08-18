@@ -58,8 +58,8 @@ public class Validator {
             if (element == null) {
                 System.out.println("Входнои массив содержит null элементы!");
             }
-            return arrayName;
         }
+        return arrayName;
     }
 }
 

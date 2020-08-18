@@ -41,21 +41,21 @@ public class TriangleRunner {
         Triangle[] equilateralTriangles = new Triangle[countOfTriangles];
         Triangle[] randomTriangles = new Triangle[countOfTriangles];
 
-        for (int i = 0; i < triangles.length; i++) {
-            if (triangles[i].isTriangleNinetyAngle()) {
-                ninetyAngleTriangles[countOfNinetyAngleTriangle] = triangles[i];
+        for (Triangle element : triangles) {
+            if (element.isTriangleNinetyAngle()) {
+                ninetyAngleTriangles[countOfNinetyAngleTriangle] = element;
                 countOfNinetyAngleTriangle++;
             }
-            if (triangles[i].isTriangleIsosceles()) {
-                isoscelesTriangles[countOfIsoscelesTriangle] = triangles[i];
+            if (element.isTriangleIsosceles()) {
+                isoscelesTriangles[countOfIsoscelesTriangle] = element;
                 countOfIsoscelesTriangle++;
             }
-            if (triangles[i].isTriangleEquilateral()) {
-                equilateralTriangles[countOfEquilateralTriangle] = triangles[i];
+            if (element.isTriangleEquilateral()) {
+                equilateralTriangles[countOfEquilateralTriangle] = element;
                 countOfEquilateralTriangle++;
             }
-            if (!(triangles[i].isTriangleNinetyAngle()) && !(triangles[i].isTriangleIsosceles()) && !(triangles[i].isTriangleEquilateral())) {
-                randomTriangles[countOfRandomTriangle] = triangles[i];
+            if (!(element.isTriangleNinetyAngle()) && !(element.isTriangleIsosceles()) && !(element.isTriangleEquilateral())) {
+                randomTriangles[countOfRandomTriangle] = element;
                 countOfRandomTriangle++;
             }
         }

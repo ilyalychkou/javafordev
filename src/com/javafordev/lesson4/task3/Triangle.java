@@ -28,13 +28,25 @@ public class Triangle {
         return sideThree;
     }
 
+    public void setSideOne(double sideOne) {
+        this.sideOne = validateSide(sideOne);
+    }
+
+    public void setSideTwo(double sideTwo) {
+        this.sideTwo = validateSide(sideTwo);
+    }
+
+    public void setSideThree(double sideThree) {
+        this.sideThree = validateSide(sideThree);
+    }
+
     public Triangle(double sideOne, double sideTwo, double sideThree) {
-        if (isTriangleCorrect(sideOne, sideTwo, sideThree)) {
+        if (isTriangleCorrect(validateSide(sideOne), validateSide(sideTwo), validateSide(sideThree))) {
             this.sideOne = sideOne;
             this.sideTwo = sideTwo;
             this.sideThree = sideThree;
         } else {
-            System.out.println("Фигура из трех введенных сторон не является треугольником!");
+            System.out.println("Нельзя построить треугольник из трех заданных сторон!");
         }
     }
 
@@ -118,6 +130,13 @@ public class Triangle {
             }
         }
         return maxElement;
+    }
+
+    public static double validateSide(double side) {
+        if (side <= 0) {
+            System.out.println("Задана сторона треугольника <=0");
+        }
+        return side;
     }
 }
 

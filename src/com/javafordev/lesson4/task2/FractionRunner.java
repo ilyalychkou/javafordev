@@ -1,5 +1,7 @@
 package com.javafordev.lesson4.task2;
 
+import static com.javafordev.lesson4.task2.Fraction.*;
+
 public class FractionRunner {
     /**
      * Тестовые значения:
@@ -56,27 +58,27 @@ public class FractionRunner {
 
         //вывод на печать массива элементов типа Fraction
         System.out.println("Вывод на печать массива типа Fraction...");
-        Fraction.printArrayOfFractions(fractions);
+        printArrayOfFractions(fractions);
         System.out.println();
 
         //вывод на печать массива элементов типа RationalFraction
         System.out.println("Вывод на печать массива типа RationalFraction...");
-        Fraction.printArrayOfFractions(rationalFractions);
+        printArrayOfFractions(rationalFractions);
         System.out.println();
 
         //заполнение и вывод на печать массива, заполненного дробями на основании случаиных чисел
         System.out.println("Заполнение и вывод на печать массива типа Fraction, заполненного дробями на основании случаиных чисел...");
-        Fraction.printArrayOfFractions(Fraction.fillArrayOfFractionsFromCommandLine());
+        printArrayOfFractions(fillArrayOfFractionsFromCommandLine());
         System.out.println();
 
         //преобразование исх массива, добавление элементам с четными индексами следующего элемента
-        Fraction[] fractions1 = Fraction.fillArrayOfFractionsFromCommandLine();
+        Fraction[] fractions1 = fillArrayOfFractionsFromCommandLine();
         System.out.println("Вывод на печать исходного массива...");
-        Fraction.printArrayOfFractions(fractions1);
-        Fraction.changeArrayOfFractions((fractions1));
+        printArrayOfFractions(fractions1);
+        changeArrayOfFractions(fractions1);
         System.out.println();
         System.out.println("Вывод на печать измененного массива - добавление элементам с четными индексами следующего элемента...");
-        Fraction.printArrayOfFractions(fractions1);
+        printArrayOfFractions(fractions1);
 
     }
 }

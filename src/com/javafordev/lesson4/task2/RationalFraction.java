@@ -8,7 +8,7 @@ public class RationalFraction extends Fraction {
             this.n = n;
             this.fraction = (this.m + this.n) / (this.m - this.n);
         } catch (Exception e) {
-            System.out.println("Знаменатель рацилнальнои дроби равен 0. Деление на 0 невозможно");
+            System.out.println("Знаменатель рациjлнальнои дроби равен 0!");
         }
     }
 
