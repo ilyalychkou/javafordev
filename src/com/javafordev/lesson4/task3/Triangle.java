@@ -30,14 +30,23 @@ public class Triangle {
 
     public void setSideOne(double sideOne) {
         this.sideOne = validateSide(sideOne);
+        if (!(isTriangleCorrect(this.getSideOne(), this.getSideTwo(), this.getSideThree()))) {
+            System.out.println("Нельзя построить треугольник из трех заданных сторон!");
+        }
     }
 
     public void setSideTwo(double sideTwo) {
         this.sideTwo = validateSide(sideTwo);
+        if (!(isTriangleCorrect(this.getSideOne(), this.getSideTwo(), this.getSideThree()))) {
+            System.out.println("Нельзя построить треугольник из трех заданных сторон!");
+        }
     }
 
     public void setSideThree(double sideThree) {
         this.sideThree = validateSide(sideThree);
+        if (!(isTriangleCorrect(this.getSideOne(), this.getSideTwo(), this.getSideThree()))) {
+            System.out.println("Нельзя построить треугольник из трех заданных сторон!");
+        }
     }
 
     public Triangle(double sideOne, double sideTwo, double sideThree) {
@@ -50,12 +59,12 @@ public class Triangle {
         }
     }
 
-    public double square() {
-        double perimeter = this.perimeter();
+    public double getSquare() {
+        double perimeter = this.getPerimeter();
         return Math.sqrt(0.5 * perimeter * (0.5 * perimeter - this.sideOne) * (0.5 * perimeter - this.sideTwo) * (0.5 * perimeter - this.sideThree));
     }
 
-    public double perimeter() {
+    public double getPerimeter() {
         return this.getSideOne() + this.getSideTwo() + this.getSideThree();
     }
 
@@ -91,19 +100,17 @@ public class Triangle {
     public static double getMinTriangleByFilter(Triangle[] triangles, String filter) {
         double minElement = 0;
         if (filter.equals("square")) {
-            minElement = triangles[0].square();
+            minElement = triangles[0].getSquare();
             for (int i = 0; i < triangles.length; i++) {
-                if ((triangles[i] != null) && (triangles[i].square() < minElement)) {
-                    minElement = triangles[i].square();
+                if ((triangles[i] != null) && (triangles[i].getSquare() < minElement)) {
+                    minElement = triangles[i].getSquare();
                 }
             }
-        }
-
-        if (filter.equals("perimeter")) {
-            minElement = triangles[0].perimeter();
+        } else if (filter.equals("perimeter")) {
+            minElement = triangles[0].getPerimeter();
             for (int i = 0; i < triangles.length; i++) {
-                if ((triangles[i] != null) && (triangles[i].perimeter() < minElement)) {
-                    minElement = triangles[i].perimeter();
+                if ((triangles[i] != null) && (triangles[i].getPerimeter() < minElement)) {
+                    minElement = triangles[i].getPerimeter();
                 }
             }
         }
@@ -113,19 +120,17 @@ public class Triangle {
     public static double getMaxTriangleByFilter(Triangle[] triangles, String filter) {
         double maxElement = 0;
         if (filter.equals("square")) {
-            maxElement = triangles[0].square();
+            maxElement = triangles[0].getSquare();
             for (int i = 0; i < triangles.length; i++) {
-                if ((triangles[i] != null) && (triangles[i].square() > maxElement)) {
-                    maxElement = triangles[i].square();
+                if ((triangles[i] != null) && (triangles[i].getSquare() > maxElement)) {
+                    maxElement = triangles[i].getSquare();
                 }
             }
-        }
-
-        if (filter.equals("perimeter")) {
-            maxElement = triangles[0].perimeter();
+        } else if (filter.equals("perimeter")) {
+            maxElement = triangles[0].getPerimeter();
             for (int i = 0; i < triangles.length; i++) {
-                if ((triangles[i] != null) && (triangles[i].perimeter() > maxElement)) {
-                    maxElement = triangles[i].perimeter();
+                if ((triangles[i] != null) && (triangles[i].getPerimeter() > maxElement)) {
+                    maxElement = triangles[i].getPerimeter();
                 }
             }
         }

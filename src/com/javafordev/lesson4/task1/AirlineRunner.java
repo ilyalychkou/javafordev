@@ -28,6 +28,8 @@ public class AirlineRunner {
         int departureTimeInHoursToFilter = 5;
         int departureTimeInMinutesToFilter = 22;
 
+
+
         //инициализация массива объектов типа Airline
         Airline[] airlines = new Airline[numberOfAirlines];
 
@@ -45,17 +47,19 @@ public class AirlineRunner {
         AirlineService airlineService = new AirlineService(airlines);
 
         System.out.println("Вывод элементов массива отфильтрованного по destination");
-        Airline[] airlinesFilteredByDestination = airlineService.findAirlinesByFilter(airlines, firstFilterName, firstFilterValue);
+        Airline[] airlinesFilteredByDestination = airlineService.findAirlinesByFilter(airlineService.getAirlines(), firstFilterName, firstFilterValue);
         System.out.println(Arrays.toString(airlinesFilteredByDestination));
         System.out.println();
 
         System.out.println("Вывод элементов массива отфильтрованного по dayOfWeek");
-        Airline[] airlinesFilteredByDayOfWeek = airlineService.findAirlinesByFilter(airlines, secondFilterName, secondFilterValue);
+        Airline[] airlinesFilteredByDayOfWeek = airlineService.findAirlinesByFilter(airlineService.getAirlines(), secondFilterName, secondFilterValue);
         System.out.println(Arrays.toString(airlinesFilteredByDayOfWeek));
         System.out.println();
 
+        AirlineService airlineServiceFilteredByDayOfWeek = new AirlineService(airlinesFilteredByDayOfWeek);
+
         System.out.println("Вывод элементов массива отфильтрованного по dayOfWeek и departureTime");
-        Airline[] airlinesFilteredByDayOfWeekAndDepartureTime = airlineService.findAirlinesByDepartureTime(airlinesFilteredByDayOfWeek, departureTimeInHoursToFilter, departureTimeInMinutesToFilter);
+        Airline[] airlinesFilteredByDayOfWeekAndDepartureTime = airlineService.findAirlinesByDepartureTime(airlineServiceFilteredByDayOfWeek.getAirlines(), departureTimeInHoursToFilter, departureTimeInMinutesToFilter);
         System.out.println(Arrays.toString(airlinesFilteredByDayOfWeekAndDepartureTime));
 
     }

@@ -6,16 +6,25 @@ public class RationalFraction extends Fraction {
         try {
             this.m = m;
             this.n = n;
-            this.fraction = (this.m + this.n) / (this.m - this.n);
         } catch (Exception e) {
             System.out.println("Знаменатель рациjлнальнои дроби равен 0!");
         }
     }
 
+    public double getRationalFraction() {
+        double rationalFraction = 0.0;
+        try {
+            rationalFraction = (this.getM() + this.getN()) / (this.getM() - this.getN());
+        } catch (Exception e) {
+            System.out.println("Знаменатель дроби равен 0!");
+        }
+        return rationalFraction;
+    }
+
     @Override
     public String toString() {
         return "RationalFraction{" +
-                "fraction=" + fraction +
+                "fraction=" + this.getRationalFraction() +
                 '}';
     }
 }

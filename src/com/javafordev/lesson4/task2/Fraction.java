@@ -13,50 +13,60 @@ public class Fraction {
 
     protected double m;
     protected double n;
-    protected double fraction;
+
+    public double getM() {
+        return m;
+    }
+
+    public double getN() {
+        return n;
+    }
+
+    public void setM(double m) {
+        this.m = m;
+    }
+
+    public void setN(double n) {
+        this.n = n;
+    }
 
     public Fraction() {
     }
 
     public Fraction(double m, double n) {
-        try {
             this.m = m;
             this.n = n;
-            this.fraction = this.m / this.n;
-        } catch (Exception e) {
-            System.out.println("Знаменатель дроби равен 0!");
-        }
-    }
-
-    public double getFraction() {
-        return this.fraction;
-    }
-
-    public void setFraction(double fraction) {
-        this.fraction = fraction;
     }
 
     @Override
     public String toString() {
         return "Fraction{" +
-                "fraction=" + fraction +
+                "fraction=" + this.getFraction() +
                 '}';
     }
 
-    public double add(Fraction fraction) {
-        return this.getFraction() + fraction.getFraction();
+    public Fraction add(Fraction fraction) {
+        double denominator = this.getN() * fraction.getN();
+        double numerator = denominator / this.getM() + denominator / fraction.getM();
+        return new Fraction(numerator, denominator);
     }
 
-    public double subtract(Fraction fraction) {
-        return this.getFraction() - fraction.getFraction();
+    public Fraction subtract(Fraction fraction) {
+        double denominator = this.getN() * fraction.getN();
+        double numerator = denominator / this.getM() - denominator / fraction.getM();
+        return new Fraction(numerator, denominator);
     }
 
-    public double multiply(Fraction fraction) {
-        return this.getFraction() * fraction.getFraction();
+    public Fraction multiply(Fraction fraction) {
+        double denominator = this.getN() * fraction.getN();
+        double numerator = (denominator / this.getM()) * (denominator / fraction.getM());
+        return new Fraction(numerator, denominator);
     }
 
-    public double divide(Fraction fraction) {
-        return this.getFraction() / fraction.getFraction();
+    public Fraction divide(Fraction fraction) {
+        double denominator = this.getN() * fraction.getN();
+        double numerator = (denominator / this.getM()) / (denominator / fraction.getM());
+        return new Fraction(numerator, denominator);
     }
 
     //метод для вводв элементов массива типа Fraction
@@ -82,16 +92,19 @@ public class Fraction {
 
     //метод для изменения массива fractions
     public static Fraction[] changeArrayOfFractions(Fraction[] fractions) {
-
-        if (fractions.length % 2 != 0) {
-            for (int i = 0; i < fractions.length - 1; i = i + 2) {
-                fractions[i].fraction = fractions[i].add(fractions[i + 1]);
-            }
-        } else {
-            for (int i = 0; i < fractions.length; i = i + 2) {
-                fractions[i].fraction = fractions[i].add(fractions[i + 1]);
-            }
+        for (int i = 0; i < fractions.length; i = i + 2) {
+            fractions[i] = fractions[i].add(fractions[i + 1]);
         }
         return fractions;
+    }
+
+    public double getFraction() {
+        double fraction=0.0;
+        try {
+            fraction =  this.getM() / this.getN();
+        } catch (Exception e) {
+            System.out.println("Знаменатель дроби равен 0!");
+        }
+        return fraction;
     }
 }
