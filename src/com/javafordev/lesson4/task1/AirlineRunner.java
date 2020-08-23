@@ -2,6 +2,8 @@ package com.javafordev.lesson4.task1;
 
 import java.util.Arrays;
 
+import static com.javafordev.lesson4.task1.AirlineService.printArrayOfAirlines;
+
 
 public class AirlineRunner {
     /**
@@ -40,18 +42,18 @@ public class AirlineRunner {
 
         System.out.println("Вывод элементов массива отфильтрованного по destination");
         Airline[] airlinesFilteredByDestination = airlineService.findAirlinesByFilter(airlineService.getAirlines(), firstFilterName, firstFilterValue);
-        System.out.println(Arrays.toString(airlinesFilteredByDestination));
+        printArrayOfAirlines(airlinesFilteredByDestination);
         System.out.println();
 
         System.out.println("Вывод элементов массива отфильтрованного по dayOfWeek");
         Airline[] airlinesFilteredByDayOfWeek = airlineService.findAirlinesByFilter(airlineService.getAirlines(), secondFilterName, secondFilterValue);
-        System.out.println(Arrays.toString(airlinesFilteredByDayOfWeek));
+        printArrayOfAirlines(airlinesFilteredByDayOfWeek);
         System.out.println();
 
         AirlineService airlineServiceFilteredByDayOfWeek = new AirlineService(airlinesFilteredByDayOfWeek);
 
         System.out.println("Вывод элементов массива отфильтрованного по dayOfWeek и departureTime");
         Airline[] airlinesFilteredByDayOfWeekAndDepartureTime = airlineService.findAirlinesByDepartureTime(airlineServiceFilteredByDayOfWeek.getAirlines(), departureTimeInHoursToFilter, departureTimeInMinutesToFilter);
-        System.out.println(Arrays.toString(airlinesFilteredByDayOfWeekAndDepartureTime));
+        printArrayOfAirlines(airlinesFilteredByDayOfWeekAndDepartureTime);
     }
 }

@@ -101,4 +101,10 @@ public class AirlineService {
         }
         return fitleredAirlinesWithoutNullElements;
     }
+
+    public static void printArrayOfAirlines(Airline[] airlines) {
+        for (Airline element : airlines) {
+            System.out.println(element.toString());
+        }
+    }
 }
