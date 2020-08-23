@@ -2,7 +2,6 @@ package com.javafordev.lesson4.task1;
 
 import java.util.Arrays;
 
-import static com.javafordev.lesson4.task1.Airline.daysOfWeek;
 
 public class AirlineRunner {
     /**
@@ -24,25 +23,18 @@ public class AirlineRunner {
         String firstFilterName = "destination";
         String firstFilterValue = "Minsk";
         String secondFilterName = "dayOfWeek";
-        String secondFilterValue = daysOfWeek[2];
-        int departureTimeInHoursToFilter = 5;
+        String secondFilterValue = "Wed";
+        int departureTimeInHoursToFilter = 1;
         int departureTimeInMinutesToFilter = 22;
-
-
 
         //инициализация массива объектов типа Airline
         Airline[] airlines = new Airline[numberOfAirlines];
 
-        airlines[0] = new Airline("Oslo", 1675, 'A', 22, 10);
-        airlines[0].setDayOfWeek(daysOfWeek[6]);
-        airlines[1] = new Airline("Warsaw", 1540, 'B', 9, 3);
-        airlines[1].setDayOfWeek(daysOfWeek[0]);
-        airlines[2] = new Airline("Ottawa", 1004, 'A', 7, 37);
-        airlines[2].setDayOfWeek(daysOfWeek[2]);
-        airlines[3] = new Airline("Tokyo", 936, 'C', 16, 21);
-        airlines[3].setDayOfWeek(daysOfWeek[3]);
-        airlines[4] = new Airline("Minsk", 2255, 'B', 4, -21);
-        airlines[4].setDayOfWeek(daysOfWeek[2]);
+        airlines[0] = new Airline("Oslo", 1675, 'A', 22, 10, "Sun", "Mon");
+        airlines[1] = new Airline("Warsaw", 1540, 'B', 9, 3, "Thu");
+        airlines[2] = new Airline("Ottawa", 1004, 'A', 7, 37, "Mon", "Fri");
+        airlines[3] = new Airline("Tokyo", 936, 'C', 16, 21, "Mon", "Tue", "Fri", "Sat");
+        airlines[4] = new Airline("Minsk", 2255, 'B', 4, -21, "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 
         AirlineService airlineService = new AirlineService(airlines);
 

@@ -43,9 +43,11 @@ public class AirlineService {
             case "dayOfWeek":
                 int j = 0;
                 for (Airline element : airlines) {
-                    if (element.getDayOfWeek().equals(filterValue)) {
-                        filteredAirlines[j] = element;
-                        j++;
+                    for (int k = 0; k < element.getDaysOfWeek().length; k++) {
+                        if (element.getDaysOfWeek()[k].equals(filterValue)) {
+                            filteredAirlines[j] = element;
+                            j++;
+                        }
                     }
                 }
                 break;

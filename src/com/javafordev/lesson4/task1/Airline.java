@@ -1,5 +1,7 @@
 package com.javafordev.lesson4.task1;
 
+import java.util.Arrays;
+
 import static com.javafordev.lesson4.task1.Validator.validateInputParameterForString;
 import static com.javafordev.lesson4.task1.Validator.validateStringParameterForNumber;
 
@@ -23,10 +25,8 @@ public class Airline {
     private char planeType;
     private int departureTimeInHours;
     private int departureTimeInMinutes;
-    private String dayOfWeek;
-    // 1)public т.к. массив содержит общедоступные данные
-    // 2)static т.к. массив с днями это поле класса, для отдельного объекта оно не нужно
-    public static String[] daysOfWeek = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+    private String[] daysOfWeek;
+
 
     public String getDestination() {
         return destination;
@@ -48,8 +48,8 @@ public class Airline {
         return departureTimeInMinutes;
     }
 
-    public String getDayOfWeek() {
-        return dayOfWeek;
+    public String[] getDaysOfWeek() {
+        return this.daysOfWeek;
     }
 
     public void setDestination(String destination) {
@@ -72,17 +72,24 @@ public class Airline {
         this.departureTimeInMinutes = validateStringParameterForNumber("departureTimeInMinutes", departureTimeInMinutes);
     }
 
-    public void setDayOfWeek(String dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
+    public void setDaysOfWeek(String... daysOfWeek) {
+        this.daysOfWeek = new String[daysOfWeek.length];
+        for (int i = 0; i < daysOfWeek.length; i++) {
+            this.daysOfWeek[i] = daysOfWeek[i];
+        }
     }
 
-    public Airline(String destination, int numberOfFlight, char planeType, int departureTimeInHours, int departureTimeInMinutes) {
+    public Airline(String destination, int numberOfFlight, char planeType, int departureTimeInHours, int departureTimeInMinutes, String... daysOfWeek) {
 
         this.destination = validateInputParameterForString("destination", destination);
         this.numberOfFlight = validateStringParameterForNumber("numberOfFlight", numberOfFlight);
         this.departureTimeInHours = validateStringParameterForNumber("departureTimeInHours", departureTimeInHours);
         this.departureTimeInMinutes = validateStringParameterForNumber("departureTimeInMinutes", departureTimeInMinutes);
         this.planeType = planeType;
+        this.daysOfWeek = new String[daysOfWeek.length];
+        for (int i = 0; i < daysOfWeek.length; i++) {
+            this.daysOfWeek[i] = daysOfWeek[i];
+        }
     }
 
     //метод toString()
@@ -94,7 +101,7 @@ public class Airline {
                 ", planeType=" + this.getPlaneType() +
                 ", departureTimeInHours=" + this.getDepartureTimeInHours() +
                 ", departureTimeInMinutes=" + this.getDepartureTimeInMinutes() +
-                ", dayOfWeek='" + this.getDayOfWeek() + '\'' +
+                ", daysOfWeek='" + Arrays.toString(this.getDaysOfWeek()) + '\'' +
                 '}';
     }
 
