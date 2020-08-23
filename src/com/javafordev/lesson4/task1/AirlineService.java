@@ -23,7 +23,7 @@ public class AirlineService {
     @Override
     public String toString() {
         return "AirlineService{" +
-                "airlines=" + Arrays.toString(airlines) +
+                "airlines=" + Arrays.toString(this.getAirlines()) +
                 '}';
     }
 

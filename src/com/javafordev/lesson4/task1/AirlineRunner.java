@@ -53,6 +53,5 @@ public class AirlineRunner {
         System.out.println("Вывод элементов массива отфильтрованного по dayOfWeek и departureTime");
         Airline[] airlinesFilteredByDayOfWeekAndDepartureTime = airlineService.findAirlinesByDepartureTime(airlineServiceFilteredByDayOfWeek.getAirlines(), departureTimeInHoursToFilter, departureTimeInMinutesToFilter);
         System.out.println(Arrays.toString(airlinesFilteredByDayOfWeekAndDepartureTime));
-
     }
 }

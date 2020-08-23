@@ -1,7 +1,5 @@
 package com.javafordev.lesson4.task1;
 
-import static com.javafordev.lesson4.task1.AirlineService.removeNullElementsFromAirlines;
-
 public class Validator {
 
     public static String validateInputParameterForString(String parameterName, String parameterValue) {
@@ -46,7 +44,7 @@ public class Validator {
         for (Airline element : arrayName) {
             if (element == null) {
                 System.out.println("Входнои массив содержит null элементы!");
-                return null; // проверить что является дефолтным значение для массива
+                return new Airline[arrayName.length];
             }
         }
         return arrayName;
