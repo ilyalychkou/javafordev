@@ -4,11 +4,11 @@ public class Validator {
 
     public static String validateInputParameterForString(String parameterName, String parameterValue) {
 
-        if (parameterName.equals("destination") && parameterValue.equals("")) {
-            System.out.println("Для параметра destination задано пустое значение.");
-            return " ";
-        } else {
+        if (parameterName.equals("destination") && parameterValue.matches("[A-Za-z]+")) {
             return parameterValue;
+        } else {
+            System.out.println("Для параметра destination задано пустое значение или строка состоит не из латинских символов.");
+            return " ";
         }
     }
 

@@ -32,7 +32,7 @@ public class AirlineRunner {
         //инициализация массива объектов типа Airline
         Airline[] airlines = new Airline[numberOfAirlines];
 
-        airlines[0] = new Airline("Oslo", 1675, 'A', 22, 10, "Sun", "Mon");
+        airlines[0] = new Airline("Братислава", 1675, 'A', 22, 10, "Sun", "Mon");
         airlines[1] = new Airline("Warsaw", 1540, 'B', 9, 3, "Thu");
         airlines[2] = new Airline("Ottawa", 1004, 'A', 7, 37, "Mon", "Fri");
         airlines[3] = new Airline("Tokyo", 936, 'C', 16, 21, "Mon", "Tue", "Fri", "Sat");
