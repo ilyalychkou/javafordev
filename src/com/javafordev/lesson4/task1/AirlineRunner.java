@@ -10,7 +10,7 @@ public class AirlineRunner {
      * Тестовые значения:
      * при создании объектов
      * 1. параметр dayOfWeek - Sun, Mon, Tue, Wed, Thu, Fri, Sat, пустое, цифра
-     * 2. параметр destination - Oslo, Ottawa, Minsk, пустое, несоответствует названию города - "ahfiewm"
+     * 2. параметр destination - Oslo, Ottawa, Minsk, пустое, несоответствует названию города - "ahfiewm", не латиница - "Братислава"
      * 3. параметр departureTimeInHours - 0, 2, 23, 24, 7, <0
      * 4. параметр departureTimeInMinutes - 0, 7, 15, 59, 60, <0
      * 5. параметр numberOfFlight - <0,
@@ -23,10 +23,10 @@ public class AirlineRunner {
 
         int numberOfAirlines = 5;
         String firstFilterName = "destination";
-        String firstFilterValue = "Minsk";
+        String firstFilterValue = "Warsaw";
         String secondFilterName = "dayOfWeek";
-        String secondFilterValue = "Wed";
-        int departureTimeInHoursToFilter = 1;
+        String secondFilterValue = "Thu";
+        int departureTimeInHoursToFilter = 5;
         int departureTimeInMinutesToFilter = 22;
 
         //инициализация массива объектов типа Airline
@@ -41,19 +41,19 @@ public class AirlineRunner {
         AirlineService airlineService = new AirlineService(airlines);
 
         System.out.println("Вывод элементов массива отфильтрованного по destination");
-        Airline[] airlinesFilteredByDestination = airlineService.findAirlinesByFilter(airlineService.getAirlines(), firstFilterName, firstFilterValue);
+        Airline[] airlinesFilteredByDestination = airlineService.findAirlinesByFilter(firstFilterName, firstFilterValue);
         printArrayOfAirlines(airlinesFilteredByDestination);
         System.out.println();
 
         System.out.println("Вывод элементов массива отфильтрованного по dayOfWeek");
-        Airline[] airlinesFilteredByDayOfWeek = airlineService.findAirlinesByFilter(airlineService.getAirlines(), secondFilterName, secondFilterValue);
+        Airline[] airlinesFilteredByDayOfWeek = airlineService.findAirlinesByFilter(secondFilterName, secondFilterValue);
         printArrayOfAirlines(airlinesFilteredByDayOfWeek);
         System.out.println();
 
         AirlineService airlineServiceFilteredByDayOfWeek = new AirlineService(airlinesFilteredByDayOfWeek);
 
         System.out.println("Вывод элементов массива отфильтрованного по dayOfWeek и departureTime");
-        Airline[] airlinesFilteredByDayOfWeekAndDepartureTime = airlineService.findAirlinesByDepartureTime(airlineServiceFilteredByDayOfWeek.getAirlines(), departureTimeInHoursToFilter, departureTimeInMinutesToFilter);
+        Airline[] airlinesFilteredByDayOfWeekAndDepartureTime = airlineServiceFilteredByDayOfWeek.findAirlinesByDepartureTime(departureTimeInHoursToFilter, departureTimeInMinutesToFilter);
         printArrayOfAirlines(airlinesFilteredByDayOfWeekAndDepartureTime);
     }
 }

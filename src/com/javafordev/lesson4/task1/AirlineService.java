@@ -28,12 +28,12 @@ public class AirlineService {
     }
 
     //метод для поиска объектов из массива airlines по фильтру - 1) destination, 2)dayOfWeek, 3) можно добавить другои - planeType, numberOfFlight
-    public Airline[] findAirlinesByFilter(Airline[] airlines, String filterName, String filterValue) {
-        Airline[] filteredAirlines = new Airline[airlines.length];
+    public Airline[] findAirlinesByFilter(String filterName, String filterValue) {
+        Airline[] filteredAirlines = new Airline[this.airlines.length];
         switch (filterName) {
             case "destination":
                 int i = 0;
-                for (Airline element : airlines) {
+                for (Airline element : this.airlines) {
                     if (element.getDestination().equals(filterValue)) {
                         filteredAirlines[i] = element;
                         i++;
@@ -42,7 +42,7 @@ public class AirlineService {
                 break;
             case "dayOfWeek":
                 int j = 0;
-                for (Airline element : airlines) {
+                for (Airline element : this.airlines) {
                     for (int k = 0; k < element.getDaysOfWeek().length; k++) {
                         if (element.getDaysOfWeek()[k].equals(filterValue)) {
                             filteredAirlines[j] = element;
@@ -64,11 +64,11 @@ public class AirlineService {
     }
 
     //метод для поиска объектов из массива airlines по фильтру departureTime
-    public Airline[] findAirlinesByDepartureTime(Airline[] airlines, int departureTimeInHours, int departureTimeInMinutes) {
-        Airline[] filteredAirlines = new Airline[airlines.length];
+    public Airline[] findAirlinesByDepartureTime(int departureTimeInHours, int departureTimeInMinutes) {
+        Airline[] filteredAirlines = new Airline[this.airlines.length];
         int timeInMinutesToFilter = departureTimeInHours * 60 + departureTimeInMinutes;
         int i = 0;
-        for (Airline element : airlines) {
+        for (Airline element : this.airlines) {
             int timeInMinutes = element.convertHoursAndMinutesInMinutes();
             if (timeInMinutes > timeInMinutesToFilter) {
                 filteredAirlines[i] = element;
