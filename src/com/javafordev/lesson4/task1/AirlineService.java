@@ -2,6 +2,7 @@ package com.javafordev.lesson4.task1;
 
 import java.util.Arrays;
 
+import static com.javafordev.lesson4.task1.Validator.removeNullElementsFromAirlines;
 import static com.javafordev.lesson4.task1.Validator.validateInputParameterForArray;
 
 public class AirlineService {
@@ -27,32 +28,34 @@ public class AirlineService {
                 '}';
     }
 
-    //метод для поиска объектов из массива airlines по фильтру - 1) destination, 2)dayOfWeek, 3) можно добавить другои - planeType, numberOfFlight
-    public Airline[] findAirlinesByFilter(String filterName, String filterValue) {
+    public Airline[] findAllByDestination(String destination) {
         Airline[] filteredAirlines = new Airline[this.airlines.length];
-        switch (filterName) {
-            case "destination":
-                int i = 0;
-                for (Airline element : this.airlines) {
-                    if (element.getDestination().equals(filterValue)) {
-                        filteredAirlines[i] = element;
-                        i++;
-                    }
+        int i = 0;
+        for (Airline element : this.airlines) {
+            if (element.getDestination().equals(destination)) {
+                filteredAirlines[i] = element;
+                i++;
+            }
+        }
+
+        Airline[] fitleredAirlinesWithoutNullElements = removeNullElementsFromAirlines(filteredAirlines);
+
+        if (fitleredAirlinesWithoutNullElements.length == 0) {
+            System.out.println("Не удалось наити объект массива airlines, которыи соответствует фильтру");
+        }
+        return fitleredAirlinesWithoutNullElements;
+    }
+
+    public Airline[] findAllByDayOfWeek(String dayOfWeek) {
+        Airline[] filteredAirlines = new Airline[this.airlines.length];
+        int j = 0;
+        for (Airline element : this.airlines) {
+            for (int k = 0; k < element.getDaysOfWeek().length; k++) {
+                if (element.getDaysOfWeek()[k].equals(dayOfWeek)) {
+                    filteredAirlines[j] = element;
+                    j++;
                 }
-                break;
-            case "dayOfWeek":
-                int j = 0;
-                for (Airline element : this.airlines) {
-                    for (int k = 0; k < element.getDaysOfWeek().length; k++) {
-                        if (element.getDaysOfWeek()[k].equals(filterValue)) {
-                            filteredAirlines[j] = element;
-                            j++;
-                        }
-                    }
-                }
-                break;
-            default:
-                System.out.println("Невозможно выполнить фильтрация по заданному параметру!");
+            }
         }
 
         Airline[] fitleredAirlinesWithoutNullElements = removeNullElementsFromAirlines(filteredAirlines);
@@ -64,7 +67,7 @@ public class AirlineService {
     }
 
     //метод для поиска объектов из массива airlines по фильтру departureTime
-    public Airline[] findAirlinesByDepartureTime(int departureTimeInHours, int departureTimeInMinutes) {
+    public Airline[] findAllByDepartureTime(int departureTimeInHours, int departureTimeInMinutes) {
         Airline[] filteredAirlines = new Airline[this.airlines.length];
         int timeInMinutesToFilter = departureTimeInHours * 60 + departureTimeInMinutes;
         int i = 0;
@@ -83,28 +86,10 @@ public class AirlineService {
         return fitleredAirlinesWithoutNullElements;
     }
 
-    public static Airline[] removeNullElementsFromAirlines(Airline[] airlines) {
-        int countOfNotNullElements = 0;
-        for (Airline element : airlines) {
-            if (element != null) {
-                countOfNotNullElements++;
-            }
-        }
 
-        Airline[] fitleredAirlinesWithoutNullElements = new Airline[countOfNotNullElements];
-        int i = 0;
-        for (Airline element : airlines) {
-            if (element != null) {
-                fitleredAirlinesWithoutNullElements[i] = element;
-                i++;
-            }
-        }
-        return fitleredAirlinesWithoutNullElements;
-    }
-
-    public static void printArrayOfAirlines(Airline[] airlines) {
-        for (Airline element : airlines) {
-            System.out.println(element.toString());
+    public void printList() {
+        for (Airline element : this.airlines) {
+            System.out.println(element);
         }
     }
 }
