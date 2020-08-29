@@ -1,24 +1,16 @@
 package com.javafordev.lesson4.task2;
 
+import static com.javafordev.lesson4.task2.Validator.validateDenominator;
+
 public class RationalFraction extends Fraction {
 
     public RationalFraction(double m, double n) {
-        try {
-            this.m = m;
-            this.n = n;
-        } catch (Exception e) {
-            System.out.println("Знаменатель рациjлнальнои дроби равен 0!");
-        }
+        this.m = m;
+        this.n = validateDenominator(n);
     }
 
     public double getRationalFraction() {
-        double rationalFraction = 0.0;
-        try {
-            rationalFraction = (this.getM() + this.getN()) / (this.getM() - this.getN());
-        } catch (Exception e) {
-            System.out.println("Знаменатель дроби равен 0!");
-        }
-        return rationalFraction;
+        return (this.getM() + this.getN()) / validateDenominator(this.getM() - this.getN());
     }
 
     @Override
