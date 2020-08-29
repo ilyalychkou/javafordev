@@ -86,7 +86,6 @@ public class AirlineService {
         return fitleredAirlinesWithoutNullElements;
     }
 
-
     public void printList() {
         for (Airline element : this.airlines) {
             System.out.println(element);
