@@ -1,8 +1,5 @@
 package com.javafordev.lesson4.task3;
 
-import static com.javafordev.lesson4.task3.Triangle.getMaxTriangleByFilter;
-import static com.javafordev.lesson4.task3.Triangle.getMinTriangleByFilter;
-
 public class TriangleRunner {
     /**
      * Тестовые значения:
@@ -31,68 +28,46 @@ public class TriangleRunner {
         triangles[10] = new Triangle(2, 3, 4); // произвольныи
         triangles[11] = new Triangle(11, 12, 22); // произвольныи
 
-        int countOfNinetyAngleTriangle = 0;
-        int countOfIsoscelesTriangle = 0;
-        int countOfEquilateralTriangle = 0;
-        int countOfRandomTriangle = 0;
+        TriangleService triangleService = new TriangleService(triangles);
+        TriangleService ninetyAngleTrianglesService = new TriangleService(triangleService.findByNinetyAngle());
+        TriangleService isoscelesTrianglesService = new TriangleService(triangleService.findByIsosceles());
+        TriangleService equilateralTrianglesService = new TriangleService(triangleService.findByEquilateral());
+        TriangleService randomTrianglesService = new TriangleService(triangleService.findByRandom());
 
-        Triangle[] ninetyAngleTriangles = new Triangle[countOfTriangles];
-        Triangle[] isoscelesTriangles = new Triangle[countOfTriangles];
-        Triangle[] equilateralTriangles = new Triangle[countOfTriangles];
-        Triangle[] randomTriangles = new Triangle[countOfTriangles];
-
-        for (Triangle element : triangles) {
-            if (element.isTriangleNinetyAngle()) {
-                ninetyAngleTriangles[countOfNinetyAngleTriangle] = element;
-                countOfNinetyAngleTriangle++;
-            }
-            if (element.isTriangleIsosceles()) {
-                isoscelesTriangles[countOfIsoscelesTriangle] = element;
-                countOfIsoscelesTriangle++;
-            }
-            if (element.isTriangleEquilateral()) {
-                equilateralTriangles[countOfEquilateralTriangle] = element;
-                countOfEquilateralTriangle++;
-            }
-            if (!(element.isTriangleNinetyAngle()) && !(element.isTriangleIsosceles()) && !(element.isTriangleEquilateral())) {
-                randomTriangles[countOfRandomTriangle] = element;
-                countOfRandomTriangle++;
-            }
-        }
 
         System.out.println("Инфо о количестве треугольников по типам...");
-        System.out.println("Количество прямоугольных треугольников : " + countOfNinetyAngleTriangle);
-        System.out.println("Количество равнобедренных треугольников : " + countOfIsoscelesTriangle);
-        System.out.println("Количество равносторонних треугольников : " + countOfEquilateralTriangle);
-        System.out.println("Количество произвольных треугольников : " + countOfRandomTriangle);
+        System.out.println("Количество прямоугольных треугольников : " + ninetyAngleTrianglesService.getTriangles().length);
+        System.out.println("Количество равнобедренных треугольников : " + isoscelesTrianglesService.getTriangles().length);
+        System.out.println("Количество равносторонних треугольников : " + equilateralTrianglesService.getTriangles().length);
+        System.out.println("Количество произвольных треугольников : " + randomTrianglesService.getTriangles().length);
         System.out.println();
 
         System.out.println("Инфо о мин (макс) площади (периметре) прямоугольных треугольников...");
-        System.out.println("Мин площадь элемента массива прямоугольных треугольников : " + getMinTriangleByFilter(ninetyAngleTriangles, "square"));
-        System.out.println("Макс площадь элемента массива прямоугольных треугольников : " + getMaxTriangleByFilter(ninetyAngleTriangles, "square"));
-        System.out.println("Мин периметр элемента массива прямоугольных треугольников : " + getMinTriangleByFilter(ninetyAngleTriangles, "perimeter"));
-        System.out.println("Макс периметр элемента массива прямоугольных треугольников : " + getMaxTriangleByFilter(ninetyAngleTriangles, "perimeter"));
+        System.out.println("Мин площадь элемента массива прямоугольных треугольников : " + ninetyAngleTrianglesService.findMinBySquare().calculateSquare());
+        System.out.println("Макс площадь элемента массива прямоугольных треугольников : " + ninetyAngleTrianglesService.findMaxBySquare().calculateSquare());
+        System.out.println("Мин периметр элемента массива прямоугольных треугольников : " + ninetyAngleTrianglesService.findMinByPerimeter().calculatePerimeter());
+        System.out.println("Макс периметр элемента массива прямоугольных треугольников : " + ninetyAngleTrianglesService.findMaxByPerimeter().calculatePerimeter());
         System.out.println();
 
         System.out.println("Инфо о мин (макс) площади (периметре) равнобедренных треугольников...");
-        System.out.println("Мин площадь элемента массива равнобедренных треугольников : " + getMinTriangleByFilter(isoscelesTriangles, "square"));
-        System.out.println("Макс площадь элемента массива равнобедренных треугольников : " + getMaxTriangleByFilter(isoscelesTriangles, "square"));
-        System.out.println("Мин периметр элемента массива равнобедренных треугольников : " + getMinTriangleByFilter(isoscelesTriangles, "perimeter"));
-        System.out.println("Макс периметр элемента массива равнобедренных треугольников : " + getMaxTriangleByFilter(isoscelesTriangles, "perimeter"));
+        System.out.println("Мин площадь элемента массива равнобедренных треугольников : " + isoscelesTrianglesService.findMinBySquare().calculateSquare());
+        System.out.println("Макс площадь элемента массива равнобедренных треугольников : " + isoscelesTrianglesService.findMaxBySquare().calculateSquare());
+        System.out.println("Мин периметр элемента массива равнобедренных треугольников : " + isoscelesTrianglesService.findMinByPerimeter().calculatePerimeter());
+        System.out.println("Макс периметр элемента массива равнобедренных треугольников : " + isoscelesTrianglesService.findMaxByPerimeter().calculatePerimeter());
         System.out.println();
 
         System.out.println("Инфо о мин (макс) площади (периметре) равносторонних треугольников...");
-        System.out.println("Мин площадь элемента массива равносторонних треугольников : " + getMinTriangleByFilter(equilateralTriangles, "square"));
-        System.out.println("Макс площадь элемента массива равносторонних треугольников : " + getMaxTriangleByFilter(equilateralTriangles, "square"));
-        System.out.println("Мин периметр элемента массива равносторонних треугольников : " + getMinTriangleByFilter(equilateralTriangles, "perimeter"));
-        System.out.println("Макс периметр элемента массива равносторонних треугольников : " + getMaxTriangleByFilter(equilateralTriangles, "perimeter"));
+        System.out.println("Мин площадь элемента массива равносторонних треугольников : " + equilateralTrianglesService.findMinBySquare().calculateSquare());
+        System.out.println("Макс площадь элемента массива равносторонних треугольников : " + equilateralTrianglesService.findMaxBySquare().calculateSquare());
+        System.out.println("Мин периметр элемента массива равносторонних треугольников : " + equilateralTrianglesService.findMinByPerimeter().calculatePerimeter());
+        System.out.println("Макс периметр элемента массива равносторонних треугольников : " + equilateralTrianglesService.findMaxByPerimeter().calculatePerimeter());
         System.out.println();
 
         System.out.println("Инфо о мин (макс) площади (периметре) произвольных треугольников...");
-        System.out.println("Мин площадь элемента массива произвольных треугольников : " + getMinTriangleByFilter(randomTriangles, "square"));
-        System.out.println("Макс площадь элемента массива произвольных треугольников : " + getMaxTriangleByFilter(randomTriangles, "square"));
-        System.out.println("Мин периметр элемента массива произвольных треугольников : " + getMinTriangleByFilter(randomTriangles, "perimeter"));
-        System.out.println("Макс периметр элемента массива произвольных треугольников : " + getMaxTriangleByFilter(randomTriangles, "perimeter"));
+        System.out.println("Мин площадь элемента массива произвольных треугольников : " + randomTrianglesService.findMinBySquare().calculateSquare());
+        System.out.println("Макс площадь элемента массива произвольных треугольников : " + randomTrianglesService.findMaxBySquare().calculateSquare());
+        System.out.println("Мин периметр элемента массива произвольных треугольников : " + randomTrianglesService.findMinByPerimeter().calculatePerimeter());
+        System.out.println("Макс периметр элемента массива произвольных треугольников : " + randomTrianglesService.findMaxByPerimeter().calculatePerimeter());
         System.out.println();
     }
 }
