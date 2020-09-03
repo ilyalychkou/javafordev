@@ -1,6 +1,7 @@
 package com.javafordev.lesson4.task3;
 
-import static java.lang.StrictMath.abs;
+import static com.javafordev.lesson4.task3.Validator.isTriangleCorrect;
+import static com.javafordev.lesson4.task3.Validator.validateSide;
 import static java.lang.StrictMath.pow;
 
 /**
@@ -59,24 +60,13 @@ public class Triangle {
         }
     }
 
-    public double getSquare() {
-        double perimeter = this.getPerimeter();
+    public double calculateSquare() {
+        double perimeter = this.calculatePerimeter();
         return Math.sqrt(0.5 * perimeter * (0.5 * perimeter - this.sideOne) * (0.5 * perimeter - this.sideTwo) * (0.5 * perimeter - this.sideThree));
     }
 
-    public double getPerimeter() {
+    public double calculatePerimeter() {
         return this.getSideOne() + this.getSideTwo() + this.getSideThree();
-    }
-
-    public static boolean isTriangleCorrect(double sideOne, double sideTwo, double sideThree) {
-        boolean condition1 = getCondition(sideOne, sideTwo, sideThree);
-        boolean condition2 = getCondition(sideTwo, sideOne, sideThree);
-        boolean condition3 = getCondition(sideThree, sideOne, sideTwo);
-        return (condition1 && condition2 && condition3);
-    }
-
-    public static boolean getCondition(double side1, double side2, double side3) {
-        return (side1 < (side2 + side3)) && (side1 > (abs(side2 - side3)));
     }
 
     public boolean isTriangleNinetyAngle() {
@@ -97,51 +87,5 @@ public class Triangle {
         return (this.getSideOne() == this.getSideTwo() && this.getSideOne() == this.getSideThree());
     }
 
-    public static double getMinTriangleByFilter(Triangle[] triangles, String filter) {
-        double minElement = 0;
-        if (filter.equals("square")) {
-            minElement = triangles[0].getSquare();
-            for (int i = 0; i < triangles.length; i++) {
-                if ((triangles[i] != null) && (triangles[i].getSquare() < minElement)) {
-                    minElement = triangles[i].getSquare();
-                }
-            }
-        } else if (filter.equals("perimeter")) {
-            minElement = triangles[0].getPerimeter();
-            for (int i = 0; i < triangles.length; i++) {
-                if ((triangles[i] != null) && (triangles[i].getPerimeter() < minElement)) {
-                    minElement = triangles[i].getPerimeter();
-                }
-            }
-        }
-        return minElement;
-    }
-
-    public static double getMaxTriangleByFilter(Triangle[] triangles, String filter) {
-        double maxElement = 0;
-        if (filter.equals("square")) {
-            maxElement = triangles[0].getSquare();
-            for (int i = 0; i < triangles.length; i++) {
-                if ((triangles[i] != null) && (triangles[i].getSquare() > maxElement)) {
-                    maxElement = triangles[i].getSquare();
-                }
-            }
-        } else if (filter.equals("perimeter")) {
-            maxElement = triangles[0].getPerimeter();
-            for (int i = 0; i < triangles.length; i++) {
-                if ((triangles[i] != null) && (triangles[i].getPerimeter() > maxElement)) {
-                    maxElement = triangles[i].getPerimeter();
-                }
-            }
-        }
-        return maxElement;
-    }
-
-    public static double validateSide(double side) {
-        if (side <= 0) {
-            System.out.println("Задана сторона треугольника <=0");
-        }
-        return side;
-    }
 }
 

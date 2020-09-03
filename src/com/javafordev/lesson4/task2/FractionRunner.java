@@ -14,7 +14,7 @@ public class FractionRunner {
         int numberOfFractions = 7;
 
         //инициализация объектов класса Fraction
-        Fraction fraction1 = new Fraction(3, 9);
+        Fraction fraction1 = new Fraction(3, 8);
         Fraction fraction2 = new Fraction(5, -13);
         System.out.println();
 
@@ -56,29 +56,28 @@ public class FractionRunner {
         rationalFractions[5] = new RationalFraction(116, 476);
         rationalFractions[6] = new RationalFraction(6, 11);
 
+        FractionService fractionService = new FractionService(fractions);
+        FractionService rationalFractionService = new FractionService(rationalFractions);
+
+
         //вывод на печать массива элементов типа Fraction
         System.out.println("Вывод на печать массива типа Fraction...");
-        printArrayOfFractions(fractions);
+        fractionService.printArrayOfFractions();
         System.out.println();
 
         //вывод на печать массива элементов типа RationalFraction
         System.out.println("Вывод на печать массива типа RationalFraction...");
-        printArrayOfFractions(rationalFractions);
+        rationalFractionService.printArrayOfFractions();
         System.out.println();
 
         //заполнение и вывод на печать массива, заполненного дробями на основании случаиных чисел
-        System.out.println("Заполнение и вывод на печать массива типа Fraction, заполненного дробями на основании случаиных чисел...");
-        printArrayOfFractions(fillArrayOfFractionsFromCommandLine());
-        System.out.println();
-
-        //преобразование исх массива, добавление элементам с четными индексами следующего элемента
-        Fraction[] fractions1 = fillArrayOfFractionsFromCommandLine();
-        System.out.println("Вывод на печать исходного массива...");
-        printArrayOfFractions(fractions1);
-        changeArrayOfFractions(fractions1);
+        System.out.println("Заполнение и вывод на печать исходного массива типа Fraction, заполненного дробями на основании случаиных чисел...");
+        FractionService fractionServiceFromCommandLine = new FractionService(FractionService.fillArrayOfFractionsFromCommandLine());
+        fractionServiceFromCommandLine.printArrayOfFractions();
+        fractionServiceFromCommandLine.changeArrayOfFractions();
         System.out.println();
         System.out.println("Вывод на печать измененного массива - добавление элементам с четными индексами следующего элемента...");
-        printArrayOfFractions(fractions1);
+        fractionServiceFromCommandLine.printArrayOfFractions();
 
     }
 }

@@ -1,10 +1,5 @@
 package com.javafordev.lesson4.task1;
 
-import java.util.Arrays;
-
-import static com.javafordev.lesson4.task1.AirlineService.printArrayOfAirlines;
-
-
 public class AirlineRunner {
     /**
      * Тестовые значения:
@@ -22,38 +17,42 @@ public class AirlineRunner {
     public static void main(String[] args) {
 
         int numberOfAirlines = 5;
-        String firstFilterName = "destination";
-        String firstFilterValue = "Warsaw";
-        String secondFilterName = "dayOfWeek";
-        String secondFilterValue = "Thu";
+        String firstFilterValue = "Tokyo";
+        String secondFilterValue = "Fri";
         int departureTimeInHoursToFilter = 5;
         int departureTimeInMinutesToFilter = 22;
 
         //инициализация массива объектов типа Airline
         Airline[] airlines = new Airline[numberOfAirlines];
 
-        airlines[0] = new Airline("Братислава", 1675, 'A', 22, 10, "Sun", "Mon");
-        airlines[1] = new Airline("Warsaw", 1540, 'B', 9, 3, "Thu");
-        airlines[2] = new Airline("Ottawa", 1004, 'A', 7, 37, "Mon", "Fri");
-        airlines[3] = new Airline("Tokyo", 936, 'C', 16, 21, "Mon", "Tue", "Fri", "Sat");
-        airlines[4] = new Airline("Minsk", 2255, 'B', 4, -21, "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+        String[] daysOfWeek0 = {"Sun", "Mon"};
+        String[] daysOfWeek1 = {"Thu"};
+        String[] daysOfWeek2 = {"Mon", "Fri"};
+        String[] daysOfWeek3 = {"Mon", "Tue", "Fri", "Sat"};
+        String[] daysOfWeek4 = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+        airlines[0] = new Airline("Rome", 1675, 'A', 22, 10, daysOfWeek0);
+        airlines[1] = new Airline("Warsaw", 1540, 'B', 9, 3, daysOfWeek1);
+        airlines[2] = new Airline("Ottawa", 1004, 'A', 7, 37, daysOfWeek2);
+        airlines[3] = new Airline("Tokyo", 936, 'C', 16, 21, daysOfWeek3);
+        airlines[4] = new Airline("Minsk", 2255, 'B', 4, 22, daysOfWeek4);
 
         AirlineService airlineService = new AirlineService(airlines);
 
         System.out.println("Вывод элементов массива отфильтрованного по destination");
-        Airline[] airlinesFilteredByDestination = airlineService.findAirlinesByFilter(firstFilterName, firstFilterValue);
-        printArrayOfAirlines(airlinesFilteredByDestination);
+        Airline[] airlinesFilteredByDestination = airlineService.findAllByDestination(firstFilterValue);
+        AirlineService airlinesFilteredByDestinationService = new AirlineService(airlinesFilteredByDestination);
+        airlinesFilteredByDestinationService.printList();
         System.out.println();
 
         System.out.println("Вывод элементов массива отфильтрованного по dayOfWeek");
-        Airline[] airlinesFilteredByDayOfWeek = airlineService.findAirlinesByFilter(secondFilterName, secondFilterValue);
-        printArrayOfAirlines(airlinesFilteredByDayOfWeek);
+        Airline[] airlinesFilteredByDayOfWeek = airlineService.findAllByDayOfWeek(secondFilterValue);
+        AirlineService airlinesFilteredByDayOfWeekService = new AirlineService(airlinesFilteredByDayOfWeek);
+        airlinesFilteredByDayOfWeekService.printList();
         System.out.println();
 
-        AirlineService airlineServiceFilteredByDayOfWeek = new AirlineService(airlinesFilteredByDayOfWeek);
-
         System.out.println("Вывод элементов массива отфильтрованного по dayOfWeek и departureTime");
-        Airline[] airlinesFilteredByDayOfWeekAndDepartureTime = airlineServiceFilteredByDayOfWeek.findAirlinesByDepartureTime(departureTimeInHoursToFilter, departureTimeInMinutesToFilter);
-        printArrayOfAirlines(airlinesFilteredByDayOfWeekAndDepartureTime);
+        Airline[] airlinesFilteredByDayOfWeekAndDepartureTime = airlinesFilteredByDayOfWeekService.findAllByDepartureTime(departureTimeInHoursToFilter, departureTimeInMinutesToFilter);
+        AirlineService airlinesFilteredByDayOfWeekAndDepartureTimeService = new AirlineService(airlinesFilteredByDayOfWeekAndDepartureTime);
+        airlinesFilteredByDayOfWeekAndDepartureTimeService.printList();
     }
 }

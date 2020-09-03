@@ -2,8 +2,7 @@ package com.javafordev.lesson4.task1;
 
 import java.util.Arrays;
 
-import static com.javafordev.lesson4.task1.Validator.validateInputParameterForString;
-import static com.javafordev.lesson4.task1.Validator.validateStringParameterForNumber;
+import static com.javafordev.lesson4.task1.Validator.*;
 
 /**
  * 1)Создать класс Airline:
@@ -53,11 +52,11 @@ public class Airline {
     }
 
     public void setDestination(String destination) {
-        this.destination = validateInputParameterForString("destination", destination);
+        this.destination = validateDestination(destination);
     }
 
     public void setNumberOfFlight(int numberOfFlight) {
-        this.numberOfFlight = validateStringParameterForNumber("numberOfFlight", numberOfFlight);
+        this.numberOfFlight = validateNumberOfFlight(numberOfFlight);
     }
 
     public void setPlaneType(char planeType) {
@@ -65,26 +64,26 @@ public class Airline {
     }
 
     public void setDepartureTimeInHours(int departureTimeInHours) {
-        this.departureTimeInHours = validateStringParameterForNumber("departureTimeInHours", departureTimeInHours);
+        this.departureTimeInHours = validateDepartureTimeInHours(departureTimeInHours);
     }
 
     public void setDepartureTimeInMinutes(int departureTimeInMinutes) {
-        this.departureTimeInMinutes = validateStringParameterForNumber("departureTimeInMinutes", departureTimeInMinutes);
+        this.departureTimeInMinutes = validateDepartureTimeInMinutes(departureTimeInMinutes);
     }
 
-    public void setDaysOfWeek(String... daysOfWeek) {
+    public void setDaysOfWeek(String[] daysOfWeek) {
         this.daysOfWeek = new String[daysOfWeek.length];
         for (int i = 0; i < daysOfWeek.length; i++) {
             this.daysOfWeek[i] = daysOfWeek[i];
         }
     }
 
-    public Airline(String destination, int numberOfFlight, char planeType, int departureTimeInHours, int departureTimeInMinutes, String... daysOfWeek) {
+    public Airline(String destination, int numberOfFlight, char planeType, int departureTimeInHours, int departureTimeInMinutes, String[] daysOfWeek) {
 
-        this.destination = validateInputParameterForString("destination", destination);
-        this.numberOfFlight = validateStringParameterForNumber("numberOfFlight", numberOfFlight);
-        this.departureTimeInHours = validateStringParameterForNumber("departureTimeInHours", departureTimeInHours);
-        this.departureTimeInMinutes = validateStringParameterForNumber("departureTimeInMinutes", departureTimeInMinutes);
+        this.destination = validateDestination(destination);
+        this.numberOfFlight = validateNumberOfFlight(numberOfFlight);
+        this.departureTimeInHours = validateDepartureTimeInHours(departureTimeInHours);
+        this.departureTimeInMinutes = validateDepartureTimeInMinutes(departureTimeInMinutes);
         this.planeType = planeType;
         this.daysOfWeek = new String[daysOfWeek.length];
         for (int i = 0; i < daysOfWeek.length; i++) {
