@@ -11,4 +11,11 @@ public class Validator {
         }
         return arrayName;
     }
+
+    public static String validateElement(String str) {
+        if (str.equals(null)) { // сравнение с null, для не null => false, то есть если null => true
+            throw new NullPointerException("Задан null элемент!");
+        }
+        return str;
+    }
 }

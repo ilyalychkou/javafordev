@@ -2,8 +2,6 @@ package com.javafordev.lesson5.task1;
 
 import java.util.Arrays;
 
-import static com.javafordev.lesson5.task1.Validator.*;
-
 /**
  * 1. Получить текущую длину массива - int getLength();
  * 2. Добавить элемент. Длина массива должна увеличиться на 1 - int addElement(Object o);
@@ -13,10 +11,15 @@ import static com.javafordev.lesson5.task1.Validator.*;
  */
 
 public class ArrayService implements MySuperArray {
-    String[] array;
+    private String[] array;
 
     public ArrayService(String[] array) {
-        this.array = validateInputParameterForArray(array);
+        this.array = Validator.validateInputParameterForArray(array);
+    }
+
+    public ArrayService(int arrayLength) {
+        Validator.validateArrayLength(arrayLength);
+        this.array = new String[arrayLength];
     }
 
     public String[] getArray() {
@@ -24,7 +27,7 @@ public class ArrayService implements MySuperArray {
     }
 
     public void setArray(String[] array) {
-        this.array = validateInputParameterForArray(array);
+        this.array = Validator.validateInputParameterForArray(array);
     }
 
     @Override
@@ -53,13 +56,9 @@ public class ArrayService implements MySuperArray {
 
     @Override
     public String getElement(int index) {
-        int validatedIndex = validateIndex(index);
-        validateIndexForCurrentArray(this.array, validatedIndex);
-        String elementByIndex = "";
-        for (int i = 0; i < this.array.length; i++) {
-            elementByIndex = this.array[validatedIndex];
-        }
-        return elementByIndex;
+        int validatedIndex = Validator.validateIndex(index);
+        Validator.validateIndexForCurrentArray(this.array, validatedIndex);
+        return this.array[validatedIndex];
     }
 
     @Override

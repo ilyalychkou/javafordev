@@ -15,36 +15,54 @@ public class StringUtils {
 
     public static boolean isPalindrome(String str) {
 
-        char[] charsOfStrings = new char[str.length()];
-        for (int i = 0; i < str.length(); i++) {
-            charsOfStrings[i] = str.charAt(i);
-        }
-
-        int countOfOccurances = 0;
+        boolean isPalindrome = true;
         int j = 0;
-        for (int k = charsOfStrings.length - 1; k >= 0; k--) {
-            if (!(Character.toLowerCase(charsOfStrings[j]) == Character.toLowerCase(charsOfStrings[k]))) {
-                countOfOccurances++;
+        for (int k = str.length() - 1; k >= 0; k--) {
+            if (!(Character.toLowerCase(str.charAt(j)) == Character.toLowerCase(str.charAt(k)))) {
+                System.out.println("Заданное слово " + str + " не является палиндромом!");
+                isPalindrome = false;
                 break;
             }
             j++;
         }
-        if (countOfOccurances > 0) {
-            System.out.println("Заданное слово " + str + " не является палиндромом!");
-            return false;
-        } else {
+
+        if (isPalindrome) {
             System.out.println("Заданное слово " + str + " является палиндромом!");
-            return true;
         }
+
+        return isPalindrome;
+    }
+
+    public static boolean isPalindromeViaReverse(String str) {
+
+        String reversStr = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversStr += str.charAt(i);
+        }
+
+        boolean isPalindrome = false;
+        if (str.equalsIgnoreCase(reversStr)) {
+            isPalindrome = true;
+        }
+        if (isPalindrome) {
+            System.out.println("Заданное слово " + str + " является палиндромом!");
+        } else {
+            System.out.println("Заданное слово " + str + " не является палиндромом!");
+        }
+        return isPalindrome;
     }
 
     public static String replaceString(String str, String substringFrom, String substringTo) {
-        Pattern pattern = Pattern.compile(substringFrom);
-        return str.replaceAll(String.valueOf(pattern), substringTo);
+        Validator.validateElement(str);
+        Validator.validateElement(substringFrom);
+        Validator.validateElement(substringTo);
+        return str.replace(substringFrom, substringTo);
     }
 
 
     public static int calculateNumberOfOccurrences(String strWhereToFind, String strWhatToFind) {
+        Validator.validateElement(strWhereToFind);
+        Validator.validateElement(strWhatToFind);
         Pattern pattern = Pattern.compile(strWhatToFind);
         Matcher matcher = pattern.matcher(strWhereToFind);
         int countOfOccurrences = 0;
@@ -57,7 +75,7 @@ public class StringUtils {
     public static boolean isIPAddress(String str) {
         Pattern pattern = Pattern.compile("^((25[0-5]|2[4]\\d|[01]?\\d\\d?)\\.){3}(25[0-5]|2[4]\\d|[01]?\\d\\d?)$");
         Matcher matcher = pattern.matcher(str);
-        if (matcher.find()) {
+        if (matcher.matches()) {
             System.out.println("Строка \"" + str + "\" является IP адресом");
             return true;
         } else {

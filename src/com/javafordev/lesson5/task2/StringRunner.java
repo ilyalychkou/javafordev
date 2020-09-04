@@ -1,11 +1,9 @@
 package com.javafordev.lesson5.task2;
 
-import static com.javafordev.lesson5.task2.StringUtils.*;
-
 /**
  * Тестовые значения:
  * 1. char symbol - регистр - верхнии/нижнии/разные, слова - палиндром/не палиндром
- * 2. String newElement - пустое, не пустое
+ * 2. String newElement - пустое, не пустое, null
  * 3. замена подтроки - подсрока есть - вначале, всередине, в конце, между пробелами/спецсимволами
  * 4. количество вхождении подстроки - подстрока не входит в строку, подстрока входит в строку один/несколько раз
  * 5. является ли строка IP адресом (IPv4) - IP адрес, лишние цифры в октете, буквы в октете, "00", любои октет >255 (256), любои октет=255
@@ -21,24 +19,26 @@ public class StringRunner {
 
         System.out.println("Самая длинная строка в массиве : " + stringService.findByMaxLength());
 
-        isPalindrome(stringService.strings[0]);
-        isPalindrome(stringService.findByMaxLength());
+        StringUtils.isPalindrome(stringService.strings[0]);
+        StringUtils.isPalindromeViaReverse(stringService.strings[0]);
+        StringUtils.isPalindrome(stringService.findByMaxLength());
+        StringUtils.isPalindromeViaReverse(stringService.findByMaxLength());
         System.out.println();
 
         String stringToReplace = "мяу бяка гав-гав гуд игнор бяка+/# финиш...бяки-бякаяка";
         String substringFrom = "бяка";
         String substringTo = "ягода";
         System.out.println("Исходная строка : " + stringToReplace);
-        System.out.println("Измененная строка : " + replaceString(stringToReplace, substringFrom, substringTo));
+        System.out.println("Измененная строка : " + StringUtils.replaceString(stringToReplace, substringFrom, substringTo));
         System.out.println();
 
         String strWhereToFind = "вода, вода кругом вода, вода, вода, шумит вода";
         String strWhatToFind = "вода";
-        System.out.println("Количество вхождении подстроки \"" + strWhatToFind + "\" в строке \"" + strWhereToFind + "\" равно : " + calculateNumberOfOccurrences(strWhereToFind, strWhatToFind));
+        System.out.println("Количество вхождении подстроки \"" + strWhatToFind + "\" в строке \"" + strWhereToFind + "\" равно : " + StringUtils.calculateNumberOfOccurrences(strWhereToFind, strWhatToFind));
         System.out.println();
 
         String stringToCheckIP = "192.168.100.21";
-        isIPAddress(stringToCheckIP);
+        StringUtils.isIPAddress(stringToCheckIP);
 
     }
 }

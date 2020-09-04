@@ -26,10 +26,18 @@ public class Validator {
         return index;
     }
 
+    public static int validateArrayLength(int arrayLength) {
+        if (arrayLength < 0) {
+            System.out.println("Задана длина массива < 0 !");
+            return 0;
+        }
+        return arrayLength;
+    }
+
+
     public static String validateElement(String str) {
-        if (str.equals("")) {
-            System.out.println("Задан пустои элемент!");
-            return "";
+        if (str.equals(null)) { // сравнение с null, для не null => false, то есть если null => true
+            throw new NullPointerException("Задан null элемент!");
         }
         return str;
     }

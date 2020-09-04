@@ -25,24 +25,15 @@ public class StringService {
     }
 
     public String findByMaxLength() {
-        int maxElement = this.strings[0].length();
-        int maxElementIndex = 0;
+        int maxElementLength = this.strings[0].length();
+        String maxElement = "";
         for (int i = 0; i < this.strings.length; i++) {
-            if (this.strings[i].length() > maxElement) {
-                maxElement = this.strings[i].length();
-                maxElementIndex = i;
+            if (this.strings[i].length() > maxElementLength) {
+                maxElementLength = this.strings[i].length();
+                maxElement = this.strings[i];
             }
         }
-        return this.getElement(maxElementIndex);
+        return maxElement;
     }
 
-    public String getElement(int index) {
-        int validatedIndex = validateIndex(index);
-        validateIndexForCurrentArray(this.strings, validatedIndex);
-        String elementByIndex = "";
-        for (int i = 0; i < this.strings.length; i++) {
-            elementByIndex = this.strings[validatedIndex];
-        }
-        return elementByIndex;
-    }
 }
