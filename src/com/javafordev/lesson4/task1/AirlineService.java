@@ -2,7 +2,6 @@ package com.javafordev.lesson4.task1;
 
 import java.util.Arrays;
 
-import static com.javafordev.lesson4.task1.Validator.removeNullElementsFromAirlines;
 import static com.javafordev.lesson4.task1.Validator.validateInputParameterForArray;
 
 public class AirlineService {
@@ -38,7 +37,7 @@ public class AirlineService {
             }
         }
 
-        Airline[] fitleredAirlinesWithoutNullElements = removeNullElementsFromAirlines(filteredAirlines);
+        Airline[] fitleredAirlinesWithoutNullElements = ArrayUtils.removeNullElementsFromAirlines(filteredAirlines);
 
         if (fitleredAirlinesWithoutNullElements.length == 0) {
             System.out.println("Не удалось наити объект массива airlines, которыи соответствует фильтру");
@@ -58,7 +57,7 @@ public class AirlineService {
             }
         }
 
-        Airline[] fitleredAirlinesWithoutNullElements = removeNullElementsFromAirlines(filteredAirlines);
+        Airline[] fitleredAirlinesWithoutNullElements = ArrayUtils.removeNullElementsFromAirlines(filteredAirlines);
 
         if (fitleredAirlinesWithoutNullElements.length == 0) {
             System.out.println("Не удалось наити объект массива airlines, которыи соответствует фильтру");
@@ -78,7 +77,7 @@ public class AirlineService {
                 i++;
             }
         }
-        Airline[] fitleredAirlinesWithoutNullElements = removeNullElementsFromAirlines(filteredAirlines);
+        Airline[] fitleredAirlinesWithoutNullElements = ArrayUtils.removeNullElementsFromAirlines(filteredAirlines);
 
         if (fitleredAirlinesWithoutNullElements.length == 0) {
             System.out.println("Не удалось наити объект массива airlines, которыи соответствует фильтру");

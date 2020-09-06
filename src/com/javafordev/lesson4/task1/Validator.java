@@ -50,23 +50,6 @@ public class Validator {
     }
 
 
-    public static Airline[] removeNullElementsFromAirlines(Airline[] airlines) {
-        int countOfNotNullElements = 0;
-        for (Airline element : airlines) {
-            if (element != null) {
-                countOfNotNullElements++;
-            }
-        }
 
-        Airline[] fitleredAirlinesWithoutNullElements = new Airline[countOfNotNullElements];
-        int i = 0;
-        for (Airline element : airlines) {
-            if (element != null) {
-                fitleredAirlinesWithoutNullElements[i] = element;
-                i++;
-            }
-        }
-        return fitleredAirlinesWithoutNullElements;
-    }
 }
 
