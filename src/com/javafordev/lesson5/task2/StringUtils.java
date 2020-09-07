@@ -35,12 +35,9 @@ public class StringUtils {
 
     public static boolean isPalindromeViaReverse(String str) {
 
-        String reversStr = "";
-        for (int i = str.length() - 1; i >= 0; i--) {
-            reversStr += str.charAt(i);
-        }
-
+        String reversStr = new StringBuffer(str).reverse().toString();
         boolean isPalindrome = false;
+
         if (str.equalsIgnoreCase(reversStr)) {
             isPalindrome = true;
         }
@@ -75,12 +72,13 @@ public class StringUtils {
     public static boolean isIPAddress(String str) {
         Pattern pattern = Pattern.compile("^((25[0-5]|2[4]\\d|[01]?\\d\\d?)\\.){3}(25[0-5]|2[4]\\d|[01]?\\d\\d?)$");
         Matcher matcher = pattern.matcher(str);
+        boolean isIPAddress = false;
         if (matcher.matches()) {
             System.out.println("Строка \"" + str + "\" является IP адресом");
-            return true;
+            isIPAddress = true;
         } else {
             System.out.println("Строка \"" + str + "\" не является IP адресом");
-            return false;
         }
+        return isIPAddress;
     }
 }
