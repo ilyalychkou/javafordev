@@ -1,5 +1,7 @@
 package com.javafordev.lesson5.task2;
 
+import static com.javafordev.lesson5.task1.Validator.validateIndex;
+import static com.javafordev.lesson5.task1.Validator.validateIndexForCurrentArray;
 import static com.javafordev.lesson5.task2.Validator.validateInputParameterForArray;
 
 /**

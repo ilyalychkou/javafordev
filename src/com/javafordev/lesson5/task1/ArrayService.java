@@ -71,5 +71,4 @@ public class ArrayService implements MySuperArray {
     public String[] getAllElements() {
         return this.array;
     }
-
 }
