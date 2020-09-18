@@ -15,7 +15,8 @@ public class Validator {
     }
 
     public static String validateElement(String str) {
-        if (Objects.isNull(str)) {
+//        if (Objects.isNull(str)) {
+        if (Objects.equals(str,null)) {
             throw new NullPointerException("Задан null элемент!");
         }
         return str;

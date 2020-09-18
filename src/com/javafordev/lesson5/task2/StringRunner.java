@@ -37,8 +37,11 @@ public class StringRunner {
         System.out.println("Количество вхождении подстроки \"" + strWhatToFind + "\" в строке \"" + strWhereToFind + "\" равно : " + StringUtils.calculateNumberOfOccurrences(strWhereToFind, strWhatToFind));
         System.out.println();
 
-        String stringToCheckIP = "192.168.100.21";
-        StringUtils.isIPAddress(stringToCheckIP);
+        String validStringToCheckIP = "221.0.221.0";
+        String invalidStringToCheckIP = "256.168.100.99";
+
+        StringUtils.isIPAddress(validStringToCheckIP);
+        StringUtils.isIPAddress(invalidStringToCheckIP);
 
     }
 }
