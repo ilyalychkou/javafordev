@@ -20,7 +20,7 @@ public class ArrayRunner {
         System.out.println("Вывод элементов исходного массива, используя toString(): " + arrayService);
         System.out.println("Получение всех элементов массива, используя метод getAllElements(): " + Arrays.toString(arrayService.getAllElements()));
         System.out.println();
-        System.out.println("Текущая длина массива после добавления в него нового элемента: " + arrayService.addElement(null));
+        System.out.println("Текущая длина массива после добавления в него нового элемента: " + arrayService.addElement("Palermo"));
         System.out.println("Вывод элементов массива после добавления в него нового элемента , используя toString(): " + arrayService);
         System.out.println("Получение всех элементов массива, используя метод getAllElements(): " + Arrays.toString(arrayService.getAllElements()));
         System.out.println();

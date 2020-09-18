@@ -70,7 +70,7 @@ public class StringUtils {
     }
 
     public static boolean isIPAddress(String str) {
-        Pattern pattern = Pattern.compile("^((25[0-5]|2[4]\\d|[01]?\\d\\d?)\\.){3}(25[0-5]|2[4]\\d|[01]?\\d\\d?)$");
+        Pattern pattern = Pattern.compile("^(([1]\\d\\d|[2][0-5][0-5]|2[0-4]\\d|[01]?\\d\\d?|\\d)\\.){3}([1]\\d\\d|[2][0-5][0-5]|2[0-4]\\d|[01]?\\d\\d?|\\d)$");
         Matcher matcher = pattern.matcher(str);
         boolean isIPAddress = false;
         if (matcher.matches()) {
