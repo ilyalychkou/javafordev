@@ -19,8 +19,8 @@ public class StringRunner {
 
         System.out.println("Самая длинная строка в массиве : " + stringService.findByMaxLength());
 
-        StringUtils.isPalindrome(stringService.strings[0]);
-        StringUtils.isPalindromeViaReverse(stringService.strings[0]);
+        StringUtils.isPalindrome(stringService.getStrings()[0]);
+        StringUtils.isPalindromeViaReverse(stringService.getStrings()[0]);
         StringUtils.isPalindrome(stringService.findByMaxLength());
         StringUtils.isPalindromeViaReverse(stringService.findByMaxLength());
         System.out.println();
