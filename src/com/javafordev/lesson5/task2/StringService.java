@@ -8,7 +8,7 @@ import static com.javafordev.lesson5.task2.Validator.validateInputParameterForAr
 
 public class StringService {
 
-    String[] strings;
+    private String[] strings;
 
     public StringService(String[] strings) {
         this.strings = validateInputParameterForArray(strings);
@@ -25,10 +25,10 @@ public class StringService {
     public String findByMaxLength() {
         int maxElementLength = this.strings[0].length();
         String maxElement = "";
-        for (int i = 0; i < this.strings.length; i++) {
-            if (this.strings[i].length() > maxElementLength) {
-                maxElementLength = this.strings[i].length();
-                maxElement = this.strings[i];
+        for (String string : this.strings) {
+            if (string.length() > maxElementLength) {
+                maxElementLength = string.length();
+                maxElement = string;
             }
         }
         return maxElement;
