@@ -25,6 +25,7 @@ public class StringService {
     public String findByMaxLength() {
         int maxElementLength = this.strings[0].length();
         String maxElement = "";
+
         for (String string : this.strings) {
             if (string.length() > maxElementLength) {
                 maxElementLength = string.length();
