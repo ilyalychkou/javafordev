@@ -29,24 +29,21 @@ public class TextService {
             Map.Entry element = (Map.Entry) iterator.next();
             System.out.println("Слово : \"" + element.getKey() + "\" , количество вхождении : " + element.getValue());
         }
-
-
     }
 
 
     public HashMap<String, Integer> sortDictionaryByCountOfOccurrences() {
 
+        // создаем связныи список через конструктор - которыи принимает множество значении карты частотного словаря
         List list = new LinkedList(this.getFrequencyDictionary().entrySet());
-        Collections.sort(list, new Comparator() {
-            public int compare(Object o1, Object o2) {
-                return ((Comparable) ((Map.Entry) (o1)).getValue())
-                        .compareTo(((Map.Entry) (o2)).getValue());
-            }
-        });
+        System.out.println(list);
+        //сортируем связныи список, в метод sort() передаем кастомныи компаратор
+        Collections.sort(list, new FrequencyDictionaryComparator());
 
+        //используется LinkedHashMap,   так как элементы будут возвращатся в том порядке в котором выполнена их вставка в карту
         HashMap sortedHashMap = new LinkedHashMap();
-        for (Iterator it = list.iterator(); it.hasNext(); ) {
-            Map.Entry entry = (Map.Entry) it.next();
+        for (Iterator iterator = list.iterator(); iterator.hasNext(); ) {
+            Map.Entry entry = (Map.Entry) iterator.next();
             sortedHashMap.put(entry.getKey(), entry.getValue());
         }
         return sortedHashMap;

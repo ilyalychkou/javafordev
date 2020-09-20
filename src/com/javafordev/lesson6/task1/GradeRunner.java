@@ -7,7 +7,6 @@ public class GradeRunner {
     public static void main(String[] args) {
         int countOfGrades = 10;
         ArrayList<Integer> gradeList = new ArrayList<>();
-        //заполнение ArrayList оценками из рандомных чисел в цикле
         for (int i = 0; i < countOfGrades; i++) {
             gradeList.add(GradeUtils.generateRandomGrade());
         }
