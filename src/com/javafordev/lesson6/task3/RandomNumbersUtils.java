@@ -5,6 +5,4 @@ public class RandomNumbersUtils {
     public static int generateRandomNumber() {
         return (int)(Math.random() * 10);
     }
-
-
 }

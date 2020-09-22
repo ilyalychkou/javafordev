@@ -16,7 +16,7 @@ public class TextUtils {
 
         for (int i = 0; i < words.size(); i++) {
             countOfOccurrences[i] = 0;
-            patterns[i] = Pattern.compile(words.get(i).toLowerCase());
+            patterns[i] = Pattern.compile(TextValidator.validateString(words.get(i).toLowerCase()));
             matchers[i] = patterns[i].matcher(text.toLowerCase());
             while (matchers[i].find()) {
                 countOfOccurrences[i]++;
@@ -25,4 +25,5 @@ public class TextUtils {
         }
         return frequencyDictionary;
     }
+
 }

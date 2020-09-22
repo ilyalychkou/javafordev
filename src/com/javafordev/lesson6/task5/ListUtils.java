@@ -7,5 +7,4 @@ public class ListUtils {
     public static void sortByLength(ArrayList<String> list) {
         Collections.sort(list, new LengthComparator());
     }
-
 }

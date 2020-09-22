@@ -17,6 +17,4 @@ public class GradeRunner {
         System.out.println("Максимальная оценка, наиденная с помощью итератора : " + gradeService.findMaxGrade());
 
     }
-
-
 }

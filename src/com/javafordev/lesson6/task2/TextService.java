@@ -31,7 +31,6 @@ public class TextService {
         }
     }
 
-
     public HashMap<String, Integer> sortDictionaryByCountOfOccurrences() {
 
         // создаем связныи список через конструктор - которыи принимает множество значении карты частотного словаря

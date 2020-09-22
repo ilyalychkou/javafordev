@@ -30,5 +30,4 @@ public class ListService {
             System.out.println(iterator.next());
         }
     }
-
 }

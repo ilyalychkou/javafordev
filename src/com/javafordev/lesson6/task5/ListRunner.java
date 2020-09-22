@@ -44,6 +44,7 @@ public class ListRunner {
         listWithPoem.add("Свеча горела на столе,");
         listWithPoem.add("Свеча горела.");
         listWithPoem.add("На озаренный потолок");
+        listWithPoem.add("Ложились тени,");
         listWithPoem.add("Скрещенья рук, скрещенья ног,");
         listWithPoem.add("Судьбы скрещенья.");
 

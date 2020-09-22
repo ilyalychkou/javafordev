@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * 1. Создать коллекцию
  * 2. Наполнить случаиными числами
- * 3. Удвлить повторяющиеся числа - Set
+ * 3. Удвлить повторяющиеся числа
  */
 
 public class RandomNumbersService {
