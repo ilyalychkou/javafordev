@@ -25,7 +25,6 @@ import java.util.ArrayList;
  * Скрещенья рук, скрещенья ног,
  * Судьбы скрещенья.
  *
- *
  */
 
 public class ListRunner {
@@ -50,10 +49,12 @@ public class ListRunner {
 
         ListService listService = new ListService(listWithPoem);
         System.out.println("Исходныи текст стихотворения: ");
+        System.out.println();
         listService.printList();
         System.out.println();
 
         System.out.println("Текст стихотворения после сортировки: ");
+        System.out.println();
         ListUtils.sortByLength(listWithPoem);
         listService.printList();
     }

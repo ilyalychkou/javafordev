@@ -25,7 +25,6 @@ public class GradeService {
         this.gradeList = gradeList;
     }
 
-
     public int findMaxGrade() {
         int maxGrade = 0;
         Iterator<Integer> iterator = this.getGradeList().iterator();

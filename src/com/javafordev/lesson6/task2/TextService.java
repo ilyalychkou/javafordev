@@ -35,7 +35,6 @@ public class TextService {
 
         // создаем связныи список через конструктор - которыи принимает множество значении карты частотного словаря
         List list = new LinkedList(this.getFrequencyDictionary().entrySet());
-        System.out.println(list);
         //сортируем связныи список, в метод sort() передаем кастомныи компаратор
         Collections.sort(list, new FrequencyDictionaryComparator());
 
