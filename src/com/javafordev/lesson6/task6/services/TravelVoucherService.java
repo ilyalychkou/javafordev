@@ -1,10 +1,14 @@
 package com.javafordev.lesson6.task6.services;
 
-import com.javafordev.lesson6.task6.utils.ArrayUtils;
+import com.javafordev.lesson6.task6.comparators.DurationTravelComparator;
+import com.javafordev.lesson6.task6.comparators.PriceTravelComparator;
+import com.javafordev.lesson6.task6.constants.NutritionType;
 import com.javafordev.lesson6.task6.constants.TransportType;
+import com.javafordev.lesson6.task6.constants.TravelType;
 import com.javafordev.lesson6.task6.objects.TravelVoucher;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Доп задание на интерфейс / абстрактный класс:
@@ -16,87 +20,122 @@ import java.util.ArrayList;
  * • Классы должны быть грамотно разложены по пакетам.
  * • Консольное меню должно быть минимальным.
  * • Для хранения параметров инициализации можно использовать файлы.
- *
- *  Мобильная связь.
- *
- *      1) Определить иерархию тарифов мобильной компании.
- *      2) Создать список тарифов компании.
- *      3) Подсчитать общую численность клиентов.
- *      4) Провести сортировку тарифов на основе размера абонентской платы.
- *      5) Найти тариф в компании, соответствующий заданному диапазону параметров.
- *
- *  Туристические путевки.
- *      1) Сформировать набор предложений клиенту по выбору туристической путевки различного типа (отдых, экскурсии, лечение, шопинг, круиз и т. д.) для оптимального выбора.
- *      2) Учитывать возможность выбора транспорта, питания и числа дней.
- *      3) Реализовать выбор и сортировку путевок.
- *
- *
- *  Выделение параметров:
- *
- *  Мобильная связь:
- *      > Пользовательскии тип - MobileTariff (Str)
- *      > ArrayList<MobileTariff>  listOfmobileTarrifs
- *
- *
- *
- *
- *
- *
+ * <p>
+ * Мобильная связь.
+ * <p>
+ * 1) Определить иерархию тарифов мобильной компании.
+ * 2) Создать список тарифов компании.
+ * 3) Подсчитать общую численность клиентов.
+ * 4) Провести сортировку тарифов на основе размера абонентской платы.
+ * 5) Найти тариф в компании, соответствующий заданному диапазону параметров.
+ * <p>
+ * Туристические путевки.
+ * 1) Сформировать набор предложений клиенту по выбору туристической путевки различного типа (отдых, экскурсии, лечение, шопинг, круиз и т. д.) для оптимального выбора.
+ * 2) Учитывать возможность выбора транспорта, питания и числа дней.
+ * 3) Реализовать выбор и сортировку путевок.
+ * <p>
+ * <p>
+ * Выделение параметров:
+ * <p>
+ * Мобильная связь:
+ * > Пользовательскии тип - MobileTariff (Str)
+ * > ArrayList<MobileTariff>  listOfmobileTarrifs
+ * <p>
+ * <p>
+ * Консольное приложение:
+ * 1. Выберите тип сервиса (1 - туристические путевки, 2 - мобильная связь)
  */
 
-public class TravelVoucherService implements Service{
+public class TravelVoucherService implements ITravelVoucherServiceAction {
 
-    private TravelVoucher[] travelVouchers;
+    private ArrayList<TravelVoucher> travelVouchers;
 
-    public TravelVoucherService(TravelVoucher[] travelVouchers) {
+    public TravelVoucherService(ArrayList<TravelVoucher> travelVouchers) {
         this.travelVouchers = travelVouchers;
     }
 
-    public TravelVoucher[] findByTransport(TransportType transportType) {
-        TravelVoucher[] filteredByTransport = new TravelVoucher[this.travelVouchers.length];
-
-        int i = 0;
-        for (TravelVoucher element : this.travelVouchers) {
-            if (element.getTransportType().equals(transportType)) {
-                filteredByTransport[i] = new TravelVoucher(element.getDuration(), element.getTravelType(),element.getTransportType(), element.getNutritionType());
-                i++;
-            }
-        }
-        return ArrayUtils.removeNullElementsFromTravelVouchers(filteredByTransport);
-    }
-
-    public TravelVoucher[] findByNutrition(TravelVoucher[] travelVouchers) {
-        //need some code to be typed
+    public ArrayList<TravelVoucher> getTravelVouchers() {
         return travelVouchers;
     }
 
-    public TravelVoucher[] findByDuration(int duration) {
-        TravelVoucher[] filteredByDuration = new TravelVoucher[this.travelVouchers.length];
-        int i = 0;
-        for (TravelVoucher element : this.travelVouchers) {
-            if (element.getDuration() > duration) {
-                filteredByDuration[i] = new TravelVoucher(element.getDuration(), element.getTravelType(),element.getTransportType(), element.getNutritionType());
-                i++;
-            }
-        }
-        return ArrayUtils.removeNullElementsFromTravelVouchers(filteredByDuration);
-    }
-
-    public TravelVoucher[] getTravelVouchers() {
-        return travelVouchers;
-    }
-
-    public void setTravelVouchers(TravelVoucher[] travelVouchers) {
+    public void setTravelVouchers(ArrayList<TravelVoucher> travelVouchers) {
         this.travelVouchers = travelVouchers;
     }
 
-    @Override
-    public ArrayList sort(Object o) {
-        return null;
+
+    public ArrayList<TravelVoucher> findAllByTransport(TransportType transportType) {
+        ArrayList<TravelVoucher> filteredByTransport = new ArrayList<>();
+        Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
+        while (iterator.hasNext()) {
+            TravelVoucher currentElement = iterator.next();
+            if (currentElement.getTransportType().equals(transportType)) {
+                filteredByTransport.add(currentElement);
+            }
+        }
+        return filteredByTransport;
+    }
+
+    public ArrayList<TravelVoucher> findAllByTravelType(TravelType travelType) {
+        ArrayList<TravelVoucher> filteredByTravelType = new ArrayList<>();
+        Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
+        while (iterator.hasNext()) {
+            TravelVoucher currentElement = iterator.next();
+            if (currentElement.getTransportType().equals(travelType)) {
+                filteredByTravelType.add(currentElement);
+            }
+        }
+        return filteredByTravelType;
+    }
+
+
+    public ArrayList<TravelVoucher> findAllByDuration(int duration) {
+        ArrayList<TravelVoucher> filteredByDuration = new ArrayList<>();
+        Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
+        while (iterator.hasNext()) {
+            TravelVoucher currentElement = iterator.next();
+            if (currentElement.getDuration() > duration) {
+                filteredByDuration.add(currentElement);
+            }
+        }
+        return filteredByDuration;
     }
 
     @Override
-    public ArrayList findAllBy(Object o) {
-        return null;
+    public ArrayList<TravelVoucher> findAllByPrice(double travelPrice) {
+        ArrayList<TravelVoucher> filteredByPrice = new ArrayList<>();
+        Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
+        while (iterator.hasNext()) {
+            TravelVoucher currentElement = iterator.next();
+            if (currentElement.getPrice() < travelPrice) {
+                filteredByPrice.add(currentElement);
+            }
+        }
+        return filteredByPrice;
     }
+
+
+    public ArrayList<TravelVoucher> findAllByNutrition(NutritionType nutritionType) {
+        ArrayList<TravelVoucher> filteredByNutrition = new ArrayList<>();
+        Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
+        while (iterator.hasNext()) {
+            TravelVoucher currentElement = iterator.next();
+            if (currentElement.getNutritionType().equals(nutritionType)) {
+                filteredByNutrition.add(currentElement);
+            }
+        }
+        return filteredByNutrition;
+    }
+
+    @Override
+    public ArrayList<TravelVoucher> sortByDuration() {
+        this.getTravelVouchers().sort(new DurationTravelComparator());
+        return this.getTravelVouchers();
+    }
+
+    @Override
+    public ArrayList<TravelVoucher> sortByPrice() {
+        this.getTravelVouchers().sort(new PriceTravelComparator());
+        return this.getTravelVouchers();
+    }
+
 }

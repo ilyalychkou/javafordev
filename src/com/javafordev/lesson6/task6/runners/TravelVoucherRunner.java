@@ -1,9 +1,11 @@
 package com.javafordev.lesson6.task6.runners;
 
-import com.javafordev.lesson6.task6.utils.ArrayUtils;
 import com.javafordev.lesson6.task6.constants.TransportType;
+import com.javafordev.lesson6.task6.constants.UserConstants;
 import com.javafordev.lesson6.task6.objects.TravelVoucher;
 import com.javafordev.lesson6.task6.services.TravelVoucherService;
+
+import java.util.ArrayList;
 
 import static com.javafordev.lesson6.task6.constants.NutritionType.*;
 import static com.javafordev.lesson6.task6.constants.TransportType.*;
@@ -13,31 +15,39 @@ public class TravelVoucherRunner {
 
     public static void main(String[] args) {
 
-        int numberOfVoucher = 5;
-        int durationToFilter = 9;
-        TransportType transportToFilter = AIRPLANE;
+        int durationToFilter = UserConstants.travelVoucherDuration;
+        double priceToFilter = 999.0;
+        TransportType transportToFilter = UserConstants.getTravelVoucherTransportType();
 
-        TravelVoucher[] travelVouchers = new TravelVoucher[numberOfVoucher];
-        travelVouchers[0] = new TravelVoucher(7, EXCURSION, SHIP, BREAKFAST_AND_SUPPER);
-        travelVouchers[1] = new TravelVoucher(10, RECREATION, AIRPLANE, BREAKFAST);
-        travelVouchers[2] = new TravelVoucher(21, TREATMENT, TRAIN, ALL_INCLUSIVE);
-        travelVouchers[3] = new TravelVoucher(3, SHOPPING, BUS, BREAKFAST);
-        travelVouchers[4] = new TravelVoucher(30, CRUISE, SHIP, ALL_INCLUSIVE);
+        ArrayList<TravelVoucher> travelVouchers = new ArrayList<>();
+        travelVouchers.add(new TravelVoucher(7, 34.5, EXCURSION, SHIP, BREAKFAST_AND_SUPPER));
+        travelVouchers.add(new TravelVoucher(10, 155.0, RECREATION, AIRPLANE, BREAKFAST));
+        travelVouchers.add(new TravelVoucher(21, 2133.25, TREATMENT, TRAIN, ALL_INCLUSIVE));
+        travelVouchers.add(new TravelVoucher(3, 578.9, SHOPPING, BUS, BREAKFAST));
+        travelVouchers.add(new TravelVoucher(30, 13000.0, CRUISE, SHIP, ALL_INCLUSIVE));
 
         TravelVoucherService travelVoucherService = new TravelVoucherService(travelVouchers);
 
-        TravelVoucher[] filteredByDuration = travelVoucherService.findByDuration(durationToFilter);
-        ArrayUtils.printArray(filteredByDuration);
+        ArrayList<TravelVoucher> filteredByDuration = travelVoucherService.findAllByDuration(durationToFilter);
+        System.out.println(filteredByDuration);
         System.out.println();
 
-        TravelVoucher[] filteredByTransport = travelVoucherService.findByTransport(transportToFilter);
-        ArrayUtils.printArray(filteredByTransport);
+        ArrayList<TravelVoucher> filteredByTransport = travelVoucherService.findAllByTransport(transportToFilter);
+        System.out.println(filteredByTransport);
         System.out.println();
 
         TravelVoucherService travelVoucherServiceFilteredByTransport = new TravelVoucherService(filteredByTransport);
 
-        TravelVoucher[] filteredByDurationAndTransport = travelVoucherServiceFilteredByTransport.findByDuration(durationToFilter);
-        ArrayUtils.printArray(filteredByDurationAndTransport);
+        ArrayList<TravelVoucher> filteredByDurationAndTransport = travelVoucherServiceFilteredByTransport.findAllByDuration(durationToFilter);
+        System.out.println(filteredByDurationAndTransport);
+        System.out.println();
+
+
+        ArrayList<TravelVoucher> sortedByDuration = travelVoucherService.sortByDuration();
+        System.out.println(sortedByDuration);
+
+        ArrayList<TravelVoucher> sortedByPrice = travelVoucherService.sortByPrice();
+        System.out.println(sortedByPrice);
 
     }
 
