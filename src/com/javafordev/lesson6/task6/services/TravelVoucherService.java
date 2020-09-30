@@ -80,7 +80,7 @@ public class TravelVoucherService implements ITravelVoucherServiceAction {
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
         while (iterator.hasNext()) {
             TravelVoucher currentElement = iterator.next();
-            if (currentElement.getTransportType().equals(travelType)) {
+            if (currentElement.getTravelType().equals(travelType)) {
                 filteredByTravelType.add(currentElement);
             }
         }
@@ -93,7 +93,7 @@ public class TravelVoucherService implements ITravelVoucherServiceAction {
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
         while (iterator.hasNext()) {
             TravelVoucher currentElement = iterator.next();
-            if (currentElement.getDuration() > duration) {
+            if (currentElement.getDuration() >= duration) {
                 filteredByDuration.add(currentElement);
             }
         }
@@ -106,7 +106,7 @@ public class TravelVoucherService implements ITravelVoucherServiceAction {
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
         while (iterator.hasNext()) {
             TravelVoucher currentElement = iterator.next();
-            if (currentElement.getPrice() < travelPrice) {
+            if (currentElement.getPrice() <= travelPrice) {
                 filteredByPrice.add(currentElement);
             }
         }
