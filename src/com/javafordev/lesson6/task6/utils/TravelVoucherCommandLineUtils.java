@@ -35,8 +35,8 @@ public class TravelVoucherCommandLineUtils {
         System.out.println();
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("Введите тип отдыха (доступные варианты - отдых, экскурсии, лечение, шопинг, круиз) : ");
-        String travelVoucherTypeToValidate = scan.next();
+        System.out.print("Введите тип отдыха (доступные варианты : 1 - отдых, 2 - экскурсии, 3 - лечение, 4 - шопинг, 5 - круиз) : ");
+        int travelVoucherTypeToValidate = Integer.parseInt(scan.next());
         UserConstants.setTravelVoucherType(travelVoucherTypeToValidate);
 
         System.out.print("Введите длительность отдыха : ");
@@ -47,12 +47,12 @@ public class TravelVoucherCommandLineUtils {
         double travelVoucherPriceToValidate = Double.parseDouble(scan.next());
         UserConstants.setTravelVoucherPrice(travelVoucherPriceToValidate);
 
-        System.out.print("Введите вид транспорта (доступные варианты - самолёт, корабль, поезд, автобус) : ");
-        String travelVoucherTransportTypeToValidate = scan.next();
+        System.out.print("Введите вид транспорта (доступные варианты : 1-самолёт, 2-корабль, 3-поезд, 4-автобус) : ");
+        int travelVoucherTransportTypeToValidate = Integer.parseInt(scan.next());
         UserConstants.setTravelVoucherTransportType(travelVoucherTransportTypeToValidate);
 
-        System.out.print("Введите вид питания (доступные варианты - всё включено, завтрак, завтрак и ужин) : ");
-        String travelVoucherNutritionTypeToValidate = scan.next();
+        System.out.print("Введите вид питания (доступные варианты : 1-всё включено, 2-завтрак, 3-завтрак и ужин) : ");
+        int travelVoucherNutritionTypeToValidate = Integer.parseInt(scan.next());
         UserConstants.setTravelVoucherNutritionType(travelVoucherNutritionTypeToValidate);
     }
 

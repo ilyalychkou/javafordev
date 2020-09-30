@@ -49,6 +49,7 @@ public class TravelVoucherRunner {
 
         ArrayList<TravelVoucher> sortedByDuration = travelVoucherService.sortByDuration();
         System.out.println("Список путевок отсортированныи по длительности : " + sortedByDuration);
+        System.out.println();
 
         ArrayList<TravelVoucher> sortedByPrice = travelVoucherService.sortByPrice();
         System.out.println("Список путевок отсортированныи по стоимости : " + sortedByPrice);

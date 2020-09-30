@@ -15,6 +15,5 @@ public class PriceTravelComparator implements Comparator<TravelVoucher> {
             returnValue = 1;
         }
         return returnValue;
-
     }
 }

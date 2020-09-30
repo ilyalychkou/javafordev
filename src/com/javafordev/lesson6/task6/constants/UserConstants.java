@@ -25,18 +25,21 @@ public class UserConstants {
         return travelVoucherType;
     }
 
-    public static void setTravelVoucherType(String travelVoucherType) {
+    public static void setTravelVoucherType(int travelVoucherType) {
         switch (travelVoucherType) {
-            case "отдых":
+            case 1:
                 UserConstants.travelVoucherType = TravelType.RECREATION;
                 break;
-            case "экскурсии":
+            case 2:
                 UserConstants.travelVoucherType = TravelType.EXCURSION;
                 break;
-            case "лечение":
+            case 3:
                 UserConstants.travelVoucherType = TravelType.TREATMENT;
                 break;
-            case "круиз":
+            case 4:
+                UserConstants.travelVoucherType = TravelType.SHOPPING;
+                break;
+            case 5:
                 UserConstants.travelVoucherType = TravelType.CRUISE;
                 break;
             default:
@@ -57,18 +60,18 @@ public class UserConstants {
         return travelVoucherTransportType;
     }
 
-    public static void setTravelVoucherTransportType(String travelVoucherTransportType) {
+    public static void setTravelVoucherTransportType(int travelVoucherTransportType) {
         switch (travelVoucherTransportType) {
-            case "самолёт":
+            case 1:
                 UserConstants.travelVoucherTransportType = TransportType.AIRPLANE;
                 break;
-            case "корабль":
+            case 2:
                 UserConstants.travelVoucherTransportType = TransportType.SHIP;
                 break;
-            case "поезд":
+            case 3:
                 UserConstants.travelVoucherTransportType = TransportType.TRAIN;
                 break;
-            case "автобус":
+            case 4:
                 UserConstants.travelVoucherTransportType = TransportType.BUS;
                 break;
             default:
@@ -81,15 +84,15 @@ public class UserConstants {
         return travelVoucherNutritionType;
     }
 
-    public static void setTravelVoucherNutritionType(String travelVoucherNutritionType) {
+    public static void setTravelVoucherNutritionType(int travelVoucherNutritionType) {
         switch (travelVoucherNutritionType) {
-            case "всё включено":
+            case 1:
                 UserConstants.travelVoucherNutritionType = NutritionType.ALL_INCLUSIVE;
                 break;
-            case "завтрак":
+            case 2:
                 UserConstants.travelVoucherNutritionType = NutritionType.BREAKFAST;
                 break;
-            case "завтрак и ужин":
+            case 3:
                 UserConstants.travelVoucherNutritionType = NutritionType.BREAKFAST_AND_SUPPER;
                 break;
             default:
@@ -110,15 +113,15 @@ public class UserConstants {
         return mobileTariffType;
     }
 
-    public static void setMobileTariffType(String mobileTariffType) {
+    public static void setMobileTariffType(int mobileTariffType) {
         switch (mobileTariffType) {
-            case "для смартфонов":
+            case 1:
                 UserConstants.mobileTariffType = MobileTariffType.FOR_SMARTPHONE;
                 break;
-            case "детскии":
+            case 2:
                 UserConstants.mobileTariffType = MobileTariffType.FOR_CHILDREN;
                 break;
-            case "социальныи":
+            case 3:
                 UserConstants.mobileTariffType = MobileTariffType.SOCIAL;
                 break;
             default:

@@ -20,7 +20,6 @@ public class TravelVoucher {
         this.nutritionType = nutritionType;
     }
 
-
     @Override
     public String toString() {
         return "TravelVoucher{" +
@@ -67,7 +66,6 @@ public class TravelVoucher {
     public NutritionType getNutritionType() {
         return nutritionType;
     }
-
 
     public void setNutritionType(NutritionType nutritionType) {
         this.nutritionType = nutritionType;

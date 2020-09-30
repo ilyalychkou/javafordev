@@ -15,7 +15,5 @@ public class SubscriptionFeeComparator implements Comparator<MobileTariff> {
             returnValue = 1;
         }
         return returnValue;
-
     }
-
 }

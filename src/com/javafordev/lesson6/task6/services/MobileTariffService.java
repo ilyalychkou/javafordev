@@ -50,7 +50,7 @@ public class MobileTariffService implements IMobileTariffServiceAction {
     }
 
     @Override
-    public ArrayList<MobileTariff> findAllQuantityOfUsers(int quantityOfUsers) {
+    public ArrayList<MobileTariff> findAllByQuantityOfUsers(int quantityOfUsers) {
         ArrayList<MobileTariff> filteredByQuantityOfUsers = new ArrayList<>();
         Iterator<MobileTariff> iterator = this.getMobileTariffs().iterator();
         while (iterator.hasNext()) {
@@ -86,7 +86,7 @@ public class MobileTariffService implements IMobileTariffServiceAction {
         Iterator<MobileTariff> iterator = this.getMobileTariffs().iterator();
         while (iterator.hasNext()) {
             quantityOfUsers += iterator.next().getQuantityOfUsers();
-            }
+        }
         return quantityOfUsers;
     }
 }

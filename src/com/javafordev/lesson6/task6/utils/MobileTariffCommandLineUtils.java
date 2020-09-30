@@ -13,7 +13,7 @@ public class MobileTariffCommandLineUtils {
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Введите тип мобильного тарифа (1 - для смартфонов, 2 - для детеи, 3 - социальныи) : ");
-        String mobileTariffTypeToValidate = scan.next();
+        int mobileTariffTypeToValidate = Integer.parseInt(scan.next());
         UserConstants.setMobileTariffType(mobileTariffTypeToValidate);
 
         System.out.print("Введите размер абонентскои платы (руб.) : ");
