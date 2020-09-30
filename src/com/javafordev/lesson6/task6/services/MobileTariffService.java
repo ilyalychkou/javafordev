@@ -24,7 +24,7 @@ public class MobileTariffService implements IMobileTariffServiceAction {
     }
 
     @Override
-    public ArrayList<MobileTariff> findAllType(MobileTariffType mobileTariffType) {
+    public ArrayList<MobileTariff> findAllByType(MobileTariffType mobileTariffType) {
         ArrayList<MobileTariff> filteredByMobileTariffType = new ArrayList<>();
         Iterator<MobileTariff> iterator = this.getMobileTariffs().iterator();
         while (iterator.hasNext()) {
@@ -79,5 +79,14 @@ public class MobileTariffService implements IMobileTariffServiceAction {
     public ArrayList<MobileTariff> sortBySubscriptionFee() {
         this.getMobileTariffs().sort(new SubscriptionFeeComparator());
         return this.getMobileTariffs();
+    }
+
+    public int calculateQuantityOfUsers() {
+        int quantityOfUsers = 0;
+        Iterator<MobileTariff> iterator = this.getMobileTariffs().iterator();
+        while (iterator.hasNext()) {
+            quantityOfUsers += iterator.next().getQuantityOfUsers();
+            }
+        return quantityOfUsers;
     }
 }

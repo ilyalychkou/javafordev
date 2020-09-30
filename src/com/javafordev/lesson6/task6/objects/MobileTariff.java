@@ -4,21 +4,26 @@ import com.javafordev.lesson6.task6.constants.MobileTariffType;
 
 public class MobileTariff {
 
-    private String name;
+    private String mobileTariffName;
     private MobileTariffType mobileTariffType;
     private int quantityOfUsers;
     private double subscriptionFee;
-    private double priceForInternationalCall;
-    private double priceForInternationalMessage;
     private int internetTrafficVolume;
 
-    public MobileTariff(String name, int quantityOfUsers, double subscriptionFee, double priceForInternationalCall, double priceForInternationalMessage, int internetTrafficVolume) {
-        this.name = name;
+    public MobileTariff(String name, MobileTariffType mobileTariffType, int quantityOfUsers, double subscriptionFee, int internetTrafficVolume) {
+        this.mobileTariffName = name;
+        this.mobileTariffType = mobileTariffType;
         this.quantityOfUsers = quantityOfUsers;
         this.subscriptionFee = subscriptionFee;
-        this.priceForInternationalCall = priceForInternationalCall;
-        this.priceForInternationalMessage = priceForInternationalMessage;
         this.internetTrafficVolume = internetTrafficVolume;
+    }
+
+    public String getMobileTariffName() {
+        return mobileTariffName;
+    }
+
+    public void setMobileTariffName(String mobileTariffName) {
+        this.mobileTariffName = mobileTariffName;
     }
 
     public double getSubscriptionFee() {
@@ -51,5 +56,16 @@ public class MobileTariff {
 
     public void setInternetTrafficVolume(int internetTrafficVolume) {
         this.internetTrafficVolume = internetTrafficVolume;
+    }
+
+    @Override
+    public String toString() {
+        return "MobileTariff{" +
+                "mobileTariffName='" + mobileTariffName + '\'' +
+                ", mobileTariffType=" + mobileTariffType +
+                ", quantityOfUsers=" + quantityOfUsers +
+                ", subscriptionFee=" + subscriptionFee +
+                ", internetTrafficVolume=" + internetTrafficVolume +
+                '}';
     }
 }

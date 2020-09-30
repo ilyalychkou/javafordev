@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public interface IMobileTariffServiceAction {
 
-    ArrayList<MobileTariff> findAllType(MobileTariffType mobileTariffType);
+    ArrayList<MobileTariff> findAllByType(MobileTariffType mobileTariffType);
     ArrayList<MobileTariff> findAllBySubscriptionFee(double subscriptionFee);
     ArrayList<MobileTariff> findAllQuantityOfUsers(int quantityOfUsers);
     ArrayList<MobileTariff> findInternetTrafficVolume(int internetTrafficVolume);

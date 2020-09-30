@@ -6,19 +6,19 @@ public class UserConstants {
     // данные полученные от пользователя/админа
 
     // статик поля для сервиса MobileTariff
-    public static String mobileTariffType;
-    public static String mobileTariffName;
-    public static double mobileTariffSubscriptionFee;
-    public static int mobileTariffQuantityOfUsers;
-    public static int mobileTariffInternetTrafficVolume;
+    private static MobileTariffType mobileTariffType;
+    private static String mobileTariffName;
+    private static double mobileTariffSubscriptionFee;
+    private static int mobileTariffQuantityOfUsers;
+    private static int mobileTariffInternetTrafficVolume;
 
 
     //статик поля для сервиса TravelVoucher
-    public static TravelType travelVoucherType;
-    public static int travelVoucherDuration;
-    public static double travelVoucherPrice;
-    public static TransportType travelVoucherTransportType;
-    public static NutritionType travelVoucherNutritionType;
+    private static TravelType travelVoucherType;
+    private static int travelVoucherDuration;
+    private static double travelVoucherPrice;
+    private static TransportType travelVoucherTransportType;
+    private static NutritionType travelVoucherNutritionType;
 
 
     public static TravelType getTravelVoucherType() {
@@ -40,7 +40,7 @@ public class UserConstants {
                 UserConstants.travelVoucherType = TravelType.CRUISE;
                 break;
             default:
-                System.out.println("Введен невалидныи тип путешествия");
+                throw new IllegalArgumentException("Введен невалидныи тип путешествия");
         }
 
     }
@@ -72,7 +72,7 @@ public class UserConstants {
                 UserConstants.travelVoucherTransportType = TransportType.BUS;
                 break;
             default:
-                System.out.println("Введен невалидныи тип транспорта");
+                throw new IllegalArgumentException("Введен невалидныи тип транспорта");
         }
 
     }
@@ -93,7 +93,7 @@ public class UserConstants {
                 UserConstants.travelVoucherNutritionType = NutritionType.BREAKFAST_AND_SUPPER;
                 break;
             default:
-                System.out.println("Введен невалидныи тип питания");
+                throw new IllegalArgumentException("Введен невалидныи тип питания");
         }
 
     }
@@ -104,5 +104,57 @@ public class UserConstants {
 
     public static void setTravelVoucherPrice(double travelVoucherPrice) {
         UserConstants.travelVoucherPrice = travelVoucherPrice;
+    }
+
+    public static MobileTariffType getMobileTariffType() {
+        return mobileTariffType;
+    }
+
+    public static void setMobileTariffType(String mobileTariffType) {
+        switch (mobileTariffType) {
+            case "для смартфонов":
+                UserConstants.mobileTariffType = MobileTariffType.FOR_SMARTPHONE;
+                break;
+            case "детскии":
+                UserConstants.mobileTariffType = MobileTariffType.FOR_CHILDREN;
+                break;
+            case "социальныи":
+                UserConstants.mobileTariffType = MobileTariffType.SOCIAL;
+                break;
+            default:
+                throw new IllegalArgumentException("Введен невалидныи тип мобильного тарифа");
+        }
+    }
+
+    public static String getMobileTariffName() {
+        return mobileTariffName;
+    }
+
+    public static void setMobileTariffName(String mobileTariffName) {
+        UserConstants.mobileTariffName = mobileTariffName;
+    }
+
+    public static double getMobileTariffSubscriptionFee() {
+        return mobileTariffSubscriptionFee;
+    }
+
+    public static void setMobileTariffSubscriptionFee(double mobileTariffSubscriptionFee) {
+        UserConstants.mobileTariffSubscriptionFee = mobileTariffSubscriptionFee;
+    }
+
+    public static int getMobileTariffQuantityOfUsers() {
+        return mobileTariffQuantityOfUsers;
+    }
+
+    public static void setMobileTariffQuantityOfUsers(int mobileTariffQuantityOfUsers) {
+        UserConstants.mobileTariffQuantityOfUsers = mobileTariffQuantityOfUsers;
+    }
+
+    public static int getMobileTariffInternetTrafficVolume() {
+        return mobileTariffInternetTrafficVolume;
+    }
+
+    public static void setMobileTariffInternetTrafficVolume(int mobileTariffInternetTrafficVolume) {
+        UserConstants.mobileTariffInternetTrafficVolume = mobileTariffInternetTrafficVolume;
     }
 }
