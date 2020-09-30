@@ -22,9 +22,21 @@ public class TextUtils {
         return text;
     }
 
+    public static String removeRedundantSymbolsAtTheBeginning(String word) {
+        String editedWord;
+        Pattern pattern = Pattern.compile("[(|\\[|{]");
+        Matcher matcher = pattern.matcher(word);
+        if (matcher.find()) {
+            editedWord = word.substring(1, word.length() - 1);
+        } else {
+            editedWord = word;
+        }
+        return editedWord;
+    }
+
     public static String removeRedundantSymbolsAtTheEnd(String word) {
         String editedWord;
-        Pattern pattern = Pattern.compile("[.|,|:|+|$|%|&|^|*|@|!|?]");
+        Pattern pattern = Pattern.compile("[.|,|:|+|$|%|&|^|*|@|!|?|}|\\]|)]");
         Matcher matcher = pattern.matcher(word);
         if (matcher.find()) {
             editedWord = word.substring(0, word.length() - 1);
@@ -38,6 +50,7 @@ public class TextUtils {
         String[] arrayOfWords = text.split(" ");
 
         for (int i = 0; i < arrayOfWords.length; i++) {
+            arrayOfWords[i] = TextUtils.removeRedundantSymbolsAtTheBeginning(arrayOfWords[i].toLowerCase());
             arrayOfWords[i] = TextUtils.removeRedundantSymbolsAtTheEnd(arrayOfWords[i].toLowerCase());
         }
         return new ArrayList<>(Arrays.asList(arrayOfWords));
@@ -62,7 +75,6 @@ public class TextUtils {
         return frequencyDictionary;
     }
 
-
     public static ArrayList<String> removeDuplicates(ArrayList<String> listOfWords) {
         ArrayList<String> listOfWordsWithoutDuplicates = new ArrayList<>();
         for (String element : listOfWords) {
@@ -72,6 +84,4 @@ public class TextUtils {
         }
         return listOfWordsWithoutDuplicates;
     }
-
-
 }
