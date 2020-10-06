@@ -16,10 +16,13 @@ public class TextUtils {
     public static String readTextFromFile(String localPathToFile) throws FileNotFoundException {
         Path filePath = Paths.get(System.getProperty("user.dir"), localPathToFile);
         File file = new File(String.valueOf(filePath));
+        StringBuffer text = new StringBuffer();
         Scanner scanner = new Scanner(file);
-        String text = scanner.nextLine();
+        while (scanner.hasNext()) {
+            text.append(scanner.nextLine());
+        }
         scanner.close();
-        return text;
+        return new String(text);
     }
 
     public static String removeRedundantSymbolsAtTheBeginning(String word) {
