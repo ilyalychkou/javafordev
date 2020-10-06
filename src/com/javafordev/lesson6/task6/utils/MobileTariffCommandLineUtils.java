@@ -1,6 +1,7 @@
 package com.javafordev.lesson6.task6.utils;
 
 import com.javafordev.lesson6.task6.constants.UserConstants;
+import com.javafordev.lesson6.task6.validators.NumberValidator;
 
 import java.util.Scanner;
 
@@ -12,16 +13,16 @@ public class MobileTariffCommandLineUtils {
         System.out.println();
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("Введите тип мобильного тарифа (1 - для смартфонов, 2 - для детеи, 3 - социальныи) : ");
-        int mobileTariffTypeToValidate = Integer.parseInt(scan.next());
+        System.out.print("Введите тип мобильного тарифа (smartphone, child, social) : ");
+        String mobileTariffTypeToValidate = scan.next();
         UserConstants.setMobileTariffType(mobileTariffTypeToValidate);
 
         System.out.print("Введите размер абонентскои платы (руб.) : ");
-        double mobileTariffSubscriptionFeeToValidate = Double.parseDouble(scan.next());
+        double mobileTariffSubscriptionFeeToValidate = NumberValidator.validateSubscriptionFee(scan.next());
         UserConstants.setMobileTariffSubscriptionFee(mobileTariffSubscriptionFeeToValidate);
 
         System.out.print("Введите объем интернет-траффика (Mb) : ");
-        int mobileTariffInternetTrafficVolumeToValidate = Integer.parseInt(scan.next());
+        int mobileTariffInternetTrafficVolumeToValidate = NumberValidator.validateInternetTrafficVolume(scan.next());
         UserConstants.setMobileTariffInternetTrafficVolume(mobileTariffInternetTrafficVolumeToValidate);
     }
 

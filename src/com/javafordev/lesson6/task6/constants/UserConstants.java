@@ -25,25 +25,20 @@ public class UserConstants {
         return travelVoucherType;
     }
 
-    public static void setTravelVoucherType(int travelVoucherType) {
-        switch (travelVoucherType) {
-            case 1:
-                UserConstants.travelVoucherType = TravelType.RECREATION;
-                break;
-            case 2:
-                UserConstants.travelVoucherType = TravelType.EXCURSION;
-                break;
-            case 3:
-                UserConstants.travelVoucherType = TravelType.TREATMENT;
-                break;
-            case 4:
-                UserConstants.travelVoucherType = TravelType.SHOPPING;
-                break;
-            case 5:
-                UserConstants.travelVoucherType = TravelType.CRUISE;
-                break;
-            default:
-                throw new IllegalArgumentException("Введен невалидныи тип путешествия");
+    public static void setTravelVoucherType(String travelVoucherType) {
+        String travelTypeToLowerCase = travelVoucherType.toLowerCase();
+        if (TravelType.RECREATION.getTravelTypeName().equals(travelTypeToLowerCase)) {
+            UserConstants.travelVoucherType = TravelType.RECREATION;
+        } else if (TravelType.EXCURSION.getTravelTypeName().equals(travelTypeToLowerCase)) {
+            UserConstants.travelVoucherType = TravelType.EXCURSION;
+        } else if (TravelType.TREATMENT.getTravelTypeName().equals(travelTypeToLowerCase)) {
+            UserConstants.travelVoucherType = TravelType.TREATMENT;
+        } else if (TravelType.CRUISE.getTravelTypeName().equals(travelTypeToLowerCase)) {
+            UserConstants.travelVoucherType = TravelType.CRUISE;
+        } else if (TravelType.SHOPPING.getTravelTypeName().equals(travelTypeToLowerCase)) {
+            UserConstants.travelVoucherType = TravelType.SHOPPING;
+        } else {
+            throw new IllegalArgumentException("Введен невалидныи тип путешествия");
         }
 
     }
@@ -60,45 +55,38 @@ public class UserConstants {
         return travelVoucherTransportType;
     }
 
-    public static void setTravelVoucherTransportType(int travelVoucherTransportType) {
-        switch (travelVoucherTransportType) {
-            case 1:
-                UserConstants.travelVoucherTransportType = TransportType.AIRPLANE;
-                break;
-            case 2:
-                UserConstants.travelVoucherTransportType = TransportType.SHIP;
-                break;
-            case 3:
-                UserConstants.travelVoucherTransportType = TransportType.TRAIN;
-                break;
-            case 4:
-                UserConstants.travelVoucherTransportType = TransportType.BUS;
-                break;
-            default:
-                throw new IllegalArgumentException("Введен невалидныи тип транспорта");
+    public static void setTravelVoucherTransportType(String travelVoucherTransportType) {
+        String travelVoucherTransportTypeToLowerCase = travelVoucherTransportType.toLowerCase();
+        if (TransportType.AIRPLANE.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
+            UserConstants.travelVoucherTransportType = TransportType.AIRPLANE;
+        } else if (TransportType.SHIP.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
+            UserConstants.travelVoucherTransportType = TransportType.SHIP;
+        } else if (TransportType.TRAIN.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
+            UserConstants.travelVoucherTransportType = TransportType.TRAIN;
+        } else if (TransportType.BUS.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
+            UserConstants.travelVoucherTransportType = TransportType.BUS;
+        } else {
+            throw new IllegalArgumentException("Введен невалидныи тип транспорта");
         }
-
     }
 
     public static NutritionType getTravelVoucherNutritionType() {
         return travelVoucherNutritionType;
     }
 
-    public static void setTravelVoucherNutritionType(int travelVoucherNutritionType) {
-        switch (travelVoucherNutritionType) {
-            case 1:
-                UserConstants.travelVoucherNutritionType = NutritionType.ALL_INCLUSIVE;
-                break;
-            case 2:
-                UserConstants.travelVoucherNutritionType = NutritionType.BREAKFAST;
-                break;
-            case 3:
-                UserConstants.travelVoucherNutritionType = NutritionType.BREAKFAST_AND_SUPPER;
-                break;
-            default:
-                throw new IllegalArgumentException("Введен невалидныи тип питания");
-        }
+    public static void setTravelVoucherNutritionType(String travelVoucherNutritionType) {
 
+        String travelVoucherNutritionTypeToLowerCase = travelVoucherNutritionType.toLowerCase();
+
+        if (NutritionType.ALL_INCLUSIVE.getNutritionTypeName().equals(travelVoucherNutritionTypeToLowerCase)) {
+            UserConstants.travelVoucherNutritionType = NutritionType.ALL_INCLUSIVE;
+        } else if (NutritionType.BREAKFAST.getNutritionTypeName().equals(travelVoucherNutritionTypeToLowerCase)) {
+            UserConstants.travelVoucherNutritionType = NutritionType.BREAKFAST;
+        } else if (NutritionType.BREAKFAST_AND_SUPPER.getNutritionTypeName().equals(travelVoucherNutritionTypeToLowerCase)) {
+            UserConstants.travelVoucherNutritionType = NutritionType.BREAKFAST_AND_SUPPER;
+        } else {
+            throw new IllegalArgumentException("Введен невалидныи тип питания");
+        }
     }
 
     public static double getTravelVoucherPrice() {
@@ -113,20 +101,19 @@ public class UserConstants {
         return mobileTariffType;
     }
 
-    public static void setMobileTariffType(int mobileTariffType) {
-        switch (mobileTariffType) {
-            case 1:
-                UserConstants.mobileTariffType = MobileTariffType.FOR_SMARTPHONE;
-                break;
-            case 2:
-                UserConstants.mobileTariffType = MobileTariffType.FOR_CHILDREN;
-                break;
-            case 3:
-                UserConstants.mobileTariffType = MobileTariffType.SOCIAL;
-                break;
-            default:
-                throw new IllegalArgumentException("Введен невалидныи тип мобильного тарифа");
+    public static void setMobileTariffType(String mobileTariffType) {
+        String mobileTariffTypeToLowerCase = mobileTariffType.toLowerCase();
+
+        if (MobileTariffType.FOR_SMARTPHONE.getMobileTariffName().equals(mobileTariffTypeToLowerCase)) {
+            UserConstants.mobileTariffType = MobileTariffType.FOR_SMARTPHONE;
+        } else if (MobileTariffType.FOR_CHILDREN.getMobileTariffName().equals(mobileTariffTypeToLowerCase)) {
+            UserConstants.mobileTariffType = MobileTariffType.FOR_CHILDREN;
+        } else if (MobileTariffType.SOCIAL.getMobileTariffName().equals(mobileTariffTypeToLowerCase)) {
+            UserConstants.mobileTariffType = MobileTariffType.SOCIAL;
+        } else {
+            throw new IllegalArgumentException("Введен невалидныи тип мобильного тарифа");
         }
+
     }
 
     public static String getMobileTariffName() {

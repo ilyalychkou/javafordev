@@ -48,12 +48,12 @@ public class ListRunner {
         listWithPoem.add("Судьбы скрещенья.");
 
         ListService listService = new ListService(listWithPoem);
-        System.out.println("Исходныи текст стихотворения: ");
+        System.out.println("Исходныи текст стихотворения : ");
         System.out.println();
         listService.printList();
         System.out.println();
 
-        System.out.println("Текст стихотворения после сортировки: ");
+        System.out.println("Текст стихотворения после сортировки по длине строки : ");
         System.out.println();
         ListUtils.sortByLength(listWithPoem);
         listService.printList();
