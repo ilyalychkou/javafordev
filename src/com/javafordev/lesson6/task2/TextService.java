@@ -8,13 +8,13 @@ import java.util.*;
 
 public class TextService {
 
-    private HashMap<String, Integer> frequencyDictionary;
+    private Map<String, Integer> frequencyDictionary;
 
     public TextService(HashMap<String, Integer> frequencyDictionary) {
         this.frequencyDictionary = frequencyDictionary;
     }
 
-    public HashMap<String, Integer> getFrequencyDictionary() {
+    public Map<String, Integer> getFrequencyDictionary() {
         return frequencyDictionary;
     }
 

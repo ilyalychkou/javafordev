@@ -2,6 +2,7 @@ package com.javafordev.lesson6.task5;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * 1. Занести стихотворение в список.
@@ -10,13 +11,13 @@ import java.util.Iterator;
 
 public class ListService {
 
-    ArrayList<String> listOfStrings;
+    List<String> listOfStrings;
 
     public ListService(ArrayList<String> listOfStrings) {
         this.listOfStrings = listOfStrings;
     }
 
-    public ArrayList<String> getListOfStrings() {
+    public List<String> getListOfStrings() {
         return listOfStrings;
     }
 

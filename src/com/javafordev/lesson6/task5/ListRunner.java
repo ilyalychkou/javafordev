@@ -1,5 +1,6 @@
 package com.javafordev.lesson6.task5;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -28,24 +29,10 @@ import java.util.ArrayList;
  */
 
 public class ListRunner {
-    public static void main(String[] args) {
-        ArrayList<String> listWithPoem = new ArrayList<>();
-        listWithPoem.add("Мело, мело по всей земле");
-        listWithPoem.add("Во все пределы.");
-        listWithPoem.add("Свеча горела на столе,");
-        listWithPoem.add("Свеча горела.");
-        listWithPoem.add("Как летом роем мошкара");
-        listWithPoem.add("Летит на пламя,");
-        listWithPoem.add("Слетались хлопья со двора");
-        listWithPoem.add("К оконной раме.");
-        listWithPoem.add("Метель лепила на стекле");
-        listWithPoem.add("Кружки и стрелы.");
-        listWithPoem.add("Свеча горела на столе,");
-        listWithPoem.add("Свеча горела.");
-        listWithPoem.add("На озаренный потолок");
-        listWithPoem.add("Ложились тени,");
-        listWithPoem.add("Скрещенья рук, скрещенья ног,");
-        listWithPoem.add("Судьбы скрещенья.");
+    public static void main(String[] args) throws FileNotFoundException {
+
+        String localPathToFileWithText = "src/com/javafordev/lesson6/task5/FileWithPoem.txt";
+        ArrayList<String> listWithPoem = TextUtils.readTextFromFile(localPathToFileWithText);
 
         ListService listService = new ListService(listWithPoem);
         System.out.println("Исходныи текст стихотворения : ");

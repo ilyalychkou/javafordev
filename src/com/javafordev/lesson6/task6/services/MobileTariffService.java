@@ -42,7 +42,7 @@ public class MobileTariffService implements IMobileTariffServiceAction {
         Iterator<MobileTariff> iterator = this.getMobileTariffs().iterator();
         while (iterator.hasNext()) {
             MobileTariff currentElement = iterator.next();
-            if (currentElement.getSubscriptionFee() <= subscriptionFee) {
+            if (currentElement.getSubscriptionFee() < subscriptionFee) {
                 filteredBySubscriptionFee.add(currentElement);
             }
         }
@@ -55,7 +55,7 @@ public class MobileTariffService implements IMobileTariffServiceAction {
         Iterator<MobileTariff> iterator = this.getMobileTariffs().iterator();
         while (iterator.hasNext()) {
             MobileTariff currentElement = iterator.next();
-            if (currentElement.getQuantityOfUsers() >= quantityOfUsers) {
+            if (currentElement.getQuantityOfUsers() > quantityOfUsers) {
                 filteredByQuantityOfUsers.add(currentElement);
             }
         }

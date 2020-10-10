@@ -1,6 +1,7 @@
 package com.javafordev.lesson6.task3;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 1. Создать коллекцию
@@ -10,13 +11,13 @@ import java.util.ArrayList;
 
 public class RandomNumbersService {
 
-    private ArrayList<Integer> randomNumbersList;
+    private List<Integer> randomNumbersList;
 
     public RandomNumbersService(ArrayList<Integer> randomNumbersList) {
         this.randomNumbersList = randomNumbersList;
     }
 
-    public ArrayList<Integer> getRandomNumbersList() {
+    public List<Integer> getRandomNumbersList() {
         return randomNumbersList;
     }
 

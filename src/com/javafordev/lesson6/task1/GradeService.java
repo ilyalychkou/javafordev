@@ -3,6 +3,7 @@ package com.javafordev.lesson6.task1;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * 1.Создать список оценок учеников с помощью ArrayList, заполнить случаиными числами.
@@ -11,13 +12,13 @@ import java.util.Iterator;
 
 public class GradeService {
 
-    private ArrayList<Integer> gradeList;
+    private List<Integer> gradeList;
 
     public GradeService(ArrayList<Integer> gradeList) {
         this.gradeList = gradeList;
     }
 
-    public ArrayList<Integer> getGradeList() {
+    public List<Integer> getGradeList() {
         return gradeList;
     }
 

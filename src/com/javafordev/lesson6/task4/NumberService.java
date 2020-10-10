@@ -1,7 +1,7 @@
 package com.javafordev.lesson6.task4;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * 1. Не используя вспомогательных объектов, переставить
@@ -9,30 +9,30 @@ import java.util.Collections;
  * положитетельные - в начало
  */
 
-public class NumberService {
+public class NumberService<T> {
 
-    ArrayList<Integer> listOfNumbers;
+    List<Integer> listOfNumbers;
 
-    public NumberService(ArrayList<Integer> listOfNumbers) {
+    public NumberService(List<Integer> listOfNumbers) {
         this.listOfNumbers = listOfNumbers;
     }
 
-    public ArrayList<Integer> getListOfNumbers() {
+    public List<Integer> getListOfNumbers() {
         return listOfNumbers;
     }
 
-    public void setListOfNumbers(ArrayList<Integer> listOfNumbers) {
+    public void setListOfNumbers(List<Integer> listOfNumbers) {
         this.listOfNumbers = listOfNumbers;
     }
 
-    public ArrayList<Integer> movePositiveToHeadAndNegativeToTail() {
-        ArrayList<Integer> convertedList = this.getListOfNumbers();
+    public List<Integer> movePositiveToHeadAndNegativeToTail() {
+        List<Integer> convertedList = this.getListOfNumbers();
         convertedList.sort(new NumberComparator());
         return convertedList;
     }
 
-    public ArrayList<Integer> reverseList() {
-        ArrayList<Integer> convertedList = this.getListOfNumbers();
+    public List<Integer> reverseList() {
+        List<Integer> convertedList = this.getListOfNumbers();
         Collections.sort(convertedList, Collections.reverseOrder());
         return convertedList;
     }
