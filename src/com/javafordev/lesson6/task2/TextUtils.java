@@ -38,16 +38,9 @@ public class TextUtils {
         ArrayList<String> tokens = TextUtils.tokenizeText(text);
         for (String token : tokens) {
             if (token.length() >= 2) {
-                Integer startCount = frequencyDictionary.get(token);
-                Integer finishCount;
-                if (startCount == null) {
-                    finishCount = 1;
-                } else {
-                    finishCount = startCount + 1;
-                }
-                frequencyDictionary.put(token, finishCount);
+                frequencyDictionary.compute(token, (key, value) -> (value == null) ? 1 : value + 1);
             }
         }
-        return frequencyDictionary;
+            return frequencyDictionary;
     }
 }
