@@ -1,5 +1,6 @@
 package com.javafordev.lesson6.task4;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class NumberService<T> {
 
     List<Integer> listOfNumbers;
 
-    public NumberService(List<Integer> listOfNumbers) {
+    public NumberService(ArrayList<Integer> listOfNumbers) {
         this.listOfNumbers = listOfNumbers;
     }
 
