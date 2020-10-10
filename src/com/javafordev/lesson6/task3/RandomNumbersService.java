@@ -1,7 +1,7 @@
 package com.javafordev.lesson6.task3;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 1. Создать коллекцию
@@ -13,7 +13,7 @@ public class RandomNumbersService {
 
     private List<Integer> randomNumbersList;
 
-    public RandomNumbersService(ArrayList<Integer> randomNumbersList) {
+    public RandomNumbersService(List<Integer> randomNumbersList) {
         this.randomNumbersList = randomNumbersList;
     }
 
@@ -21,17 +21,11 @@ public class RandomNumbersService {
         return randomNumbersList;
     }
 
-    public void setRandomNumbersList(ArrayList<Integer> randomNumbersList) {
+    public void setRandomNumbersList(List<Integer> randomNumbersList) {
         this.randomNumbersList = randomNumbersList;
     }
 
-    public ArrayList<Integer> removeDuplicates() {
-        ArrayList<Integer> randomNumbersListWithoutDuplicates = new ArrayList<>();
-        for (Integer element : this.getRandomNumbersList()) {
-            if (!randomNumbersListWithoutDuplicates.contains(element)) {
-                randomNumbersListWithoutDuplicates.add(element);
-            }
-        }
-        return randomNumbersListWithoutDuplicates;
+    public List<Integer> removeDuplicates() {
+        return this.getRandomNumbersList().stream().distinct().collect(Collectors.toList());
     }
 }

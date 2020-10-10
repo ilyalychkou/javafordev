@@ -5,10 +5,11 @@ import com.javafordev.lesson6.task6.constants.TransportType;
 import com.javafordev.lesson6.task6.constants.TravelType;
 import com.javafordev.lesson6.task6.constants.UserConstants;
 import com.javafordev.lesson6.task6.objects.TravelVoucher;
-import com.javafordev.lesson6.task6.services.TravelVoucherService;
+import com.javafordev.lesson6.task6.services.TravelVoucherImplService;
 import com.javafordev.lesson6.task6.utils.TravelVoucherCommandLineUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TravelVoucherRunner {
 
@@ -27,31 +28,31 @@ public class TravelVoucherRunner {
         travelVouchers.add(new TravelVoucher(3, 578.9, TravelType.SHOPPING, TransportType.BUS, NutritionType.BREAKFAST));
         travelVouchers.add(new TravelVoucher(30, 13000.0, TravelType.CRUISE, TransportType.SHIP, NutritionType.ALL_INCLUSIVE));
 
-        TravelVoucherService travelVoucherService = new TravelVoucherService(travelVouchers);
+        TravelVoucherImplService travelVoucherService = new TravelVoucherImplService(travelVouchers);
 
-        ArrayList<TravelVoucher> filteredByDuration = travelVoucherService.findAllByDuration(durationToFilter);
+        List<TravelVoucher> filteredByDuration = travelVoucherService.findAllByDuration(durationToFilter);
         System.out.println("Список путевок длительностью >= заданнои пользователем : " + filteredByDuration);
         System.out.println();
 
-        ArrayList<TravelVoucher> filteredByPrice = travelVoucherService.findAllByPrice(priceToFilter);
+        List<TravelVoucher> filteredByPrice = travelVoucherService.findAllByPrice(priceToFilter);
         System.out.println("Список путевок стоимостью <= заданнои пользователем : " + filteredByPrice);
         System.out.println();
 
-        ArrayList<TravelVoucher> filteredByTransport = travelVoucherService.findAllByTransport(transportToFilter);
+        List<TravelVoucher> filteredByTransport = travelVoucherService.findAllByTransport(transportToFilter);
         System.out.println("Список путевок c типом транспорта, заданным пользователем : " + filteredByTransport);
         System.out.println();
 
-        TravelVoucherService travelVoucherServiceFilteredByTransport = new TravelVoucherService(filteredByTransport);
+        TravelVoucherImplService travelVoucherServiceFilteredByTransport = new TravelVoucherImplService(filteredByTransport);
 
-        ArrayList<TravelVoucher> filteredByDurationAndTransport = travelVoucherServiceFilteredByTransport.findAllByDuration(durationToFilter);
+        List<TravelVoucher> filteredByDurationAndTransport = travelVoucherServiceFilteredByTransport.findAllByDuration(durationToFilter);
         System.out.println("Список путевок c длительноситью  и типом транспорта, заданным пользователем : " + filteredByDurationAndTransport);
         System.out.println();
 
-        ArrayList<TravelVoucher> sortedByDuration = travelVoucherService.sortByDuration();
+        List<TravelVoucher> sortedByDuration = travelVoucherService.sortByDuration();
         System.out.println("Список путевок отсортированныи по длительности : " + sortedByDuration);
         System.out.println();
 
-        ArrayList<TravelVoucher> sortedByPrice = travelVoucherService.sortByPrice();
+        List<TravelVoucher> sortedByPrice = travelVoucherService.sortByPrice();
         System.out.println("Список путевок отсортированныи по стоимости : " + sortedByPrice);
 
     }

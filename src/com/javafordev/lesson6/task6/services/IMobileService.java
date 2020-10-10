@@ -3,7 +3,7 @@ package com.javafordev.lesson6.task6.services;
 import com.javafordev.lesson6.task6.constants.MobileTariffType;
 import com.javafordev.lesson6.task6.objects.MobileTariff;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Доп задание на интерфейс / абстрактный класс:
@@ -29,16 +29,16 @@ import java.util.ArrayList;
  * *          5.4) объем доступного интернет траффика - для пользователя / для админа
  */
 
-public interface IMobileTariffServiceAction {
+public interface IMobileService {
 
-    ArrayList<MobileTariff> findAllByType(MobileTariffType mobileTariffType);
+    List<MobileTariff> findAllByType(MobileTariffType mobileTariffType);
 
-    ArrayList<MobileTariff> findAllBySubscriptionFee(double subscriptionFee);
+    List<MobileTariff> findAllBySubscriptionFee(double subscriptionFee);
 
-    ArrayList<MobileTariff> findAllByQuantityOfUsers(int quantityOfUsers);
+    List<MobileTariff> findAllByQuantityOfUsers(int quantityOfUsers);
 
-    ArrayList<MobileTariff> findInternetTrafficVolume(int internetTrafficVolume);
+    List<MobileTariff> findInternetTrafficVolume(int internetTrafficVolume);
 
-    ArrayList<MobileTariff> sortBySubscriptionFee();
+    List<MobileTariff> sortBySubscriptionFee();
 
 }

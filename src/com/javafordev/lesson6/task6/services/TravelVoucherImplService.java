@@ -9,6 +9,7 @@ import com.javafordev.lesson6.task6.objects.TravelVoucher;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Доп задание на интерфейс / абстрактный класс:
@@ -46,25 +47,25 @@ import java.util.Iterator;
  * 1. Выберите тип сервиса (1 - туристические путевки, 2 - мобильная связь)
  */
 
-public class TravelVoucherService implements ITravelVoucherServiceAction {
+public class TravelVoucherImplService implements ITravelService {
 
-    private ArrayList<TravelVoucher> travelVouchers;
+    private List<TravelVoucher> travelVouchers;
 
-    public TravelVoucherService(ArrayList<TravelVoucher> travelVouchers) {
+    public TravelVoucherImplService(List<TravelVoucher> travelVouchers) {
         this.travelVouchers = travelVouchers;
     }
 
-    public ArrayList<TravelVoucher> getTravelVouchers() {
+    public List<TravelVoucher> getTravelVouchers() {
         return travelVouchers;
     }
 
-    public void setTravelVouchers(ArrayList<TravelVoucher> travelVouchers) {
+    public void setTravelVouchers(List<TravelVoucher> travelVouchers) {
         this.travelVouchers = travelVouchers;
     }
 
-
-    public ArrayList<TravelVoucher> findAllByTransport(TransportType transportType) {
-        ArrayList<TravelVoucher> filteredByTransport = new ArrayList<>();
+    @Override
+    public List<TravelVoucher> findAllByTransport(TransportType transportType) {
+        List<TravelVoucher> filteredByTransport = new ArrayList<>();
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
         while (iterator.hasNext()) {
             TravelVoucher currentElement = iterator.next();
@@ -75,8 +76,9 @@ public class TravelVoucherService implements ITravelVoucherServiceAction {
         return filteredByTransport;
     }
 
-    public ArrayList<TravelVoucher> findAllByTravelType(TravelType travelType) {
-        ArrayList<TravelVoucher> filteredByTravelType = new ArrayList<>();
+    @Override
+    public List<TravelVoucher> findAllByTravelType(TravelType travelType) {
+        List<TravelVoucher> filteredByTravelType = new ArrayList<>();
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
         while (iterator.hasNext()) {
             TravelVoucher currentElement = iterator.next();
@@ -87,9 +89,9 @@ public class TravelVoucherService implements ITravelVoucherServiceAction {
         return filteredByTravelType;
     }
 
-
-    public ArrayList<TravelVoucher> findAllByDuration(int duration) {
-        ArrayList<TravelVoucher> filteredByDuration = new ArrayList<>();
+    @Override
+    public List<TravelVoucher> findAllByDuration(int duration) {
+        List<TravelVoucher> filteredByDuration = new ArrayList<>();
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
         while (iterator.hasNext()) {
             TravelVoucher currentElement = iterator.next();
@@ -101,8 +103,8 @@ public class TravelVoucherService implements ITravelVoucherServiceAction {
     }
 
     @Override
-    public ArrayList<TravelVoucher> findAllByPrice(double travelPrice) {
-        ArrayList<TravelVoucher> filteredByPrice = new ArrayList<>();
+    public List<TravelVoucher> findAllByPrice(double travelPrice) {
+        List<TravelVoucher> filteredByPrice = new ArrayList<>();
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
         while (iterator.hasNext()) {
             TravelVoucher currentElement = iterator.next();
@@ -114,8 +116,8 @@ public class TravelVoucherService implements ITravelVoucherServiceAction {
     }
 
 
-    public ArrayList<TravelVoucher> findAllByNutrition(NutritionType nutritionType) {
-        ArrayList<TravelVoucher> filteredByNutrition = new ArrayList<>();
+    public List<TravelVoucher> findAllByNutrition(NutritionType nutritionType) {
+        List<TravelVoucher> filteredByNutrition = new ArrayList<>();
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
         while (iterator.hasNext()) {
             TravelVoucher currentElement = iterator.next();
@@ -127,13 +129,13 @@ public class TravelVoucherService implements ITravelVoucherServiceAction {
     }
 
     @Override
-    public ArrayList<TravelVoucher> sortByDuration() {
+    public List<TravelVoucher> sortByDuration() {
         this.getTravelVouchers().sort(new DurationTravelComparator());
         return this.getTravelVouchers();
     }
 
     @Override
-    public ArrayList<TravelVoucher> sortByPrice() {
+    public List<TravelVoucher> sortByPrice() {
         this.getTravelVouchers().sort(new PriceTravelComparator());
         return this.getTravelVouchers();
     }

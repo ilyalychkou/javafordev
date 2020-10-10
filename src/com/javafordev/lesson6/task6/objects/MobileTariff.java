@@ -59,6 +59,34 @@ public class MobileTariff {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MobileTariff that = (MobileTariff) o;
+
+        if (quantityOfUsers != that.quantityOfUsers) return false;
+        if (Double.compare(that.subscriptionFee, subscriptionFee) != 0) return false;
+        if (internetTrafficVolume != that.internetTrafficVolume) return false;
+        if (mobileTariffName != null ? !mobileTariffName.equals(that.mobileTariffName) : that.mobileTariffName != null)
+            return false;
+        return mobileTariffType == that.mobileTariffType;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = mobileTariffName != null ? mobileTariffName.hashCode() : 0;
+        result = 31 * result + (mobileTariffType != null ? mobileTariffType.hashCode() : 0);
+        result = 31 * result + quantityOfUsers;
+        temp = Double.doubleToLongBits(subscriptionFee);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + internetTrafficVolume;
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "MobileTariff{" +
                 "mobileTariffName='" + mobileTariffName + '\'' +

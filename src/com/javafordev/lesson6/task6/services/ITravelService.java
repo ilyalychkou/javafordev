@@ -5,7 +5,7 @@ import com.javafordev.lesson6.task6.constants.TransportType;
 import com.javafordev.lesson6.task6.constants.TravelType;
 import com.javafordev.lesson6.task6.objects.TravelVoucher;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Доп задание на интерфейс / абстрактный класс:
@@ -24,20 +24,20 @@ import java.util.ArrayList;
  * 3) Реализовать выбор и сортировку путевок.
  */
 
-public interface ITravelVoucherServiceAction {
+public interface ITravelService<T> {
 
-    ArrayList<TravelVoucher> findAllByTransport(TransportType transportType);
+    List<TravelVoucher> findAllByTransport(TransportType transportType);
 
-    ArrayList<TravelVoucher> findAllByDuration(int duration);
+    List<TravelVoucher> findAllByDuration(int duration);
 
-    ArrayList<TravelVoucher> findAllByPrice(double travelPrice);
+    List<TravelVoucher> findAllByPrice(double travelPrice);
 
-    ArrayList<TravelVoucher> findAllByNutrition(NutritionType nutritionType);
+    List<TravelVoucher> findAllByNutrition(NutritionType nutritionType);
 
-    ArrayList<TravelVoucher> findAllByTravelType(TravelType travelType);
+    List<TravelVoucher> findAllByTravelType(TravelType travelType);
 
-    ArrayList<TravelVoucher> sortByDuration();
+    List<TravelVoucher> sortByDuration();
 
-    ArrayList<TravelVoucher> sortByPrice();
+    List<TravelVoucher> sortByPrice();
 
 }

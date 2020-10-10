@@ -31,6 +31,33 @@ public class TravelVoucher {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TravelVoucher that = (TravelVoucher) o;
+
+        if (duration != that.duration) return false;
+        if (Double.compare(that.price, price) != 0) return false;
+        if (travelType != that.travelType) return false;
+        if (transportType != that.transportType) return false;
+        return nutritionType == that.nutritionType;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = duration;
+        temp = Double.doubleToLongBits(price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (travelType != null ? travelType.hashCode() : 0);
+        result = 31 * result + (transportType != null ? transportType.hashCode() : 0);
+        result = 31 * result + (nutritionType != null ? nutritionType.hashCode() : 0);
+        return result;
+    }
+
     public int getDuration() {
         return duration;
     }

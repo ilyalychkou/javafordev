@@ -28,15 +28,15 @@ public class UserConstants {
     public static void setTravelVoucherType(String travelVoucherType) {
         String travelTypeToLowerCase = travelVoucherType.toLowerCase();
         if (TravelType.RECREATION.getTravelTypeName().equals(travelTypeToLowerCase)) {
-            UserConstants.travelVoucherType = TravelType.RECREATION;
+            UserConstants.travelVoucherType = TravelType.valueOf("RECREATION");
         } else if (TravelType.EXCURSION.getTravelTypeName().equals(travelTypeToLowerCase)) {
-            UserConstants.travelVoucherType = TravelType.EXCURSION;
+            UserConstants.travelVoucherType = TravelType.valueOf("EXCURSION");
         } else if (TravelType.TREATMENT.getTravelTypeName().equals(travelTypeToLowerCase)) {
-            UserConstants.travelVoucherType = TravelType.TREATMENT;
+            UserConstants.travelVoucherType = TravelType.valueOf("TREATMENT");
         } else if (TravelType.CRUISE.getTravelTypeName().equals(travelTypeToLowerCase)) {
-            UserConstants.travelVoucherType = TravelType.CRUISE;
+            UserConstants.travelVoucherType = TravelType.valueOf("CRUISE");
         } else if (TravelType.SHOPPING.getTravelTypeName().equals(travelTypeToLowerCase)) {
-            UserConstants.travelVoucherType = TravelType.SHOPPING;
+            UserConstants.travelVoucherType = TravelType.valueOf("SHOPPING");
         } else {
             throw new IllegalArgumentException("Введен невалидныи тип путешествия");
         }
@@ -58,13 +58,13 @@ public class UserConstants {
     public static void setTravelVoucherTransportType(String travelVoucherTransportType) {
         String travelVoucherTransportTypeToLowerCase = travelVoucherTransportType.toLowerCase();
         if (TransportType.AIRPLANE.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
-            UserConstants.travelVoucherTransportType = TransportType.AIRPLANE;
+            UserConstants.travelVoucherTransportType = TransportType.valueOf("AIRPLANE");
         } else if (TransportType.SHIP.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
-            UserConstants.travelVoucherTransportType = TransportType.SHIP;
+            UserConstants.travelVoucherTransportType = TransportType.valueOf("SHIP");
         } else if (TransportType.TRAIN.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
-            UserConstants.travelVoucherTransportType = TransportType.TRAIN;
+            UserConstants.travelVoucherTransportType = TransportType.valueOf("TRAIN");
         } else if (TransportType.BUS.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
-            UserConstants.travelVoucherTransportType = TransportType.BUS;
+            UserConstants.travelVoucherTransportType = TransportType.valueOf("BUS");
         } else {
             throw new IllegalArgumentException("Введен невалидныи тип транспорта");
         }
@@ -77,13 +77,12 @@ public class UserConstants {
     public static void setTravelVoucherNutritionType(String travelVoucherNutritionType) {
 
         String travelVoucherNutritionTypeToLowerCase = travelVoucherNutritionType.toLowerCase();
-
         if (NutritionType.ALL_INCLUSIVE.getNutritionTypeName().equals(travelVoucherNutritionTypeToLowerCase)) {
-            UserConstants.travelVoucherNutritionType = NutritionType.ALL_INCLUSIVE;
+            UserConstants.travelVoucherNutritionType = NutritionType.valueOf("ALL_INCLUSIVE");
         } else if (NutritionType.BREAKFAST.getNutritionTypeName().equals(travelVoucherNutritionTypeToLowerCase)) {
-            UserConstants.travelVoucherNutritionType = NutritionType.BREAKFAST;
+            UserConstants.travelVoucherNutritionType = NutritionType.valueOf("BREAKFAST");
         } else if (NutritionType.BREAKFAST_AND_SUPPER.getNutritionTypeName().equals(travelVoucherNutritionTypeToLowerCase)) {
-            UserConstants.travelVoucherNutritionType = NutritionType.BREAKFAST_AND_SUPPER;
+            UserConstants.travelVoucherNutritionType = NutritionType.valueOf("BREAKFAST_AND_SUPPER");
         } else {
             throw new IllegalArgumentException("Введен невалидныи тип питания");
         }
@@ -104,12 +103,13 @@ public class UserConstants {
     public static void setMobileTariffType(String mobileTariffType) {
         String mobileTariffTypeToLowerCase = mobileTariffType.toLowerCase();
 
+
         if (MobileTariffType.FOR_SMARTPHONE.getMobileTariffName().equals(mobileTariffTypeToLowerCase)) {
-            UserConstants.mobileTariffType = MobileTariffType.FOR_SMARTPHONE;
+            UserConstants.mobileTariffType = MobileTariffType.valueOf("FOR_SMARTPHONE");
         } else if (MobileTariffType.FOR_CHILDREN.getMobileTariffName().equals(mobileTariffTypeToLowerCase)) {
-            UserConstants.mobileTariffType = MobileTariffType.FOR_CHILDREN;
+            UserConstants.mobileTariffType = MobileTariffType.valueOf("FOR_CHILDREN");
         } else if (MobileTariffType.SOCIAL.getMobileTariffName().equals(mobileTariffTypeToLowerCase)) {
-            UserConstants.mobileTariffType = MobileTariffType.SOCIAL;
+            UserConstants.mobileTariffType = MobileTariffType.valueOf("SOCIAL");
         } else {
             throw new IllegalArgumentException("Введен невалидныи тип мобильного тарифа");
         }

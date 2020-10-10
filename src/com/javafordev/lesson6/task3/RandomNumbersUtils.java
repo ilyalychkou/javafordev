@@ -6,8 +6,8 @@ public class RandomNumbersUtils {
 
     public static int generateRandomNumber() {
 
-        int min = 124;
-        int max = 463;
+        int min = 10;
+        int max = 25;
         int diff = max - min;
         Random random = new Random();
         int randomNumber = random.nextInt(diff+1);

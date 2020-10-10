@@ -6,26 +6,27 @@ import com.javafordev.lesson6.task6.objects.MobileTariff;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
-public class MobileTariffService implements IMobileTariffServiceAction {
+public class MobileTariffImplService implements IMobileService {
 
-    private ArrayList<MobileTariff> mobileTariffs;
+    private List<MobileTariff> mobileTariffs;
 
-    public MobileTariffService(ArrayList<MobileTariff> mobileTariffs) {
+    public MobileTariffImplService(List<MobileTariff> mobileTariffs) {
         this.mobileTariffs = mobileTariffs;
     }
 
-    public ArrayList<MobileTariff> getMobileTariffs() {
+    public List<MobileTariff> getMobileTariffs() {
         return mobileTariffs;
     }
 
-    public void setMobileTariffs(ArrayList<MobileTariff> mobileTariffs) {
+    public void setMobileTariffs(List<MobileTariff> mobileTariffs) {
         this.mobileTariffs = mobileTariffs;
     }
 
     @Override
-    public ArrayList<MobileTariff> findAllByType(MobileTariffType mobileTariffType) {
-        ArrayList<MobileTariff> filteredByMobileTariffType = new ArrayList<>();
+    public List<MobileTariff> findAllByType(MobileTariffType mobileTariffType) {
+        List<MobileTariff> filteredByMobileTariffType = new ArrayList<>();
         Iterator<MobileTariff> iterator = this.getMobileTariffs().iterator();
         while (iterator.hasNext()) {
             MobileTariff currentElement = iterator.next();
@@ -37,8 +38,8 @@ public class MobileTariffService implements IMobileTariffServiceAction {
     }
 
     @Override
-    public ArrayList<MobileTariff> findAllBySubscriptionFee(double subscriptionFee) {
-        ArrayList<MobileTariff> filteredBySubscriptionFee = new ArrayList<>();
+    public List<MobileTariff> findAllBySubscriptionFee(double subscriptionFee) {
+        List<MobileTariff> filteredBySubscriptionFee = new ArrayList<>();
         Iterator<MobileTariff> iterator = this.getMobileTariffs().iterator();
         while (iterator.hasNext()) {
             MobileTariff currentElement = iterator.next();
@@ -50,8 +51,8 @@ public class MobileTariffService implements IMobileTariffServiceAction {
     }
 
     @Override
-    public ArrayList<MobileTariff> findAllByQuantityOfUsers(int quantityOfUsers) {
-        ArrayList<MobileTariff> filteredByQuantityOfUsers = new ArrayList<>();
+    public List<MobileTariff> findAllByQuantityOfUsers(int quantityOfUsers) {
+        List<MobileTariff> filteredByQuantityOfUsers = new ArrayList<>();
         Iterator<MobileTariff> iterator = this.getMobileTariffs().iterator();
         while (iterator.hasNext()) {
             MobileTariff currentElement = iterator.next();
@@ -63,8 +64,8 @@ public class MobileTariffService implements IMobileTariffServiceAction {
     }
 
     @Override
-    public ArrayList<MobileTariff> findInternetTrafficVolume(int internetTrafficVolume) {
-        ArrayList<MobileTariff> filteredByInternetTrafficVolume = new ArrayList<>();
+    public List<MobileTariff> findInternetTrafficVolume(int internetTrafficVolume) {
+        List<MobileTariff> filteredByInternetTrafficVolume = new ArrayList<>();
         Iterator<MobileTariff> iterator = this.getMobileTariffs().iterator();
         while (iterator.hasNext()) {
             MobileTariff currentElement = iterator.next();
@@ -76,7 +77,7 @@ public class MobileTariffService implements IMobileTariffServiceAction {
     }
 
     @Override
-    public ArrayList<MobileTariff> sortBySubscriptionFee() {
+    public List<MobileTariff> sortBySubscriptionFee() {
         this.getMobileTariffs().sort(new SubscriptionFeeComparator());
         return this.getMobileTariffs();
     }
