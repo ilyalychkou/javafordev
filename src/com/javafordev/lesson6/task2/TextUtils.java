@@ -5,11 +5,9 @@ import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.StringTokenizer;
 
 public class TextUtils {
 
@@ -25,66 +23,31 @@ public class TextUtils {
         return new String(text);
     }
 
-    public static String removeRedundantSymbolsAtTheBeginning(String word) {
-        String editedWord;
-        Pattern pattern = Pattern.compile("[(|\\[|{]");
-        Matcher matcher = pattern.matcher(word);
-        if (matcher.find()) {
-            editedWord = word.substring(1, word.length() - 1);
-        } else {
-            editedWord = word;
+    public static ArrayList<String> tokenizeText(String text) {
+
+        ArrayList<String> tokens = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(text, " .,:+$%&^*@!?{}[]()");
+        while (tokenizer.hasMoreElements()) {
+            tokens.add(tokenizer.nextToken());
         }
-        return editedWord;
+        return tokens;
     }
 
-    public static String removeRedundantSymbolsAtTheEnd(String word) {
-        String editedWord;
-        Pattern pattern = Pattern.compile("[.|,|:|+|$|%|&|^|*|@|!|?|}|\\]|)]");
-        Matcher matcher = pattern.matcher(word);
-        if (matcher.find()) {
-            editedWord = word.substring(0, word.length() - 1);
-        } else {
-            editedWord = word;
-        }
-        return editedWord;
-    }
-
-    public static ArrayList<String> fillListByWords(String text) {
-        String[] arrayOfWords = text.split(" ");
-
-        for (int i = 0; i < arrayOfWords.length; i++) {
-            arrayOfWords[i] = TextUtils.removeRedundantSymbolsAtTheBeginning(arrayOfWords[i].toLowerCase());
-            arrayOfWords[i] = TextUtils.removeRedundantSymbolsAtTheEnd(arrayOfWords[i].toLowerCase());
-        }
-        return new ArrayList<>(Arrays.asList(arrayOfWords));
-    }
-
-    public static HashMap<String, Integer> createFrequencyDictionary(String text, ArrayList<String> words) {
-        int listOfWordsSize = words.size();
+    public static HashMap<String, Integer> createFrequencyDictionary(String text) {
         HashMap<String, Integer> frequencyDictionary = new HashMap<>();
-        Pattern[] patterns = new Pattern[listOfWordsSize];
-        Matcher[] matchers = new Matcher[listOfWordsSize];
-        int[] countOfOccurrences = new int[listOfWordsSize];
-
-        for (int i = 0; i < words.size(); i++) {
-            countOfOccurrences[i] = 0;
-            patterns[i] = Pattern.compile(TextValidator.validateString(words.get(i).toLowerCase()));
-            matchers[i] = patterns[i].matcher(text.toLowerCase());
-            while (matchers[i].find()) {
-                countOfOccurrences[i]++;
+        ArrayList<String> tokens = TextUtils.tokenizeText(text);
+        for (String token : tokens) {
+            if (token.length() >= 2) {
+                Integer startCount = frequencyDictionary.get(token);
+                Integer finishCount;
+                if (startCount == null) {
+                    finishCount = 1;
+                } else {
+                    finishCount = startCount + 1;
+                }
+                frequencyDictionary.put(token, finishCount);
             }
-            frequencyDictionary.put(words.get(i), countOfOccurrences[i]);
         }
         return frequencyDictionary;
-    }
-
-    public static ArrayList<String> removeDuplicates(ArrayList<String> listOfWords) {
-        ArrayList<String> listOfWordsWithoutDuplicates = new ArrayList<>();
-        for (String element : listOfWords) {
-            if (!listOfWordsWithoutDuplicates.contains(element)) {
-                listOfWordsWithoutDuplicates.add(element);
-            }
-        }
-        return listOfWordsWithoutDuplicates;
     }
 }
