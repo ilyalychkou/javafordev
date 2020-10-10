@@ -13,6 +13,6 @@ public class GradeRunner {
         }
 
         System.out.println("Список рандомных оценок : " + gradeList);
-        System.out.println("Максимальная оценка, наиденная с помощью итератора : " + GradeUtils.findMaxGrade(gradeList));
+        System.out.println("Максимальная оценка : " + GradeUtils.findMaxGrade(gradeList));
     }
 }
