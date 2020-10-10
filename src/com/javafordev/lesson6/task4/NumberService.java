@@ -1,6 +1,7 @@
 package com.javafordev.lesson6.task4;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * 1. Не используя вспомогательных объектов, переставить
@@ -27,6 +28,12 @@ public class NumberService {
     public ArrayList<Integer> movePositiveToHeadAndNegativeToTail() {
         ArrayList<Integer> convertedList = this.getListOfNumbers();
         convertedList.sort(new NumberComparator());
+        return convertedList;
+    }
+
+    public ArrayList<Integer> reverseList() {
+        ArrayList<Integer> convertedList = this.getListOfNumbers();
+        Collections.sort(convertedList, Collections.reverseOrder());
         return convertedList;
     }
 }
