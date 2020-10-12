@@ -1,4 +1,4 @@
-package com.javafordev.lesson6.task6.objects;
+package com.javafordev.lesson6.task6.objects.mobile;
 
 import com.javafordev.lesson6.task6.constants.MobileTariffType;
 

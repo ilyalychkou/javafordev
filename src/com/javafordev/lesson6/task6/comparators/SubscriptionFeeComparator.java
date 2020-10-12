@@ -1,6 +1,6 @@
 package com.javafordev.lesson6.task6.comparators;
 
-import com.javafordev.lesson6.task6.objects.MobileTariff;
+import com.javafordev.lesson6.task6.objects.mobile.MobileTariff;
 
 import java.util.Comparator;
 

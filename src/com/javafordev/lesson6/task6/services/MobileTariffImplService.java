@@ -2,7 +2,7 @@ package com.javafordev.lesson6.task6.services;
 
 import com.javafordev.lesson6.task6.comparators.SubscriptionFeeComparator;
 import com.javafordev.lesson6.task6.constants.MobileTariffType;
-import com.javafordev.lesson6.task6.objects.MobileTariff;
+import com.javafordev.lesson6.task6.objects.mobile.MobileTariff;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -78,7 +78,18 @@ public class MobileTariffImplService implements IMobileService {
 
     @Override
     public List<MobileTariff> sortBySubscriptionFee() {
-        this.getMobileTariffs().sort(new SubscriptionFeeComparator());
+        this.getMobileTariffs().sort(new SubscriptionFeeComparator() {
+            @Override
+            public int compare(MobileTariff o1, MobileTariff o2) {
+                int returnValue = 0;
+                if (o1.getSubscriptionFee() < o2.getSubscriptionFee()) {
+                    returnValue = -1;
+                } else if (o1.getSubscriptionFee() > o2.getSubscriptionFee()) {
+                    returnValue = 1;
+                }
+                return returnValue;
+            }
+        });
         return this.getMobileTariffs();
     }
 

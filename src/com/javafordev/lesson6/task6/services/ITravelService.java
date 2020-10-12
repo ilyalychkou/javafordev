@@ -1,11 +1,66 @@
 package com.javafordev.lesson6.task6.services;
 
-import com.javafordev.lesson6.task6.constants.NutritionType;
-import com.javafordev.lesson6.task6.constants.TransportType;
-import com.javafordev.lesson6.task6.constants.TravelType;
-import com.javafordev.lesson6.task6.objects.TravelVoucher;
+import com.javafordev.lesson6.task6.objects.travel.options.Nutrition;
+import com.javafordev.lesson6.task6.objects.travel.options.Transport;
+import com.javafordev.lesson6.task6.objects.travel.vouchers.TravelVoucher;
 
 import java.util.List;
+
+
+/**
+ суперкласс TravelVoucherOption
+ имя
+ стоимость
+ количество туристов
+ подкласс Transport
+ дни выезда (отправления)
+ > AirTransport
+ >>Plane
+ номер реиса
+ тип самолета
+ тип салона
+ >>AirBalloon
+ тип шара
+ тип корзины
+ вместительность корзины
+ > WaterTransport
+ >>Ship
+ тип судна
+ номер палубы
+ >>Kayak
+ тип баидарки
+ материал баидарки
+ количество мест
+ > LandTransport
+ >>Bus
+ марка автобуса
+ этажность автобуса
+ >>Train
+ тип вагона
+ >>Bike
+ тип велосипеда
+ подкласс TravelType
+ длительность
+ страна пребывания
+ >Recreation
+ расстояние до пляжа
+ >Excursion
+ тема экскурсии
+ тип обьекта
+ >Treatment
+ тип лечебного заведения
+ вид процедуры
+ >Shopping
+ список магазинов
+ вид товаров
+ >Cruise
+ тип круиза
+ регион круиза
+ подкласс Nutrition
+ тип питания
+ вид кухни
+
+ */
 
 /**
  * Доп задание на интерфейс / абстрактный класс:
@@ -26,15 +81,13 @@ import java.util.List;
 
 public interface ITravelService<T> {
 
-    List<TravelVoucher> findAllByTransport(TransportType transportType);
+    List<TravelVoucher> findAllByTransport(Transport transport);
+
+    List<TravelVoucher> findAllByNutrition(Nutrition nutrition);
 
     List<TravelVoucher> findAllByDuration(int duration);
 
-    List<TravelVoucher> findAllByPrice(double travelPrice);
-
-    List<TravelVoucher> findAllByNutrition(NutritionType nutritionType);
-
-    List<TravelVoucher> findAllByTravelType(TravelType travelType);
+    List<TravelVoucher> findAllByPrice(double price);
 
     List<TravelVoucher> sortByDuration();
 

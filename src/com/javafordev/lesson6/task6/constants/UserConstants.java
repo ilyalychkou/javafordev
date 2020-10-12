@@ -2,6 +2,9 @@ package com.javafordev.lesson6.task6.constants;
 //самолёт, корабль, поезд, автобус
 //всё включено, завтрак, завтрак и ужин
 
+import com.javafordev.lesson6.task6.objects.travel.options.Nutrition;
+import com.javafordev.lesson6.task6.objects.travel.options.Transport;
+
 public class UserConstants {
     // данные полученные от пользователя/админа
 
@@ -14,34 +17,12 @@ public class UserConstants {
 
 
     //статик поля для сервиса TravelVoucher
-    private static TravelType travelVoucherType;
     private static int travelVoucherDuration;
     private static double travelVoucherPrice;
-    private static TransportType travelVoucherTransportType;
-    private static NutritionType travelVoucherNutritionType;
+    private static Transport travelVoucherTransportType;
+    private static Nutrition travelVoucherNutritionType;
 
 
-    public static TravelType getTravelVoucherType() {
-        return travelVoucherType;
-    }
-
-    public static void setTravelVoucherType(String travelVoucherType) {
-        String travelTypeToLowerCase = travelVoucherType.toLowerCase();
-        if (TravelType.RECREATION.getTravelTypeName().equals(travelTypeToLowerCase)) {
-            UserConstants.travelVoucherType = TravelType.valueOf("RECREATION");
-        } else if (TravelType.EXCURSION.getTravelTypeName().equals(travelTypeToLowerCase)) {
-            UserConstants.travelVoucherType = TravelType.valueOf("EXCURSION");
-        } else if (TravelType.TREATMENT.getTravelTypeName().equals(travelTypeToLowerCase)) {
-            UserConstants.travelVoucherType = TravelType.valueOf("TREATMENT");
-        } else if (TravelType.CRUISE.getTravelTypeName().equals(travelTypeToLowerCase)) {
-            UserConstants.travelVoucherType = TravelType.valueOf("CRUISE");
-        } else if (TravelType.SHOPPING.getTravelTypeName().equals(travelTypeToLowerCase)) {
-            UserConstants.travelVoucherType = TravelType.valueOf("SHOPPING");
-        } else {
-            throw new IllegalArgumentException("Введен невалидныи тип путешествия");
-        }
-
-    }
 
     public static int getTravelVoucherDuration() {
         return travelVoucherDuration;
@@ -51,38 +32,38 @@ public class UserConstants {
         UserConstants.travelVoucherDuration = travelVoucherDuration;
     }
 
-    public static TransportType getTravelVoucherTransportType() {
+    public static Transport getTravelVoucherTransportType() {
         return travelVoucherTransportType;
     }
 
     public static void setTravelVoucherTransportType(String travelVoucherTransportType) {
         String travelVoucherTransportTypeToLowerCase = travelVoucherTransportType.toLowerCase();
-        if (TransportType.AIRPLANE.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
-            UserConstants.travelVoucherTransportType = TransportType.valueOf("AIRPLANE");
-        } else if (TransportType.SHIP.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
-            UserConstants.travelVoucherTransportType = TransportType.valueOf("SHIP");
-        } else if (TransportType.TRAIN.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
-            UserConstants.travelVoucherTransportType = TransportType.valueOf("TRAIN");
-        } else if (TransportType.BUS.getTransportTypeName().equals(travelVoucherTransportTypeToLowerCase)) {
-            UserConstants.travelVoucherTransportType = TransportType.valueOf("BUS");
+        if (Transport.AIRPLANE.getTransportName().equals(travelVoucherTransportTypeToLowerCase)) {
+            UserConstants.travelVoucherTransportType = Transport.valueOf("AIRPLANE");
+        } else if (Transport.SHIP.getTransportName().equals(travelVoucherTransportTypeToLowerCase)) {
+            UserConstants.travelVoucherTransportType = Transport.valueOf("SHIP");
+        } else if (Transport.TRAIN.getTransportName().equals(travelVoucherTransportTypeToLowerCase)) {
+            UserConstants.travelVoucherTransportType = Transport.valueOf("TRAIN");
+        } else if (Transport.BUS.getTransportName().equals(travelVoucherTransportTypeToLowerCase)) {
+            UserConstants.travelVoucherTransportType = Transport.valueOf("BUS");
         } else {
             throw new IllegalArgumentException("Введен невалидныи тип транспорта");
         }
     }
 
-    public static NutritionType getTravelVoucherNutritionType() {
+    public static Nutrition getTravelVoucherNutritionType() {
         return travelVoucherNutritionType;
     }
 
     public static void setTravelVoucherNutritionType(String travelVoucherNutritionType) {
 
         String travelVoucherNutritionTypeToLowerCase = travelVoucherNutritionType.toLowerCase();
-        if (NutritionType.ALL_INCLUSIVE.getNutritionTypeName().equals(travelVoucherNutritionTypeToLowerCase)) {
-            UserConstants.travelVoucherNutritionType = NutritionType.valueOf("ALL_INCLUSIVE");
-        } else if (NutritionType.BREAKFAST.getNutritionTypeName().equals(travelVoucherNutritionTypeToLowerCase)) {
-            UserConstants.travelVoucherNutritionType = NutritionType.valueOf("BREAKFAST");
-        } else if (NutritionType.BREAKFAST_AND_SUPPER.getNutritionTypeName().equals(travelVoucherNutritionTypeToLowerCase)) {
-            UserConstants.travelVoucherNutritionType = NutritionType.valueOf("BREAKFAST_AND_SUPPER");
+        if (Nutrition.ALL_INCLUSIVE.getNutritionName().equals(travelVoucherNutritionTypeToLowerCase)) {
+            UserConstants.travelVoucherNutritionType = Nutrition.valueOf("ALL_INCLUSIVE");
+        } else if (Nutrition.BREAKFAST.getNutritionName().equals(travelVoucherNutritionTypeToLowerCase)) {
+            UserConstants.travelVoucherNutritionType = Nutrition.valueOf("BREAKFAST");
+        } else if (Nutrition.BREAKFAST_AND_SUPPER.getNutritionName().equals(travelVoucherNutritionTypeToLowerCase)) {
+            UserConstants.travelVoucherNutritionType = Nutrition.valueOf("BREAKFAST_AND_SUPPER");
         } else {
             throw new IllegalArgumentException("Введен невалидныи тип питания");
         }

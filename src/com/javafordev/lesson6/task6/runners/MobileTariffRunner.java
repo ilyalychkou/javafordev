@@ -2,9 +2,9 @@ package com.javafordev.lesson6.task6.runners;
 
 import com.javafordev.lesson6.task6.constants.MobileTariffType;
 import com.javafordev.lesson6.task6.constants.UserConstants;
-import com.javafordev.lesson6.task6.objects.MobileTariff;
+import com.javafordev.lesson6.task6.objects.mobile.MobileTariff;
 import com.javafordev.lesson6.task6.services.MobileTariffImplService;
-import com.javafordev.lesson6.task6.utils.MobileTariffCommandLineUtils;
+import com.javafordev.lesson6.task6.utils.MobileTariffUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class MobileTariffRunner {
         System.out.println(MobileTariffType.valueOf("FOR_SMARTPHONE").getMobileTariffName());
         System.out.println("$%^&*()_(*&^%$%^&*()_");
 
-        MobileTariffCommandLineUtils.inputParameterForMobileOperatorService();
+        MobileTariffUtils.inputParameterForMobileOperatorService();
 
         MobileTariffType mobileTariffTypeToFilter = UserConstants.getMobileTariffType();
         double subscriptionFeeToFilter = UserConstants.getMobileTariffSubscriptionFee();

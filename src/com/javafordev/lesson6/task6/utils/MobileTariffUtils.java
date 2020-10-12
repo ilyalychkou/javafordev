@@ -5,7 +5,7 @@ import com.javafordev.lesson6.task6.validators.NumberValidator;
 
 import java.util.Scanner;
 
-public class MobileTariffCommandLineUtils {
+public class MobileTariffUtils {
 
     public static void inputParameterForMobileOperatorService() {
         System.out.print("Консольное приложение (v. 1.0)...");

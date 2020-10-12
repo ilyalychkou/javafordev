@@ -1,6 +1,6 @@
 package com.javafordev.lesson6.task6.comparators;
 
-import com.javafordev.lesson6.task6.objects.TravelVoucher;
+import com.javafordev.lesson6.task6.objects.travel.vouchers.TravelVoucher;
 
 import java.util.Comparator;
 

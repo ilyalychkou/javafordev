@@ -1,7 +1,7 @@
 package com.javafordev.lesson6.task6.services;
 
 import com.javafordev.lesson6.task6.constants.MobileTariffType;
-import com.javafordev.lesson6.task6.objects.MobileTariff;
+import com.javafordev.lesson6.task6.objects.mobile.MobileTariff;
 
 import java.util.List;
 

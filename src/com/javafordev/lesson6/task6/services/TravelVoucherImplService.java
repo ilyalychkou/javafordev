@@ -2,10 +2,9 @@ package com.javafordev.lesson6.task6.services;
 
 import com.javafordev.lesson6.task6.comparators.DurationTravelComparator;
 import com.javafordev.lesson6.task6.comparators.PriceTravelComparator;
-import com.javafordev.lesson6.task6.constants.NutritionType;
-import com.javafordev.lesson6.task6.constants.TransportType;
-import com.javafordev.lesson6.task6.constants.TravelType;
-import com.javafordev.lesson6.task6.objects.TravelVoucher;
+import com.javafordev.lesson6.task6.objects.travel.options.Nutrition;
+import com.javafordev.lesson6.task6.objects.travel.options.Transport;
+import com.javafordev.lesson6.task6.objects.travel.vouchers.TravelVoucher;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -64,12 +63,12 @@ public class TravelVoucherImplService implements ITravelService {
     }
 
     @Override
-    public List<TravelVoucher> findAllByTransport(TransportType transportType) {
+    public List<TravelVoucher> findAllByTransport(Transport transport) {
         List<TravelVoucher> filteredByTransport = new ArrayList<>();
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
         while (iterator.hasNext()) {
             TravelVoucher currentElement = iterator.next();
-            if (currentElement.getTransportType().equals(transportType)) {
+            if (currentElement.getTransport().equals(transport)) {
                 filteredByTransport.add(currentElement);
             }
         }
@@ -77,19 +76,18 @@ public class TravelVoucherImplService implements ITravelService {
     }
 
     @Override
-    public List<TravelVoucher> findAllByTravelType(TravelType travelType) {
-        List<TravelVoucher> filteredByTravelType = new ArrayList<>();
+    public List<TravelVoucher> findAllByNutrition(Nutrition nutrition) {
+        List<TravelVoucher> filteredByNutrition = new ArrayList<>();
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
         while (iterator.hasNext()) {
             TravelVoucher currentElement = iterator.next();
-            if (currentElement.getTravelType().equals(travelType)) {
-                filteredByTravelType.add(currentElement);
+            if (currentElement.getNutrition().equals(nutrition)) {
+                filteredByNutrition.add(currentElement);
             }
         }
-        return filteredByTravelType;
+        return filteredByNutrition;
     }
 
-    @Override
     public List<TravelVoucher> findAllByDuration(int duration) {
         List<TravelVoucher> filteredByDuration = new ArrayList<>();
         Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
@@ -116,27 +114,37 @@ public class TravelVoucherImplService implements ITravelService {
     }
 
 
-    public List<TravelVoucher> findAllByNutrition(NutritionType nutritionType) {
-        List<TravelVoucher> filteredByNutrition = new ArrayList<>();
-        Iterator<TravelVoucher> iterator = this.getTravelVouchers().iterator();
-        while (iterator.hasNext()) {
-            TravelVoucher currentElement = iterator.next();
-            if (currentElement.getNutritionType().equals(nutritionType)) {
-                filteredByNutrition.add(currentElement);
-            }
-        }
-        return filteredByNutrition;
-    }
-
     @Override
     public List<TravelVoucher> sortByDuration() {
-        this.getTravelVouchers().sort(new DurationTravelComparator());
+        this.getTravelVouchers().sort(new DurationTravelComparator() {
+            @Override
+            public int compare(TravelVoucher o1, TravelVoucher o2) {
+                int returnValue = 0;
+                if (o1.getDuration() < o2.getDuration()) {
+                    returnValue = -1;
+                } else if (o1.getDuration() > o2.getDuration()) {
+                    returnValue = 1;
+                }
+                return returnValue;
+            }
+        });
         return this.getTravelVouchers();
     }
 
     @Override
     public List<TravelVoucher> sortByPrice() {
-        this.getTravelVouchers().sort(new PriceTravelComparator());
+        this.getTravelVouchers().sort(new PriceTravelComparator() {
+            @Override
+            public int compare(TravelVoucher o1, TravelVoucher o2) {
+                int returnValue = 0;
+                if (o1.getPrice() < o2.getPrice()) {
+                    returnValue = -1;
+                } else if (o1.getPrice() > o2.getPrice()) {
+                    returnValue = 1;
+                }
+                return returnValue;
+            }
+        });
         return this.getTravelVouchers();
     }
 
