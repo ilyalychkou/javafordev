@@ -19,21 +19,6 @@ public class UserRequest {
     private String shop;
     private int hotelLevel;
 
-
-
-//    public UserRequest(String travelType, double price, int duration, Transport transport, Nutrition nutrition, Excursion excursion, Treatment treatment, String countryOfStay, String shop, int hotelLevel) {
-//        this.travelType = travelType;
-//        this.price = price;
-//        this.duration = duration;
-//        this.transport = transport;
-//        this.nutrition = nutrition;
-//        this.excursion = excursion;
-//        this.treatment = treatment;
-//        this.countryOfStay = countryOfStay;
-//        this.shop = shop;
-//        this.hotelLevel = hotelLevel;
-//    }
-
     public UserRequest(String travelType, double price, int duration, Transport transport, Nutrition nutrition) {
         this.travelType = travelType;
         this.price = price;
@@ -41,42 +26,6 @@ public class UserRequest {
         this.transport = transport;
         this.nutrition = nutrition;
     }
-
-
-
-    public void setAdditionalOptions(String travelType, Excursion excursion, Treatment treatment, String countryOfStay, String shop, int hotelLevel) {
-        this.setTravelType(travelType);
-        this.setExcursion(excursion);
-
-    }
-
-//    public UserRequest(double price, int duration, Transport transport, Nutrition nutrition, String countryOfStay) {
-//        new UserRequest(price, duration, transport, nutrition);
-//        this.countryOfStay = countryOfStay;
-//
-//    }
-//
-//    public UserRequest(double price, int duration, Transport transport, Nutrition nutrition, Excursion excursion) {
-//        new UserRequest(price, duration, transport, nutrition);
-//        this.excursion = excursion;
-//    }
-//
-//    public UserRequest(double price, int duration, Transport transport, Nutrition nutrition, Treatment treatment) {
-//        new UserRequest(price, duration, transport, nutrition);
-//        this.treatment = treatment;
-//    }
-//
-//    public UserRequest(double price, int duration, Transport transport, Nutrition nutrition, int hotelLevel) {
-//        new UserRequest(price, duration, transport, nutrition);
-//        this.hotelLevel = hotelLevel;
-//    }
-//
-//
-//    public UserRequest(String shop, double  price, int duration, Transport transport, Nutrition nutrition) {
-//        new UserRequest(price, duration, transport, nutrition);
-//        this.shop = shop;
-//    }
-
 
     @Override
     public String toString() {
