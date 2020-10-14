@@ -78,18 +78,7 @@ public class MobileTariffImplService implements IMobileService {
 
     @Override
     public List<MobileTariff> sortBySubscriptionFee() {
-        this.getMobileTariffs().sort(new SubscriptionFeeComparator() {
-            @Override
-            public int compare(MobileTariff o1, MobileTariff o2) {
-                int returnValue = 0;
-                if (o1.getSubscriptionFee() < o2.getSubscriptionFee()) {
-                    returnValue = -1;
-                } else if (o1.getSubscriptionFee() > o2.getSubscriptionFee()) {
-                    returnValue = 1;
-                }
-                return returnValue;
-            }
-        });
+        this.getMobileTariffs().sort(new SubscriptionFeeComparator());
         return this.getMobileTariffs();
     }
 

@@ -1,6 +1,5 @@
 package com.javafordev.lesson6.task6.objects.travel.options;
 
-
 public enum Treatment {
 
     PHYSIOTHERAPY("physiotherapy"),

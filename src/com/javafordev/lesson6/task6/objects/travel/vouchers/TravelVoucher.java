@@ -6,7 +6,7 @@ import com.javafordev.lesson6.task6.utils.UserRequest;
 
 public class TravelVoucher {
 
-    private double price; // общая стоимость, расчитывается на основании стоимостеи - транспорт+питание+вид отдыха
+    private double price;
     private int duration;
     private Transport transport;
     private Nutrition nutrition;

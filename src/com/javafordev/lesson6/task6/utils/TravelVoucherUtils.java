@@ -4,25 +4,11 @@ import com.javafordev.lesson6.task6.objects.travel.options.Excursion;
 import com.javafordev.lesson6.task6.objects.travel.options.Nutrition;
 import com.javafordev.lesson6.task6.objects.travel.options.Transport;
 import com.javafordev.lesson6.task6.objects.travel.options.Treatment;
-import com.javafordev.lesson6.task6.objects.travel.vouchers.*;
 import com.javafordev.lesson6.task6.validators.NumberValidator;
 
 import java.util.Scanner;
 
 /**
- * Мобильная связь.
- * *
- * *      1) Определить иерархию тарифов мобильной компании.
- * *      2) Создать список тарифов компании.
- * *      3) Подсчитать общую численность клиентов.
- * *      4) Провести сортировку тарифов на основе размера абонентской платы.
- * *      5) Найти тариф в компании, соответствующий заданному диапазону параметров.
- * *          5.1) тип тарифа - для пользователя / для админа +
- * *          5.2) наименование тарифа - для пользователя / для админа
- * *          5.3) количество абонентов - для админа
- * *          5.4) абонентская плата - для пользователя / для админа
- * *          5.5) объем доступного интернет траффика - для пользователя / для админа
- * <p>
  * <p>
  * *  Туристические путевки.
  * *      1) Сформировать набор предложений клиенту по выбору туристической путевки различного типа (отдых, экскурсии, лечение, шопинг, круиз и т. д.) для оптимального выбора.
@@ -33,7 +19,7 @@ import java.util.Scanner;
 
 public class TravelVoucherUtils {
 
-    public static UserRequest inputParameterForTravelVoucherService() {
+    public static UserRequest inputBaseParameterForTravelVoucherService() {
         System.out.print("Консольное приложение (v. 1.0)...");
         System.out.println();
         System.out.print("Введите исходные параметры для сервиса туристических путевок...");
@@ -51,115 +37,53 @@ public class TravelVoucherUtils {
 
         System.out.print("Введите вид транспорта (airplane, ship, train, bus) : ");
         String userTransport = scan.next();
-        Transport transport;
-
-        switch (userTransport) {
-            case "airplane":
-                transport = Transport.AIRPLANE;
-                break;
-            case "ship":
-                transport = Transport.SHIP;
-                break;
-            case "train":
-                transport = Transport.TRAIN;
-                break;
-            case "bus":
-                transport = Transport.BUS;
-                break;
-            default:
-                throw new IllegalArgumentException("Задан некорректныи транспорта");
-        }
+        Transport transport = Transport.valueOf(userTransport.toUpperCase());
 
         System.out.print("Введите вид питания (all_inclusive, breakfast, breakfast_and_supper) : ");
         String userNutrition = scan.next();
-        Nutrition nutrition;
+        Nutrition nutrition = Nutrition.valueOf(userNutrition.toUpperCase());
 
-        switch (userNutrition) {
-            case "all_inclusive":
-                nutrition = Nutrition.ALL_INCLUSIVE;
-                break;
-            case "breakfast":
-                nutrition = Nutrition.BREAKFAST;
-                break;
-            case "breakfast_and_supper":
-                nutrition = Nutrition.BREAKFAST_AND_SUPPER;
-                break;
-            default:
-                throw new IllegalArgumentException("Задан некорректныи питания");
-        }
-
-        System.out.print("Введите желаемую страну прибывания : ");
-        String countryOfStay = scan.next();
-
-        System.out.print("Введите вид экскурсии (art, historic, nature) : ");
-        String userExcursion = scan.next();
-        Excursion excursion;
-        switch (userExcursion) {
-            case "art":
-                excursion = Excursion.ART;
-                break;
-            case "historic":
-                excursion = Excursion.HISTORIC;
-                break;
-            case "nature":
-                excursion = Excursion.NATURE;
-                break;
-            default:
-                throw new IllegalArgumentException("Задан некорректныи вид экскурсии");
-        }
-
-        System.out.print("Введите вид лечения (physiotherapy, balneotherapy, aerotherapy) : ");
-        String userTreatment = scan.next();
-        Treatment treatment;
-        switch (userTreatment) {
-            case "physiotherapy":
-                treatment = Treatment.PHYSIOTHERAPY;
-                break;
-            case "balneotherapy":
-                treatment = Treatment.BALNEOTHERAPY;
-                break;
-            case "aerotherapy":
-                treatment = Treatment.AEROTHERAPY;
-                break;
-            default:
-                throw new IllegalArgumentException("Задан некорректныи вид экскурсии");
-        }
-
-        System.out.print("Введите количество звезд отеля (от 1 до 5) : ");
-        int hotelLevel = NumberValidator.validateDuration(scan.next());
-
-        System.out.print("Введите название магазина : ");
-        String shop = scan.next();
-
-        return new UserRequest(travelType, price, duration, transport, nutrition, excursion, treatment, countryOfStay, shop, hotelLevel);
+        return new UserRequest(travelType, price, duration, transport, nutrition);
     }
 
-    public static TravelVoucher initiateTravelVoucher(UserRequest userRequest) {
+    public static void inputAdditionalParameterForTravelVoucherService(UserRequest userRequest) {
+
         String travelType = userRequest.getTravelType();
-        TravelVoucher travelVoucher;
+        Scanner scan = new Scanner(System.in);
 
         switch (travelType) {
-            case "cruise":
-                travelVoucher = new CruiseTravelVoucher(userRequest);
+            case "recreation":
+                System.out.print("Введите вид лечения (physiotherapy, balneotherapy, aerotherapy) : ");
+                String userTreatment = scan.next();
+                Treatment treatment = Treatment.valueOf(userTreatment.toUpperCase());
+                userRequest.setTreatment(treatment);
                 break;
             case "excursion":
-                travelVoucher = new ExcursionTravelVoucher(userRequest);
+                System.out.print("Введите вид экскурсии (art, historic, nature) : ");
+                String userExcursion = scan.next();
+                Excursion excursion = Excursion.valueOf(userExcursion.toUpperCase());
+                userRequest.setExcursion(excursion);
                 break;
             case "treatment":
-                travelVoucher = new TreatmentTravelVoucher(userRequest);
+                System.out.print("Введите количество звезд отеля (от 1 до 5) : ");
+                int hotelLevel = NumberValidator.validateDuration(scan.next());
+                userRequest.setHotelLevel(hotelLevel);
                 break;
-            case "recreation":
-                travelVoucher = new RecreationTravelVoucher(userRequest);
+            case "cruise":
+                System.out.print("Введите желаемую страну прибывания : ");
+                String countryOfStay = scan.next();
+                userRequest.setCountryOfStay(countryOfStay);
                 break;
             case "shopping":
-                travelVoucher = new ShoppingTravelVoucher(userRequest);
+                System.out.print("Введите название магазина : ");
+                String shop = scan.next();
+                userRequest.setShop(shop);
                 break;
             default:
-
                 throw new IllegalArgumentException("Задан некорректныи тип отдыха");
-
         }
-        return travelVoucher;
     }
 }
+
+
 

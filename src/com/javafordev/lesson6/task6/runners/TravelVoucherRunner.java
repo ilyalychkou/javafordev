@@ -16,9 +16,8 @@ public class TravelVoucherRunner {
 
     public static void main(String[] args) {
 
-        UserRequest userRequest = TravelVoucherUtils.inputParameterForTravelVoucherService();
-        System.out.println(userRequest);
-        TravelVoucher travelVoucher = TravelVoucherUtils.initiateTravelVoucher(userRequest);
+        UserRequest userRequest = TravelVoucherUtils.inputBaseParameterForTravelVoucherService();
+        TravelVoucherUtils.inputAdditionalParameterForTravelVoucherService(userRequest);
 
         int durationToFilter = userRequest.getDuration();
         double priceToFilter = userRequest.getPrice();
@@ -30,7 +29,6 @@ public class TravelVoucherRunner {
         listOfShops.add("Philips");
         listOfShops.add("Apple");
         listOfShops.add("Nestle");
-
 
         List<String> southCountries = new ArrayList<>();
         southCountries.add("Croatia");
