@@ -1,14 +1,14 @@
 package com.javafordev.lesson7.task4.objects;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class Talon extends Entity {
 
     private String talonHospitalName;
     private String talonDoctorName;
-    private Timestamp talonDate;
+    private LocalDateTime talonDate;
 
-    public Talon(int id, String talonHospitalName, String talonDoctorName, Timestamp talonDate) {
+    public Talon(int id, String talonHospitalName, String talonDoctorName, LocalDateTime talonDate) {
         super(id);
         this.talonHospitalName = talonHospitalName;
         this.talonDoctorName = talonDoctorName;
@@ -39,11 +39,11 @@ public class Talon extends Entity {
         this.talonDoctorName = talonDoctorName;
     }
 
-    public Timestamp getTalonDate() {
+    public LocalDateTime getTalonDate() {
         return talonDate;
     }
 
-    public void setTalonDate(Timestamp talonDate) {
+    public void setTalonDate(LocalDateTime talonDate) {
         this.talonDate = talonDate;
     }
 

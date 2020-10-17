@@ -4,7 +4,7 @@ import com.javafordev.lesson7.task4.objects.Hospital;
 import com.javafordev.lesson7.task4.objects.Talon;
 import com.javafordev.lesson7.task4.services.HospitalService;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -43,7 +43,7 @@ public class CommandLineUtils {
 
     public static Talon createTalon(String hospitalName, String doctorName) {
         int talonId = TalonUtils.generateRandomId();
-        Timestamp talonDate = TalonUtils.generateRandomDate();
+        LocalDateTime talonDate = TalonUtils.generateRandomDate();
         return new Talon(talonId, hospitalName, doctorName, talonDate);
     }
 

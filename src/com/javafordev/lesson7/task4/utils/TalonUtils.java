@@ -1,6 +1,7 @@
 package com.javafordev.lesson7.task4.utils;
 
-import java.sql.Timestamp;
+import java.time.*;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Random;
 
@@ -29,10 +30,16 @@ public class TalonUtils {
         return talonTime;
     }
 
-    public static Timestamp generateRandomDate() {
-        long startRange = Timestamp.valueOf("2020-01-01 09:00:00").getTime();
-        long endRange = Timestamp.valueOf("2020-10-01 19:00:00").getTime();
-        long diff = endRange - startRange + 1;
-        return new Timestamp(startRange + (long)(Math.random() * diff));
+    public static LocalDateTime generateRandomDate() {
+        LocalDateTime now = LocalDateTime.now();
+        long startEpochMilli = now.toInstant(ZoneOffset.UTC).toEpochMilli();
+        LocalDateTime endRange = now.plus(20L, ChronoUnit.DAYS);
+        long endEpochMilli = endRange.toInstant(ZoneOffset.UTC).toEpochMilli();
+        long diff = endEpochMilli - startEpochMilli;
+        Random random = new Random();
+        long randomEpochMilli = random.nextInt((int) (diff));
+        randomEpochMilli += startEpochMilli;
+        Instant instant = Instant.ofEpochMilli(randomEpochMilli);
+        return LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
     }
 }
