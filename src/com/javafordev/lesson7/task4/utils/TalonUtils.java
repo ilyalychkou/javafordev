@@ -17,19 +17,6 @@ public class TalonUtils {
         return randomId;
     }
 
-    public static String generateDate() {
-        String months[] = {"Январь", "Февраль", "Март", "Апрель", "Маи", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
-        Calendar calendar = Calendar.getInstance();
-        String talonDate = calendar.get(Calendar.YEAR) + " " + months[calendar.get(Calendar.MONTH)] + calendar.get(Calendar.DATE);
-        return talonDate;
-    }
-
-    public static String generateTime() {
-        Calendar calendar = Calendar.getInstance();
-        String talonTime = calendar.get(Calendar.HOUR) + " " + calendar.get(Calendar.MINUTE);
-        return talonTime;
-    }
-
     public static LocalDateTime generateRandomDate() {
         LocalDateTime now = LocalDateTime.now();
         long startEpochMilli = now.toInstant(ZoneOffset.UTC).toEpochMilli();
