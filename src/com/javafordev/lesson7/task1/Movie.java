@@ -1,6 +1,6 @@
 package com.javafordev.lesson7.task1;
 
-import java.util.Arrays;
+import java.util.List;
 
 /**
  * Создать класс Фильм с внутренним классом,
@@ -12,28 +12,28 @@ import java.util.Arrays;
 
 public class Movie {
 
-    private String movieName;
+    private String name;
     private MovieInfo movieInfo;
 
-    public Movie(String name) {
-        this.movieName = name;
-        this.movieInfo = new MovieInfo(2, "триллер", new String[]{"Роберт Родригес", "Фрэнк Миллер", "Квентин Тарантино"});
+    public Movie(String name, MovieInfo movieInfo) {
+        this.name = name;
+        this.movieInfo = movieInfo;
     }
 
     @Override
     public String toString() {
         return "Movie{" +
-                "movieName='" + movieName + '\'' +
+                "movieName='" + name + '\'' +
                 ", movieInfo=" + movieInfo +
                 '}';
     }
 
-    public String getMovieName() {
-        return movieName;
+    public String getName() {
+        return name;
     }
 
-    public void setMovieName(String movieName) {
-        this.movieName = movieName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public MovieInfo getMovieInfo() {
@@ -44,15 +44,27 @@ public class Movie {
         this.movieInfo = movieInfo;
     }
 
-    private class MovieInfo {
+    public static class MovieInfo {
 
         private int movieDuration;
         private String movieGenre;
-        private String[] movieDirectors;
+        private List<String> movieDirectors;
 
-        public MovieInfo(int movieDuration, String movieGenre, String[] movieDirectors) {
+        public MovieInfo(int movieDuration, String movieGenre, List<String> movieDirectors) {
             this.movieDuration = movieDuration;
             this.movieGenre = movieGenre;
+            this.movieDirectors = movieDirectors;
+        }
+
+        public void setMovieDuration(int movieDuration) {
+            this.movieDuration = movieDuration;
+        }
+
+        public void setMovieGenre(String movieGenre) {
+            this.movieGenre = movieGenre;
+        }
+
+        public void setMovieDirectors(List<String> movieDirectors) {
             this.movieDirectors = movieDirectors;
         }
 
@@ -61,7 +73,7 @@ public class Movie {
             return "MovieInfo{" +
                     "movieDuration=" + movieDuration +
                     ", movieGenre='" + movieGenre + '\'' +
-                    ", movieDirectors=" + Arrays.toString(movieDirectors) +
+                    ", movieDirectors=" + movieDirectors +
                     '}';
         }
 

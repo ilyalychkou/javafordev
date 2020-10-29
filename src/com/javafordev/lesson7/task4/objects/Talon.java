@@ -4,39 +4,31 @@ import java.time.LocalDateTime;
 
 public class Talon extends Entity {
 
-    private String talonHospitalName;
-    private String talonDoctorName;
+    private int hospitalId;
+    private int doctorId;
     private LocalDateTime talonDate;
 
-    public Talon(int id, String talonHospitalName, String talonDoctorName, LocalDateTime talonDate) {
+    public Talon(int id, int hospitalId, int doctorId, LocalDateTime talonDate) {
         super(id);
-        this.talonHospitalName = talonHospitalName;
-        this.talonDoctorName = talonDoctorName;
+        this.hospitalId = hospitalId;
+        this.doctorId = doctorId;
         this.talonDate = talonDate;
     }
 
-    @Override
-    public String toString() {
-        return "Талон № " + this.getId() + " : \n" +
-                "название медучреждения - " + talonHospitalName + "\n" +
-                "имя доктора - " + talonDoctorName + "\n" +
-                "дата - " + talonDate;
+    public int getHospitalId() {
+        return hospitalId;
     }
 
-    public String getTalonHospitalName() {
-        return talonHospitalName;
+    public void setHospitalId(int hospitalId) {
+        this.hospitalId = hospitalId;
     }
 
-    public void setTalonHospitalName(String talonHospitalName) {
-        this.talonHospitalName = talonHospitalName;
+    public int getDoctorId() {
+        return doctorId;
     }
 
-    public String getTalonDoctor() {
-        return talonDoctorName;
-    }
-
-    public void setTalonDoctor(String talonDoctorName) {
-        this.talonDoctorName = talonDoctorName;
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
     }
 
     public LocalDateTime getTalonDate() {

@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Country {
 
-    private String countryName;
+    private String name;
     private List<Region> regions;
     private List<City> cities;
 
     public Country(String countryName, List<Region> regions, List<City> cities) {
-        this.countryName = countryName;
+        this.name = countryName;
         this.regions = regions;
         this.cities = cities;
     }
@@ -17,18 +17,18 @@ public class Country {
     @Override
     public String toString() {
         return "Country{" +
-                "countryName='" + countryName + '\'' +
+                "countryName='" + name + '\'' +
                 ", regions=" + regions +
                 ", cities=" + cities +
                 '}';
     }
 
-    public String getCountryName() {
-        return countryName;
+    public String getName() {
+        return name;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Region> getRegions() {

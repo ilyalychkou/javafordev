@@ -1,8 +1,9 @@
 package com.javafordev.lesson7.task4.utils;
 
+import com.javafordev.lesson7.task4.objects.UserRequest;
+
 import java.time.*;
 import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
 import java.util.Random;
 
 public class TalonUtils {
@@ -29,4 +30,10 @@ public class TalonUtils {
         Instant instant = Instant.ofEpochMilli(randomEpochMilli);
         return LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
     }
+
+    public static void printTalonInfo(UserRequest request) {
+
+    }
+
+
 }

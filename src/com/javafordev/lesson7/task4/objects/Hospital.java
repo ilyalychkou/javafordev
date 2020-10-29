@@ -4,29 +4,25 @@ import java.util.List;
 
 public class Hospital extends Entity {
 
-    private String hospitalName;
+    private String name;
     private List<Doctor> doctors;
 
     public Hospital(int id, String hospitalName, List<Doctor> doctors) {
         super(id);
-        this.hospitalName = hospitalName;
+        this.name = hospitalName;
         this.doctors = doctors;
     }
 
     @Override
     public String toString() {
         return "Hospital{" +
-                "hospitalName='" + hospitalName + '\'' +
+                "hospitalName='" + name + '\'' +
                 ", doctors=" + doctors +
                 '}';
     }
 
-    public String getHospitalName() {
-        return hospitalName;
-    }
-
-    public void setHospitalName(String hospitalName) {
-        this.hospitalName = hospitalName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Doctor> getDoctors() {
@@ -39,6 +35,6 @@ public class Hospital extends Entity {
 
     @Override
     public String getName() {
-        return this.hospitalName;
+        return this.name;
     }
 }

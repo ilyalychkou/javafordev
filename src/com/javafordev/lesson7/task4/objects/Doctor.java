@@ -2,63 +2,55 @@ package com.javafordev.lesson7.task4.objects;
 
 public class Doctor extends Entity {
 
-    private String doctorFirstName;
-    private String doctorMiddleName;
-    private String doctorLastName;
-    private Speciality doctorSpeciality;
+    private String name;
+    private Speciality speciality;
 
-    public Doctor(int id, String doctorLastName, String doctorFirstName, String doctorMiddleName,  Speciality doctorSpeciality) {
+    public Doctor(int id, String name, Speciality speciality) {
         super(id);
-        this.doctorLastName = doctorLastName;
-        this.doctorMiddleName = doctorMiddleName;
-        this.doctorFirstName = doctorFirstName;
-        this.doctorSpeciality = doctorSpeciality;
+        this.name = name;
+        this.speciality = speciality;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
-    public String getName() {
-        return doctorLastName + " " + doctorFirstName + " " + doctorMiddleName;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Doctor doctor = (Doctor) o;
+
+        if (name != null ? !name.equals(doctor.name) : doctor.name != null) return false;
+        return speciality == doctor.speciality;
     }
 
     @Override
     public String toString() {
         return "Doctor{" +
-                "doctorLastName='" + doctorLastName + '\'' +
-                ", doctorFirstName='" + doctorFirstName + '\'' +
-                ", doctorMiddleName='" + doctorMiddleName + '\'' +
-                ", doctorSpeciality=" + doctorSpeciality +
+                "name='" + name + '\'' +
+                ", doctorSpeciality=" + speciality +
                 '}';
     }
 
-    public String getDoctorFirstName() {
-        return doctorFirstName;
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (speciality != null ? speciality.hashCode() : 0);
+        return result;
     }
 
-    public void setDoctorFirstName(String doctorFirstName) {
-        this.doctorFirstName = doctorFirstName;
+    public Speciality getSpeciality() {
+        return speciality;
     }
 
-    public String getDoctorMiddleName() {
-        return doctorMiddleName;
+    public void setSpeciality(Speciality speciality) {
+        this.speciality = speciality;
     }
 
-    public void setDoctorMiddleName(String doctorMiddleName) {
-        this.doctorMiddleName = doctorMiddleName;
-    }
-
-    public String getDoctorLastName() {
-        return doctorLastName;
-    }
-
-    public void setDoctorLastName(String doctorLastName) {
-        this.doctorLastName = doctorLastName;
-    }
-
-    public Speciality getDoctorSpeciality() {
-        return doctorSpeciality;
-    }
-
-    public void setDoctorSpeciality(Speciality doctorSpeciality) {
-        this.doctorSpeciality = doctorSpeciality;
+    @Override
+    public String getName() {
+        return name;
     }
 }
