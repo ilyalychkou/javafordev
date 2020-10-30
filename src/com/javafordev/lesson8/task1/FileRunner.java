@@ -23,7 +23,7 @@ public class FileRunner {
         Set<String> setOfDates = FileRunner.createSetOfDates(path);
         List<String> listOfDates = FileRunner.createListOfDates(path);
         List<String> listOfNames = FileRunner.createListOfNames(path);
-        FileRunner.generate(setOfDates, listOfDates, listOfNames);
+        FileRunner.writeNamesToFolderWithDate(setOfDates, listOfDates, listOfNames);
     }
 
     public static void createFoldersWithDateAsName(Path path) {
@@ -74,7 +74,7 @@ public class FileRunner {
         }
     }
 
-    public static void generate(Set<String> setOfDates, List<String> listOfDates, List<String> listOfNames) throws IOException {
+    public static void writeNamesToFolderWithDate(Set<String> setOfDates, List<String> listOfDates, List<String> listOfNames) throws IOException {
         for (int i = 0; i < listOfDates.size(); i++) {
             if (setOfDates.contains(listOfDates.get(i))) {
                 File file = new File(String.join(File.separator, "src", "com", "javafordev", "lesson8", "task1", listOfDates.get(i), "names.txt"));
