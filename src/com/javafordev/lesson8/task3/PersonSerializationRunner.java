@@ -12,7 +12,7 @@ public class PersonSerializationRunner {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         Path path = Path.of("src", "com", "javafordev", "lesson8", "task3", "person.txt");
-        writeObject(path);
+        PersonSerializationRunner.writeObject(path);
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(path.toFile()))) {
             Object object = objectInputStream.readObject();
 
