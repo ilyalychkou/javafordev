@@ -1,5 +1,6 @@
 package com.javafordev.lesson6.task3;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,5 +28,9 @@ public class RandomNumbersService {
 
     public List<Integer> removeDuplicates() {
         return this.getRandomNumbersList().stream().distinct().collect(Collectors.toList());
+    }
+
+    public HashSet removeDuplicateViaSet() {
+        return new HashSet<>(this.getRandomNumbersList());
     }
 }
