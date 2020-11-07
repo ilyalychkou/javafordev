@@ -12,22 +12,12 @@ public class PersonSerializationRunner {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         Path path = Path.of("src", "com", "javafordev", "lesson8", "task3", "person.txt");
-        PersonSerializationRunner.writeObject(path);
+        PersonUtil.writeObject(path);
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(path.toFile()))) {
-            Object object = objectInputStream.readObject();
-
-            System.out.println(object);
+            Person deserializedPerson = (Person) objectInputStream.readObject();
+            System.out.println(deserializedPerson);
         }
     }
 
-
-    public static void writeObject(Path path) throws IOException {
-        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(path.toFile()))) {
-            Person person = new Person("Stanislav", 22);
-            objectOutputStream.writeObject(person);
-        }
-    }
-
-
-    }
+}
 
