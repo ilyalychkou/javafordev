@@ -14,7 +14,8 @@ public class FileUtil {
 
     public static final String BASE_PATH_TO_FILE = String.join(File.separator, "src", "com", "javafordev", "lesson8", "task1");
 
-    public static Map<LocalDate, List<Person>> readDatesAndNamesFromFile(Path path, String regexp) {
+    public static Map<LocalDate, List<Person>> readDatesAndNamesFromFile(Path path) {
+        String regexp = "([1-9]?[0-9]{3})-([0|1][0-9])-([0-3][0-9])\\s-\\s([А-Яа-яЁ-ё\\s]+)";
         Pattern pattern = Pattern.compile(regexp);
         List<String> strings = fillListOfStrings(path);
 

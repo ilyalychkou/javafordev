@@ -18,7 +18,7 @@ public class FileRunner {
         String regexp = "([1-9]?[0-9]{3})-([0|1][0-9])-([0-3][0-9])\\s-\\s([А-Яа-яЁ-ё\\s]+)";
         String fileToParse = "file.txt";
         Path path = Path.of(FileUtil.BASE_PATH_TO_FILE, fileToParse);
-        Map<LocalDate, List<Person>> localDateListMap = FileUtil.readDatesAndNamesFromFile(path, regexp);
+        Map<LocalDate, List<Person>> localDateListMap = FileUtil.readDatesAndNamesFromFile(path);
         FileUtil.putListsOfNamesIntoFoldersByDate(localDateListMap);
     }
 }
