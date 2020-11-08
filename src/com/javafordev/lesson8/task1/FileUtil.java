@@ -1,9 +1,8 @@
 package com.javafordev.lesson8.task1;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
@@ -38,10 +37,8 @@ public class FileUtil {
     public static void putListsOfNamesIntoFoldersByDate(Map<LocalDate, List<Person>> personsByDates) throws IOException {
         for (Map.Entry<LocalDate, List<Person>> entry : personsByDates.entrySet()) {
             new File(String.join(File.separator, BASE_PATH_TO_FILE, entry.getKey().toString())).mkdir();
-            File file = new File(String.join(File.separator, FileUtil.BASE_PATH_TO_FILE, entry.getKey().toString(), "names.txt"));
-            try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(file, false))) {
-                fileWriter.append(entry.getValue().toString());
-            }
+            Path path = Path.of(String.join(File.separator, FileUtil.BASE_PATH_TO_FILE, entry.getKey().toString(), "names.txt"));
+            FileUtil.writeListToFile(path, entry.getValue());
         }
     }
 
@@ -58,5 +55,13 @@ public class FileUtil {
             e.printStackTrace();
         }
         return strings;
+    }
+
+    public static void writeListToFile(Path path, List<Person> persons) throws IOException {
+        List<String> names = new ArrayList<>();
+        for (Person person : persons) {
+            names.add(person.getName());
+        }
+        Files.write(path, names, Charset.defaultCharset());
     }
 }

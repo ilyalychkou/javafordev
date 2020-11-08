@@ -27,9 +27,4 @@ public class Person {
     public void setLocalDate(LocalDate localDate) {
         this.localDate = localDate;
     }
-
-    @Override
-    public String toString() {
-        return name;
-    }
 }
