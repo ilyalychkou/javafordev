@@ -7,9 +7,8 @@ import java.nio.file.Path;
 
 public class PersonUtil {
 
-    public static void writeObject(Path path) throws IOException {
+    public static void serializeObject(Path path, Person person) throws IOException {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(path.toFile()))) {
-            Person person = new Person("Stanislav", 22);
             objectOutputStream.writeObject(person);
         }
     }

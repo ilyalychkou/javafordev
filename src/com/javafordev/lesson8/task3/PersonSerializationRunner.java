@@ -12,7 +12,8 @@ public class PersonSerializationRunner {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         Path path = Path.of("src", "com", "javafordev", "lesson8", "task3", "person.txt");
-        PersonUtil.writeObject(path);
+        Person person = new Person("Stanislav", 22);
+        PersonUtil.serializeObject(path, person);
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(path.toFile()))) {
             Person deserializedPerson = (Person) objectInputStream.readObject();
             System.out.println(deserializedPerson);
