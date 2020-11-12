@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<companies xmlns="http://www.example.com/companies">
+    <company>
+        <name>EPAM</name>
+        <peopleCount>1000</peopleCount>
+    </company>
+</companies>

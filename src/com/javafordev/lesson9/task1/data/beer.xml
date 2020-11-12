@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<tns:BeerOrder xmlns:tns="http://www.beer-shop/beer">
+    <tns:Beer article="42467">
+        <tns:name>Porter And Sea</tns:name>
+        <tns:type>Dark</tns:type>
+        <tns:alcohol>true</tns:alcohol>
+        <tns:manufacter>Alivaria</tns:manufacter>
+        <tns:ingredient>Water</tns:ingredient>
+        <tns:ingredient>Malt</tns:ingredient>
+        <tns:ingredient>Hop</tns:ingredient>
+        <tns:ingredient>Sugar</tns:ingredient>
+        <tns:quantity>500</tns:quantity>
+        <tns:_char>
+            <tns:content>4.5</tns:content>
+            <tns:transparency>50.0%</tns:transparency>
+            <tns:filtered>true</tns:filtered>
+            <tns:nutrition>43</tns:nutrition>
+            <tns:bottling>
+                <tns:volume>0.33</tns:volume>
+                <tns:material>Glass</tns:material>
+            </tns:bottling>
+        </tns:_char>
+    </tns:Beer>
+    <tns:Beer article="395672">
+        <tns:name>Koronet</tns:name>
+        <tns:type>Light</tns:type>
+        <tns:alcohol>false</tns:alcohol>
+        <tns:manufacter>Lidskoe</tns:manufacter>
+        <tns:ingredient>Water</tns:ingredient>
+        <tns:ingredient>Malt</tns:ingredient>
+        <tns:ingredient>Hop</tns:ingredient>
+        <tns:ingredient>Lemon</tns:ingredient>
+        <tns:quantity>2000</tns:quantity>
+        <tns:_char>
+            <tns:content>3.5</tns:content>
+            <tns:transparency>55.0%</tns:transparency>
+            <tns:filtered>true</tns:filtered>
+            <tns:nutrition>20</tns:nutrition>
+            <tns:bottling>
+                <tns:volume>0.5</tns:volume>
+                <tns:material>Tin</tns:material>
+            </tns:bottling>
+        </tns:_char>
+    </tns:Beer>
+    <tns:Beer article="543">
+        <tns:name>Raw</tns:name>
+        <tns:type>Light</tns:type>
+        <tns:alcohol>true</tns:alcohol>
+        <tns:manufacter>Tuborg</tns:manufacter>
+        <tns:ingredient>Malt</tns:ingredient>
+        <tns:ingredient>Water</tns:ingredient>
+        <tns:ingredient>Hop</tns:ingredient>
+        <tns:ingredient>Needles</tns:ingredient>
+        <tns:quantity>2500</tns:quantity>
+        <tns:_char>
+            <tns:content>6.5</tns:content>
+            <tns:transparency>25.0%</tns:transparency>
+            <tns:filtered>false</tns:filtered>
+            <tns:nutrition>66</tns:nutrition>
+            <tns:bottling>
+                <tns:volume>5.0</tns:volume>
+                <tns:material>Plastic</tns:material>
+            </tns:bottling>
+        </tns:_char>
+    </tns:Beer>
+</tns:BeerOrder>
