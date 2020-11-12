@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Participants>
+    <Participant>
+        <name>Иван Ефремов</name>
+        <age>47</age>
+        <company>Фантастика на втором этаже</company>
+    </Participant>
+    <Participant>
+        <name>Айзек Азимов</name>
+        <age>87</age>
+        <company>я - робот</company>
+    </Participant>
+    <Participant>
+        <name>гарри поттер</name>
+        <age>23</age>
+        <company>я вырос в шоттландии</company>
+    </Participant>
+</Participants>

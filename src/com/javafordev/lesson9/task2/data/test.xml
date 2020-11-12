@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Participants>
+    <Participant>
+        <name>Иванов Иван Иванович</name>
+        <age>29</age>
+        <company>Госметеослужба</company>
+    </Participant>
+    <Participant>
+        <name>Петров Петр Петрович</name>
+        <age>32</age>
+        <company>Евроопт</company>
+    </Participant>
+    <Participant>
+        <name>Ладышева Анна Игоревна</name>
+        <age>26</age>
+        <company>Броневой и Партнеры</company>
+    </Participant>
+    <Participant>
+        <name>Чехов Антон Павлович</name>
+        <age>145</age>
+        <company>Чайка</company>
+    </Participant>
+</Participants>
