@@ -3,17 +3,18 @@ package com.javafordev.lesson9.task1.parser.sax;
 import com.javafordev.lesson9.task1.comparator.BeerComparator;
 import com.javafordev.lesson9.task1.model.beer_shop.beer.Beer;
 import com.javafordev.lesson9.task1.model.beer_shop.beer.BeerOrder;
+import com.javafordev.lesson9.task1.parser.ParsingStrategy;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 
-public class SAXUtil {
-
-    public static BeerOrder parseXMLToInitializeObject(String pathToXML) {
+public class SAXStrategy implements ParsingStrategy {
+    @Override
+    public BeerOrder parseXML(String pathToXML) throws ParserConfigurationException, IOException, SAXException {
         XMLReader reader = null;
         BeerHandler beerHandler = new BeerHandler();
         BeerOrder beerOrder = null;
@@ -24,8 +25,8 @@ public class SAXUtil {
             reader.parse(pathToXML);
 
             List<Beer> beerList = beerHandler.getBeerList();
-            Collections.sort(beerList, new BeerComparator());
-            beerOrder = beerHandler.generateBeerOrder(beerList);
+            beerList.sort(new BeerComparator());
+            beerOrder = beerHandler.parseBeerOrder(beerList);
         } catch (SAXException exception) {
             System.out.println("ошибка " + reader.getClass() + " " + exception);
         } catch (IOException exception) {
@@ -33,5 +34,6 @@ public class SAXUtil {
         }
 
         return beerOrder;
+
     }
 }

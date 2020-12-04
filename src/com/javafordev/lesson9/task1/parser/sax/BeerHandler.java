@@ -157,7 +157,7 @@ public class BeerHandler extends DefaultHandler {
         return beerList;
     }
 
-    public BeerOrder generateBeerOrder(List<Beer> beerList) {
+    public BeerOrder parseBeerOrder(List<Beer> beerList) {
         return new BeerOrder(beerList);
     }
 }

@@ -14,6 +14,9 @@ import javax.xml.bind.Unmarshaller;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class RegistrationService {
@@ -39,10 +42,18 @@ public class RegistrationService {
     }
 
     public int registerParticipant(Participant participant) {
-        Participants currentParticipantList = this.getParticipants();
-        currentParticipantList.getParticipants().add(participant);
+        List<Participant> participantArrayList = this.participants.getParticipants();
+        if (Objects.isNull(participantArrayList)) {
+            System.out.println("dddddddd");
+            participantArrayList = new ArrayList<>();
+        }
+        Participants participants = new Participants(participantArrayList);
+        this.setParticipants(participants);
+
+        this.getParticipants().getParticipants().add(participant);
         logger.info("учасник " + participant.getName() + " успешно зарегистрирован!");
-        return currentParticipantList.getParticipants().size();
+        return this.getParticipants().getParticipants().size();
+
     }
 
     public void saveParticipantsToXMLFile() {
@@ -74,18 +85,26 @@ public class RegistrationService {
     }
 
 
-    public Participants readParticipantsFromFile() throws JAXBException, FileNotFoundException {
+    public List<Participant> readParticipantsFromFile() throws JAXBException, FileNotFoundException {
 
         String pathToXML = "/Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml";
         JAXBContext jc = JAXBContext.newInstance(Participants.class);
         Unmarshaller u = jc.createUnmarshaller();
         FileReader reader = new FileReader(pathToXML);
-        this.setParticipants((Participants) u.unmarshal(reader));
-        return this.participants;
+        Participants participants = (Participants) u.unmarshal(reader);
+        List<Participant> participantList = participants.getParticipants();
+        if (Objects.isNull(participantList)) {
+            participantList = new ArrayList<>();
+        }
+        return participantList;
     }
 
     public int calculateExistingParticipants() {
         return this.getParticipants().getParticipants().size();
+    }
+
+    public int calculateCountOfParticipantsInFile() throws JAXBException, FileNotFoundException {
+        return this.readParticipantsFromFile().size();
     }
 
 }

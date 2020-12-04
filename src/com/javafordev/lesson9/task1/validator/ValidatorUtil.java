@@ -2,7 +2,6 @@ package com.javafordev.lesson9.task1.validator;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.xml.DOMConfigurator;
 
 import javax.xml.XMLConstants;

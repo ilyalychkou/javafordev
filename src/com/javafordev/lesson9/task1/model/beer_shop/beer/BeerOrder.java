@@ -79,6 +79,21 @@ public class BeerOrder {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BeerOrder beerOrder = (BeerOrder) o;
+
+        return beer != null ? beer.equals(beerOrder.beer) : beerOrder.beer == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return beer != null ? beer.hashCode() : 0;
+    }
+
+    @Override
     public String toString() {
         return "BeerOrder{" +
                 "beer=" + beer +

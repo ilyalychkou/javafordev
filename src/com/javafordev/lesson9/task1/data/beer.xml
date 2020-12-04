@@ -13,7 +13,7 @@
         <tns:_char>
             <tns:content>4.5</tns:content>
             <tns:transparency>50.0%</tns:transparency>
-            <tns:filtered>true</tns:filtered>
+            <tns:filtered>tru</tns:filtered>
             <tns:nutrition>43</tns:nutrition>
             <tns:bottling>
                 <tns:volume>0.33</tns:volume>

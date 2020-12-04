@@ -5,13 +5,15 @@ import com.javafordev.lesson9.task1.model.beer_shop.beer.Beer;
 import com.javafordev.lesson9.task1.model.beer_shop.beer.BeerOrder;
 import com.javafordev.lesson9.task1.model.beer_shop.beer.Bottling;
 import com.javafordev.lesson9.task1.model.beer_shop.beer.Char;
-import org.apache.log4j.BasicConfigurator;
+import com.javafordev.lesson9.task1.parser.ParsingStrategy;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
+import org.xml.sax.SAXException;
 
 import javax.xml.namespace.QName;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -21,22 +23,20 @@ import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class StAXUtil {
+public class StAXStrategy implements ParsingStrategy {
 
     static {
         new DOMConfigurator().doConfigure("/Users/Admin/Documents/javafordev/log4j.xml", LogManager.getLoggerRepository());
     }
 
-    final static Logger logger = Logger.getLogger(StAXUtil.class);
+    final static Logger logger = Logger.getLogger(StAXStrategy.class);
+    @Override
+    public BeerOrder parseXML(String pathToXML) throws ParserConfigurationException, IOException, SAXException, XMLStreamException {
 
-
-    public static BeerOrder parseXMLToInitializeObject(String pathToXML) throws XMLStreamException {
-
-        BasicConfigurator.configure();
 
         logger.info("Parsing started....");
         logger.setLevel(Level.INFO);
@@ -60,9 +60,9 @@ public class StAXUtil {
             if (nextEvent.isStartElement()) {
                 StartElement startElement = nextEvent.asStartElement();
 
-                    if (beerChar == null) {
-                        beerChar = new Char();
-                    }
+                if (beerChar == null) {
+                    beerChar = new Char();
+                }
 
                 if (bottling == null) {
                     bottling = new Bottling();
@@ -146,8 +146,9 @@ public class StAXUtil {
                 }
             }
         }
-        Collections.sort(beerList, new BeerComparator());
+        beerList.sort(new BeerComparator());
         logger.info("Parsing finished....");
+        System.out.println(beerList);
         return new BeerOrder(beerList);
     }
 }

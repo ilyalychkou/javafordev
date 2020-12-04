@@ -18,21 +18,25 @@ public class RegistrationRunner {
         Participants participants = new Participants(participantList);
         RegistrationService registrationService = new RegistrationService(participants);
         //сегодня
-//        Participant participantOne = RegistrationUtil.inputDataForParticipant();
-//        Participant participantTwo = RegistrationUtil.inputDataForParticipant();
-//        registrationService.registerParticipant(participantOne);
-//        int count = registrationService.registerParticipant(participantTwo);
-//        System.out.println("Текущее количество участников фестиваля: " + count);
-//        registrationService.saveParticipantsToXMLFile();
-//        registrationService.printParticipantsList();
+        participants.setParticipants(registrationService.readParticipantsFromFile());
+        System.out.println("Количество участников после считывания из файла: " + registrationService.calculateCountOfParticipantsInFile());
+        registrationService.setParticipants(participants);
+        Participant participantOne = RegistrationUtil.inputDataForParticipant();
+        Participant participantTwo = RegistrationUtil.inputDataForParticipant();
+        registrationService.registerParticipant(participantOne);
+        int count = registrationService.registerParticipant(participantTwo);
+        System.out.println("Текущее количество участников фестиваля: " + count);
+        registrationService.saveParticipantsToXMLFile();
+        registrationService.printParticipantsList();
 
         //на следующий день
         registrationService.readParticipantsFromFile();
-        System.out.println("Количество участников после считывания из файла :" + registrationService.calculateExistingParticipants());
+        System.out.println("Количество участников после считывания из файла: " + registrationService.calculateCountOfParticipantsInFile());
         Participant participantThree = RegistrationUtil.inputDataForParticipant();
         int countAfterAdding = registrationService.registerParticipant(participantThree);
         System.out.println("Количество после добавления нового участника: " + countAfterAdding);
         registrationService.saveParticipantsToXMLFile();
         registrationService.printParticipantsList();
     }
+
 }

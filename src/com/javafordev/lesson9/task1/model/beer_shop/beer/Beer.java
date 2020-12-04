@@ -299,6 +299,36 @@ public class Beer {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Beer beer = (Beer) o;
+
+        if (alcohol != beer.alcohol) return false;
+        if (quantity != beer.quantity) return false;
+        if (article != beer.article) return false;
+        if (name != null ? !name.equals(beer.name) : beer.name != null) return false;
+        if (type != null ? !type.equals(beer.type) : beer.type != null) return false;
+        if (manufacter != null ? !manufacter.equals(beer.manufacter) : beer.manufacter != null) return false;
+        if (ingredient != null ? !ingredient.equals(beer.ingredient) : beer.ingredient != null) return false;
+        return _char != null ? _char.equals(beer._char) : beer._char == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (alcohol ? 1 : 0);
+        result = 31 * result + (manufacter != null ? manufacter.hashCode() : 0);
+        result = 31 * result + quantity;
+        result = 31 * result + (ingredient != null ? ingredient.hashCode() : 0);
+        result = 31 * result + (_char != null ? _char.hashCode() : 0);
+        result = 31 * result + article;
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Beer{" +
                 "name='" + name + '\'' +

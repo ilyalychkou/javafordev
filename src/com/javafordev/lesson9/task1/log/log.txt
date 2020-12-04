@@ -1,2 +1,133 @@
 12.11.2020 12:05:14 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
 12.11.2020 12:05:14 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+12.11.2020 23:19:09 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+12.11.2020 23:21:52 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+12.11.2020 23:23:09 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+12.11.2020 23:33:14 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник jdshfsj успешно зарегистрирован!
+12.11.2020 23:33:14 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник fgkfdgm успешно зарегистрирован!
+12.11.2020 23:33:14 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник uuuu успешно зарегистрирован!
+12.11.2020 23:33:22 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+12.11.2020 23:38:22 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник jdfns успешно зарегистрирован!
+12.11.2020 23:38:22 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник dgfg успешно зарегистрирован!
+12.11.2020 23:38:22 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник hngtfgh успешно зарегистрирован!
+12.11.2020 23:38:30 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+12.11.2020 23:57:32 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник asd успешно зарегистрирован!
+12.11.2020 23:57:32 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник qwer успешно зарегистрирован!
+12.11.2020 23:57:40 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+12.11.2020 23:57:53 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник зщшг успешно зарегистрирован!
+12.11.2020 23:57:57 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+13.11.2020 00:17:34 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник xczc успешно зарегистрирован!
+13.11.2020 00:17:41 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+13.11.2020 00:33:47 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник Джон Леннон успешно зарегистрирован!
+13.11.2020 00:33:47 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник Дэвид Гилмор успешно зарегистрирован!
+13.11.2020 00:34:00 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+13.11.2020 00:34:52 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник Маркиз Де Сад успешно зарегистрирован!
+13.11.2020 00:35:25 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+13.11.2020 00:36:37 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник Иван Ефремов успешно зарегистрирован!
+13.11.2020 00:36:37 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник Айзек Азимов успешно зарегистрирован!
+13.11.2020 00:36:48 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+13.11.2020 00:37:11 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник гарри поттер успешно зарегистрирован!
+13.11.2020 00:37:15 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+13.11.2020 00:48:46 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник Пелевин Виктор успешно зарегистрирован!
+13.11.2020 00:48:54 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+30.11.2020 23:29:22 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник go west успешно зарегистрирован!
+30.11.2020 23:29:33 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+02.12.2020 22:51:53 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 22:51:53 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:02:05 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:02:05 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:02:05 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:02:05 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:05:44 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:05:44 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:06:17 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:06:17 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:07:09 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:07:09 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:08:13 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:08:13 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:10:45 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:10:45 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:12:27 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:12:27 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:12:58 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:12:58 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:13:44 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:13:44 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:14:37 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:14:37 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:17:41 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing started....
+02.12.2020 23:17:41 [main] INFO  com.javafordev.lesson9.task1.parser.stax.StAXUtil - Parsing finished....
+02.12.2020 23:26:18 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник lychkou успешно зарегистрирован!
+02.12.2020 23:26:18 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник horny успешно зарегистрирован!
+02.12.2020 23:26:27 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+02.12.2020 23:28:28 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник lychkou успешно зарегистрирован!
+02.12.2020 23:28:28 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник horny успешно зарегистрирован!
+02.12.2020 23:28:31 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+02.12.2020 23:29:02 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник goofy успешно зарегистрирован!
+02.12.2020 23:29:07 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+02.12.2020 23:33:37 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник google успешно зарегистрирован!
+02.12.2020 23:33:37 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник fb успешно зарегистрирован!
+02.12.2020 23:33:42 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+02.12.2020 23:33:54 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник пр успешно зарегистрирован!
+02.12.2020 23:34:02 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+04.12.2020 23:00:20 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник gg успешно зарегистрирован!
+04.12.2020 23:00:20 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник sds успешно зарегистрирован!
+04.12.2020 23:02:26 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+04.12.2020 23:03:25 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник nbmb успешно зарегистрирован!
+04.12.2020 23:05:21 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник 12vgb успешно зарегистрирован!
+04.12.2020 23:05:47 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник .,m.,m успешно зарегистрирован!
+04.12.2020 23:06:33 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник poiuyttree b успешно зарегистрирован!
+04.12.2020 23:08:52 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник one успешно зарегистрирован!
+04.12.2020 23:08:52 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник two успешно зарегистрирован!
+04.12.2020 23:09:43 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+04.12.2020 23:10:22 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник третий успешно зарегистрирован!
+04.12.2020 23:10:25 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+04.12.2020 23:13:38 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник четвертый успешно зарегистрирован!
+04.12.2020 23:13:38 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник пятый успешно зарегистрирован!
+04.12.2020 23:15:25 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+04.12.2020 23:15:41 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник шестой успешно зарегистрирован!
+04.12.2020 23:15:43 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+04.12.2020 23:37:23 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник djf успешно зарегистрирован!
+04.12.2020 23:37:23 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник sdas успешно зарегистрирован!
+04.12.2020 23:37:37 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+04.12.2020 23:37:46 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник паа успешно зарегистрирован!
+04.12.2020 23:37:49 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+04.12.2020 23:39:19 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник рпроп успешно зарегистрирован!
+04.12.2020 23:39:19 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник ооооо успешно зарегистрирован!
+04.12.2020 23:39:21 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+04.12.2020 23:39:32 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник орло успешно зарегистрирован!
+04.12.2020 23:39:36 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+04.12.2020 23:43:41 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник пщ успешно зарегистрирован!
+04.12.2020 23:43:41 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник ывы успешно зарегистрирован!
+04.12.2020 23:43:46 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+04.12.2020 23:44:12 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник воаыв успешно зарегистрирован!
+04.12.2020 23:44:15 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+04.12.2020 23:45:43 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник фффф успешно зарегистрирован!
+04.12.2020 23:45:43 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник йййййй успешно зарегистрирован!
+04.12.2020 23:45:46 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+04.12.2020 23:48:30 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник кккк успешно зарегистрирован!
+04.12.2020 23:48:34 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+04.12.2020 23:49:52 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник ййй успешно зарегистрирован!
+04.12.2020 23:49:52 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник ццц успешно зарегистрирован!
+04.12.2020 23:49:54 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+04.12.2020 23:50:28 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник уу успешно зарегистрирован!
+04.12.2020 23:50:46 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+04.12.2020 23:56:50 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник qqq успешно зарегистрирован!
+04.12.2020 23:56:50 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник www успешно зарегистрирован!
+04.12.2020 23:56:59 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+05.12.2020 00:00:55 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник qq успешно зарегистрирован!
+05.12.2020 00:00:55 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник ww успешно зарегистрирован!
+05.12.2020 00:01:18 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+05.12.2020 00:01:31 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник eee успешно зарегистрирован!
+05.12.2020 00:01:34 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+05.12.2020 00:23:15 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник qqq успешно зарегистрирован!
+05.12.2020 00:23:15 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник ww успешно зарегистрирован!
+05.12.2020 00:23:22 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+05.12.2020 00:23:46 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник фффф успешно зарегистрирован!
+05.12.2020 00:23:51 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл
+05.12.2020 00:24:33 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник gggg успешно зарегистрирован!
+05.12.2020 00:24:33 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник wwww успешно зарегистрирован!
+05.12.2020 00:24:36 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников успешно сохранен в файл /Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task2/data/participants.xml
+05.12.2020 00:24:57 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - учасник рррр успешно зарегистрирован!
+05.12.2020 00:25:02 [main] INFO  com.javafordev.lesson9.task2.util.RegistrationUtil - Список участников не был сохранен в файл

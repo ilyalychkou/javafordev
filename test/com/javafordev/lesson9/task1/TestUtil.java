@@ -92,6 +92,8 @@ public class TestUtil {
         beerList.add(beerTwo);
         beerList.add(beerThree);
 
+        System.out.println(beerList);
+
         return new BeerOrder(beerList);
     }
 }
