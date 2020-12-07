@@ -4,10 +4,17 @@ import com.javafordev.lesson9.task1.model.beer_shop.beer.Beer;
 import com.javafordev.lesson9.task1.model.beer_shop.beer.Bottling;
 import com.javafordev.lesson9.task1.model.beer_shop.beer.Char;
 import org.apache.commons.lang3.math.NumberUtils;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +22,22 @@ public class DomUtil {
 
     public static final String TNS = "tns:";
 
-    static List<String> generateListOfIngredients(String stringForTns, Node beerNode) {
+    static List<String> generateListOfIngredients(Node beerNode) throws ParserConfigurationException, IOException, SAXException {
+
+        String pathToXML = "/Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task1/data/beer.xml";
+        File file = new File(pathToXML);
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         List<String> ingredients = new ArrayList<>();
-        int beerNodeLength = beerNode.getChildNodes().getLength();
-        for (int i = 0; i < beerNodeLength; i++) {
-            if ((beerNode.getChildNodes().item(i).getNodeName()).equals(stringForTns + "ingredient")) {
+
+        documentBuilderFactory.setNamespaceAware(true);
+        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        Document document = documentBuilder.parse(file);
+        NodeList nodeList = document.getDocumentElement().getElementsByTagNameNS("*", "ingredient");
+
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Node node = nodeList.item(i);
+            Element eElement = (Element) node;
+            if (eElement.getNodeName().equals("ingredient")) {
                 ingredients.add(beerNode.getChildNodes().item(i).getTextContent());
             }
         }

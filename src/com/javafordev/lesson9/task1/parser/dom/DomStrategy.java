@@ -27,29 +27,23 @@ public class DomStrategy implements ParsingStrategy {
 
         List<Beer> beerList = new ArrayList<>();
 
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = dbf.newDocumentBuilder();
-        Document document = db.parse(new File(pathToXML));
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        documentBuilderFactory.setNamespaceAware(true);
+        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        Document document = documentBuilder.parse(new File(pathToXML));
 
-        Element rootElement = document.getDocumentElement();
-        NodeList beerNodeList = rootElement.getElementsByTagName(TNS + "Beer");
+        NodeList beerNodeList = document.getDocumentElement().getElementsByTagNameNS("*", "Beer");
 
         for (int i = 0; i < beerNodeList.getLength(); i++) {
             Node beerNode = beerNodeList.item(i);
             Element beerElement = (Element) beerNode;
             String article = ((Element) beerNode).getAttribute("article");
-            List<String> listOfIngredients = DomUtil.generateListOfIngredients(TNS, beerNode);
+            List<String> listOfIngredients = DomUtil.generateListOfIngredients(beerNode);
             Beer beer = DomUtil.parseBeerObject(listOfIngredients, TNS, beerElement, article);
             beerList.add(beer);
         }
-
         beerList.sort(new BeerComparator());
-
         return new BeerOrder(beerList);
-
-
     }
-
-
 
 }

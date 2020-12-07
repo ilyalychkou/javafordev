@@ -30,8 +30,6 @@ public class ParsingRunner {
         Context contextByStAX = new Context(stAXStrategy);
         BeerOrder beerOrderByStAX = contextByStAX.contextInterface(pathToXML);
         System.out.println(beerOrderByStAX);
-
     }
-
 
 }
