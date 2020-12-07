@@ -2,6 +2,7 @@ package com.javafordev.lesson9.task1.parser.jaxb;
 
 import com.javafordev.lesson9.task1.model.beer_shop.beer.BeerOrder;
 import com.javafordev.lesson9.task1.parser.ParsingStrategy;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
