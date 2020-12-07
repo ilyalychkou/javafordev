@@ -20,8 +20,6 @@ import java.util.List;
 
 public class DomUtil {
 
-    public static final String TNS = "tns:";
-
     static List<String> generateListOfIngredients(Node beerNode) throws ParserConfigurationException, IOException, SAXException {
 
         String pathToXML = "/Users/Admin/Documents/javafordev/src/com/javafordev/lesson9/task1/data/beer.xml";
@@ -44,26 +42,26 @@ public class DomUtil {
         return ingredients;
     }
 
-    static Beer parseBeerObject(List<String> listOfIngredients, String stringForTns, Element beerElement, String article) {
+    static Beer parseBeerObject(List<String> listOfIngredients, Element beerElement, String article) {
 
         Beer beer;
-        String elementTextContentForVolume = getElementTextContent(beerElement, stringForTns + "volume");
-        String elementTextContentForContent = getElementTextContent(beerElement, stringForTns + "content");
+        String elementTextContentForVolume = getElementTextContent(beerElement, "volume");
+        String elementTextContentForContent = getElementTextContent(beerElement,  "content");
         if ((NumberUtils.isCreatable(elementTextContentForVolume)) && (NumberUtils.isCreatable(elementTextContentForContent))) {
             Double value = Double.valueOf(elementTextContentForVolume);
-            String material = getElementTextContent(beerElement, stringForTns + "material");
+            String material = getElementTextContent(beerElement, "material");
             Bottling bottling = new Bottling(value, material);
             Double content = Double.valueOf(elementTextContentForContent);
-            Integer nutrition = Integer.valueOf(getElementTextContent(beerElement, stringForTns + "nutrition"));
-            String transparency = getElementTextContent(beerElement, stringForTns + "transparency");
-            Boolean iSFiltered = Boolean.valueOf(getElementTextContent(beerElement, stringForTns + "filtered"));
+            Integer nutrition = Integer.valueOf(getElementTextContent(beerElement, "nutrition"));
+            String transparency = getElementTextContent(beerElement, "transparency");
+            Boolean iSFiltered = Boolean.valueOf(getElementTextContent(beerElement, "filtered"));
             Char beerChar = new Char(content, transparency, iSFiltered, nutrition, bottling);
             beer = new Beer(
-                    getElementTextContent(beerElement, stringForTns + "name"),
-                    getElementTextContent(beerElement, stringForTns + "type"),
-                    Boolean.parseBoolean(getElementTextContent(beerElement, stringForTns + "alcohol")),
-                    getElementTextContent(beerElement, stringForTns + "manufacter"),
-                    Integer.parseInt(getElementTextContent(beerElement, stringForTns + "quantity")),
+                    getElementTextContent(beerElement, "name"),
+                    getElementTextContent(beerElement, "type"),
+                    Boolean.parseBoolean(getElementTextContent(beerElement, "alcohol")),
+                    getElementTextContent(beerElement, "manufacter"),
+                    Integer.parseInt(getElementTextContent(beerElement, "quantity")),
                     listOfIngredients,
                     beerChar,
                     Integer.valueOf(article));
@@ -74,12 +72,11 @@ public class DomUtil {
     }
 
     public static String getElementTextContent(Element element, String elementName) {
-        NodeList nList = element.getElementsByTagName(elementName);
+        NodeList nList = element.getElementsByTagNameNS("*", elementName);
         nList.getLength();
         Node node = nList.item(0);
         String textContent = node.getTextContent();
         return textContent;
     }
-
 
 }

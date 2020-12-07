@@ -18,8 +18,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.javafordev.lesson9.task1.parser.dom.DomUtil.TNS;
-
 public class DomStrategy implements ParsingStrategy {
 
     @Override
@@ -39,7 +37,7 @@ public class DomStrategy implements ParsingStrategy {
             Element beerElement = (Element) beerNode;
             String article = ((Element) beerNode).getAttribute("article");
             List<String> listOfIngredients = DomUtil.generateListOfIngredients(beerNode);
-            Beer beer = DomUtil.parseBeerObject(listOfIngredients, TNS, beerElement, article);
+            Beer beer = DomUtil.parseBeerObject(listOfIngredients, beerElement, article);
             beerList.add(beer);
         }
         beerList.sort(new BeerComparator());
